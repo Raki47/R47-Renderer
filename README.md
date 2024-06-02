@@ -25,3 +25,8 @@ as simply as possible If ever need be). Assembly Is quite difficult to write, bu
 project. Most of the Assembly I write will likely not have any significant performance Improvement as It will be written as readable as possible but gives uses even more modularity then you'd get with C, any user who Is
 better at Assembly than me will be able to alter It, create shortcuts that create significant performance Increases at the expense of readability becoming even worse than It was. It also would add onto the currently small
 amount of open source resources to help with learning Assembly language.
+
+<i>B O N U S</i>
+I'm trialing a different file organisation method to my usual. Inspired by the source code of one of the old cancelled ports of Mortal Kombat, all file names and extensions
+are capitilised. I thought that It looks cool, might not be viable for future projects as practically all libraries use lowercase. Once this library Is compiled that Issue
+will no longer matter, It won't cause Issues with the naming conventions of the executables that It's paired with.
