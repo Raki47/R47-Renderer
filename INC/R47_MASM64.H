@@ -27,6 +27,8 @@ DEALINGS IN THE SOFTWARE.
  - Finished making Windows Key Codes Into globals and Importing them
 */
 
+#pragma once
+
 // -------------------------------------------------------------------
 // Importing MASM64 colour macro library Into C
 // -------------------------------------------------------------------
