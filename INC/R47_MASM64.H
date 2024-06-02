@@ -24,9 +24,12 @@ DEALINGS IN THE SOFTWARE.
  --------------
  - Finished Importing Assembly colour Library Into this header to allow use In both languages
 
+ - Finished making Windows Key Codes Into globals and Importing them
 */
 
+// -------------------------------------------------------------------
 // Importing MASM64 colour macro library Into C
+// -------------------------------------------------------------------
 extern unsigned long long R47_LIME
 extern unsigned long long R47_GHOSTWHITE
 extern unsigned long long R47_CYAN
@@ -97,3 +100,67 @@ extern unsigned long long R47_SPRINGGREEN
 extern unsigned long long R47_DARKSEAGREEN
 extern unsigned long long R47_DIMGREY
 extern unsigned long long R47_BLACK
+
+// -------------------------------------------------------------------
+// Windows Key codes Imported from Assembly
+// -------------------------------------------------------------------
+extern unsigned long long KEY_LMB; // Mouse Buttons
+extern unsigned long long KEY_RMB; // <------------
+extern unsigned long long KEY_ESC;
+extern unsigned long long KEY_RTN;
+extern unsigned long long KEY_CTRL;
+extern unsigned long long KEY_ALT;
+extern unsigned long long KEY_SPC;
+extern unsigned long long KEY_BKSPC;
+extern unsigned long long KEY_LSHFT;
+extern unsigned long long KEY_RSHFT;
+extern unsigned long long KEY_0;
+extern unsigned long long KEY_1;
+extern unsigned long long KEY_2;
+extern unsigned long long KEY_3;
+extern unsigned long long KEY_4;
+extern unsigned long long KEY_5;
+extern unsigned long long KEY_6;
+extern unsigned long long KEY_7;
+extern unsigned long long KEY_8;
+extern unsigned long long KEY_9;
+extern unsigned long long KEY_N0; //  /\
+extern unsigned long long KEY_N1; //  |
+extern unsigned long long KEY_N2; //  |
+extern unsigned long long KEY_N3; //  |
+extern unsigned long long KEY_N4; //  | Numpad
+extern unsigned long long KEY_N5; //  |
+extern unsigned long long KEY_N6; //  |
+extern unsigned long long KEY_N7; //  |
+extern unsigned long long KEY_N8; //  |
+extern unsigned long long KEY_N9; // \/
+extern unsigned long long KEY_LAK; //
+extern unsigned long long KEY_UAK; // Arrow Keys
+extern unsigned long long KEY_DAK; // <---------
+extern unsigned long long KEY_RAK; //
+extern unsigned long long KEY_A;
+extern unsigned long long KEY_B;
+extern unsigned long long KEY_C;
+extern unsigned long long KEY_D;
+extern unsigned long long KEY_E;
+extern unsigned long long KEY_F;
+extern unsigned long long KEY_G;
+extern unsigned long long KEY_H;
+extern unsigned long long KEY_I;
+extern unsigned long long KEY_J;
+extern unsigned long long KEY_K;
+extern unsigned long long KEY_L;
+extern unsigned long long KEY_M;
+extern unsigned long long KEY_N;
+extern unsigned long long KEY_O;
+extern unsigned long long KEY_P;
+extern unsigned long long KEY_Q;
+extern unsigned long long KEY_R;
+extern unsigned long long KEY_S;
+extern unsigned long long KEY_T;
+extern unsigned long long KEY_U;
+extern unsigned long long KEY_V;
+extern unsigned long long KEY_W;
+extern unsigned long long KEY_X;
+extern unsigned long long KEY_Y;
+extern unsigned long long KEY_Z;
