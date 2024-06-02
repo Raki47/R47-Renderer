@@ -33,9 +33,88 @@
 ; Regardless of whether It creates barely noticable performance Increases, decreases or no change, It will serve as a good, simple training exercise
 ; for learning Assembly as I've always wanted to do.
 ; ***************************************************************************************************************************************************
+; 02/06/2024
+; **********
+; I must of spent ~6 hours On this colour library, a decent bit hand picking colours but mainly because of how time consuming and repetitive It Is to
+; Write a massive list of macros, still wasn't too bad until realising I was going to have to hand write 4 times the amount for It to simaultaneously
+; work In C. I really should of wrote It all In C or get AI to automate the task of writing It all down but where's the fun In that! I don't have time
+; constraints either so It ultimately was fine to get away with.
+;
+; ***************************************************************************************************************************************************
 
-; File Is now complete but, I may add more colours In the future despite there being plenty, I also will likely turn them Into globals so I can use It In C rather than writing It twice.
 .data
+
+; Before assigning colour codes to my macros I have to create global definitions
+.global R47_LIME
+.global R47_GHOSTWHITE
+.global R47_CYAN
+.global R47_ALICEBLUE
+.global R47_LIGHTCYAN
+.global R47_LAVENDER
+.global R47_GAINSBORO
+.global R47_LIGHTGREY
+.global R47_SILVER
+.global R47_GREY
+.global R47_DARKLIGHTGREY
+.global R47_DARKMIDGREY
+.global R47_DARKGREY
+.global R47_RAKIGREY
+.global R47_BLUEVIOLET
+.global R47_DARKVIOLET
+.global R47_CRIMSON
+.global R47_GOLDENROD
+.global R47_DARKGOLDENROD
+.global R47_DARKORANGE
+.global R47_WHITE
+.global R47_SNOW
+.global R47_LINEN
+.global R47_ANTIQUEWHITE
+.global R47_NAVAJOWHITE
+.global R47_CADETBLUE
+.global R47_STEELBLUE
+.global R47_CORNFLOWERBLUE
+.global R47_DEEPSKYBLUE
+.global R47_DARKTURQUOISE
+.global R47_ROYALEBLUE
+.global R47_MEDIUMBLUE
+.global R47_BLUE
+.global R47_DARKBLUE
+.global R47_NAVY
+.global R47_MIDNIGHTBLUE
+.global R47_PURPLE
+.global R47_DARKMAGENTA
+.global R47_DARKORCHID
+.global R47_INDIGO
+.global R47_MAGENTA
+.global R47_ORCHID
+.global R47_MEDIUMORCHID
+.global R47_VIOLET
+.global R47_LIGHTSALMON
+.global R47_LIGHTCORAL
+.global R47_LIGHTRED
+.global R47_RED
+.global R47_DARKRED
+.global R47_MAROON
+.global R47_ORANGE
+.global R47_ORANGERED
+.global R47_BURLYWOOD
+.global R47_ROSYBROWN
+.global R47_TOMATO
+.global R47_INDIANRED
+.global R47_FIREBRICKRED
+.global R47_BROWN
+.global R47_SIENNA
+.global R47_OLIVE
+.global R47_GOLD
+.global R47_YELLOW
+.global R47_YELLOWGREEN
+.global R47_GREENYELLOW
+.global R47_GREEN
+.global R47_SEAGREAN
+.global R47_SPRINGGREEN
+.global R47_DARKSEAGREEN
+.global R47_DIMGREY
+.global R47_BLACK
 
 ; R47 GUI special colours
 ; In the "special" colours section I have listed colours that stood out to me In particular, whether It's for looking modern, attention grabbing or generally aesthetically pleasing
@@ -113,8 +192,7 @@ DARKSEAGREEN equ 0x8FBC8F
 DIMGREY equ 0x696969
 BLACK equ 0x000000
 
-; Turning these macros Into globals to also allow for use In C/C++, names are being changed to avoid name mangling
-
+; Assigning symbols to globals
 R47_LIME dq LIME
 R47_GHOSTWHITE dq GHOSTWHITE
 R47_CYAN dq CYAN
@@ -182,7 +260,7 @@ R47_GREENYELLOW dq GREENYELLOW
 R47_GREEN dq GREEN
 R47_SEAGREAN dq SEAGREEN
 R47_SPRINGGREEN dq SPRINGGREEN
-R47_DARKSEAGREEM dq DARKSEAGREAN
+R47_DARKSEAGREEN dq DARKSEAGREAN
 R47_DIMGREY dq DIMGREY
 R47_BLACK dq BLACK
 
