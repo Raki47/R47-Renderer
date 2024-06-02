@@ -20,6 +20,12 @@ DEALINGS IN THE SOFTWARE.
 
 #pragma once // cleaner and simpler than a traditional header gaurd
 
+// ------------------------------------------------------------------------------------------------------
+// Simple Error Directives
+// ------------------------------------------------------------------------------------------------------
+// Checking for some simple Issues that'll stop you from compiling before you can unsuccesfully compile
+// ------------------------------------------------------------------------------------------------------
+
 // Must use extern "C" when Including this header If you're making a C++ application
 #ifdef __cplusplus
 extern "C"
@@ -38,6 +44,19 @@ extern "C"
 
 }
 #endif
+
+/*
+This Isn't crucial for the renderer to work, I added It because I need C++11 minimum for a future
+project of mine. On the odd chance It Interferes with your project you can remove or change It but,
+It would be unlikely to see.
+*/
+#define __cplusplus 201103L
+
+#if __cplusplus < 201103L
+	#error "C++11 or higher is required."
+#endif
+
+// ------------------------------------------------------------------------------------------------------
 
 #define WIN32
 #ifdef WIN32
