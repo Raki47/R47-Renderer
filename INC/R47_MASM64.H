@@ -107,13 +107,13 @@ extern unsigned long long R47_BLACK
 extern unsigned long long KEY_LMB; // Mouse Buttons
 extern unsigned long long KEY_RMB; // <------------
 extern unsigned long long KEY_ESC;
-extern unsigned long long KEY_RTN;
+extern unsigned long long KEY_RTN; // Return (enter)
 extern unsigned long long KEY_CTRL;
 extern unsigned long long KEY_ALT;
-extern unsigned long long KEY_SPC;
-extern unsigned long long KEY_BKSPC;
-extern unsigned long long KEY_LSHFT;
-extern unsigned long long KEY_RSHFT;
+extern unsigned long long KEY_SPC; // Space
+extern unsigned long long KEY_BKSPC; // Backspace
+extern unsigned long long KEY_LSHFT; // Shift key
+extern unsigned long long KEY_RSHFT; // <--------
 extern unsigned long long KEY_0;
 extern unsigned long long KEY_1;
 extern unsigned long long KEY_2;
@@ -124,7 +124,7 @@ extern unsigned long long KEY_6;
 extern unsigned long long KEY_7;
 extern unsigned long long KEY_8;
 extern unsigned long long KEY_9;
-extern unsigned long long KEY_N0; // N0 -- >N9 = Numkeys
+extern unsigned long long KEY_N0; // N0 --> N9 = Numkeys
 extern unsigned long long KEY_N1;
 extern unsigned long long KEY_N2;
 extern unsigned long long KEY_N3;
