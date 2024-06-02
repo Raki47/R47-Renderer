@@ -124,16 +124,16 @@ extern unsigned long long KEY_6;
 extern unsigned long long KEY_7;
 extern unsigned long long KEY_8;
 extern unsigned long long KEY_9;
-extern unsigned long long KEY_N0; //  /\
-extern unsigned long long KEY_N1; //  |
-extern unsigned long long KEY_N2; //  |
-extern unsigned long long KEY_N3; //  |
-extern unsigned long long KEY_N4; //  | Numpad
-extern unsigned long long KEY_N5; //  |
-extern unsigned long long KEY_N6; //  |
-extern unsigned long long KEY_N7; //  |
-extern unsigned long long KEY_N8; //  |
-extern unsigned long long KEY_N9; // \/
+extern unsigned long long KEY_N0; // N0 -- >N9 = Numkeys
+extern unsigned long long KEY_N1;
+extern unsigned long long KEY_N2;
+extern unsigned long long KEY_N3;
+extern unsigned long long KEY_N4;
+extern unsigned long long KEY_N5;
+extern unsigned long long KEY_N6;
+extern unsigned long long KEY_N7;
+extern unsigned long long KEY_N8;
+extern unsigned long long KEY_N9;
 extern unsigned long long KEY_LAK; //
 extern unsigned long long KEY_UAK; // Arrow Keys
 extern unsigned long long KEY_DAK; // <---------
