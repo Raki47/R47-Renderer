@@ -3,7 +3,8 @@ A simple renderer that I'm creating for my own game engines, It's designed diffe
 choosing to Incorporate GLFW Into my renderer, It consists of so many files making It hard to track what I need to add to the renderer and what GLFW already provides. That Is why I'm having another go at creating a renderer,
 this time ensuring maximum modularity/customisation for myself and minimising the risk of bloat and conflicting libraries by sticking purely to writing my own code and Incorporating single header libraries.
 
-<i> Development Notes/Plans </i>
+
+### <i> Development Notes/Plans </i>
 
 For now In the early stages of development I am focusing on making the renderer built for top down 2D games, It will use the OpenGL API followed by adding Vulkan support to ensure It's capable of being cross-platform If
 required. I will create matrix functions to allow for stuff such as seemless side scrolling, support for loading TGA, BMP and TIF files as I believe those are the best 3 for game development, It's unnecessary and general
@@ -15,7 +16,8 @@ back on It.
 In the later stages of developing the renderer, I would like to give It 3D capabilities to make It multipurpose rather than creating a seperate renderer for my future 3D game engines. After adding 3D functionality I could
 also allow for It to use the DirectX 11 API, although I likely won't as I Imagine It would create the same Issues GLFW made for me to a more severe degree.
 
-<i> Programming languages used, how It's compiled and why </i>
+
+### <i> Programming languages used, how It's compiled and why </i>
 
 It will be compiled Into a static library just as the original R47 renderer does, I believe static libraries are the best choice for anything graphics related as It's not something that will be loaded and unloaded at
 random, from the second the game launches till the second you close It (or It crashs) graphics will be used without break, making It the better of two choices. I'm still sticking to the procedural programming style as
@@ -28,7 +30,8 @@ project. Most of the Assembly I write will likely not have any significant perfo
 better at Assembly than me will be able to alter It, create shortcuts that create significant performance Increases at the expense of readability becoming even worse than It was. It also would add onto the currently small
 amount of open source resources to help with learning Assembly language.
 
-<i> B O N U S </i>
+
+### <i> B O N U S </i>
 
 I'm trialing a different file organisation method to my usual. Inspired by the source code of one of the old cancelled ports of Mortal Kombat, all file names and extensions
 are capitilised. I thought that It looks cool, might not be viable for future projects as practically all libraries use lowercase. Once this library Is compiled that Issue
