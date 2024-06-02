@@ -15,7 +15,7 @@
 ; DEALINGS IN THE SOFTWARE.
 ; ***************************************************************************************************************************************************
 
-.data
+section .data
 
 ; Creating global definitions
 .global KEY_LMB
@@ -80,76 +80,76 @@
 .global KEY_Z
 
 ; Mouse keys
-KEY_LMB equ 01h
-KEY_RMB equ 02h
+KEY_LMB dq 01h
+KEY_RMB dq 02h
 
 ; Special keys
-KEY_ESC equ 1Bh
-KEY_RTN equ 0Dh
-KEY_CTRL equ 11h
-KEY_ALT equ 0A3h
-KEY_SPC equ 20h
-KEY_BKSPC equ 08h
-KEY_LSHFT equ 0A0h
-KEY_RSHFT equ 0A1h
+KEY_ESC dq 1Bh
+KEY_RTN dq 0Dh
+KEY_CTRL dq 11h
+KEY_ALT dq 0A3h
+KEY_SPC dq 20h
+KEY_BKSPC dq 08h
+KEY_LSHFT dq 0A0h
+KEY_RSHFT dq 0A1h
 
 ; Number keys
-KEY_0 equ 30h
-KEY_1 equ 31h
-KEY_2 equ 32h
-KEY_3 equ 33h
-KEY_4 equ 34h
-KEY_5 equ 35h
-KEY_6 equ 36h
-KEY_7 equ 37h
-KEY_8 equ 38h
-KEY_9 equ 39h
+KEY_0 dq 30h
+KEY_1 dq 31h
+KEY_2 dq 32h
+KEY_3 dq 33h
+KEY_4 dq 34h
+KEY_5 dq 35h
+KEY_6 dq 36h
+KEY_7 dq 37h
+KEY_8 dq 38h
+KEY_9 dq 39h
 
 ; Numpad keys
-KEY_N0 equ 60h
-KEY_N1 equ 61h
-KEY_N2 equ 62h
-KEY_N3 equ 63h
-KEY_N4 equ 64h
-KEY_N5 equ 65h
-KEY_N6 equ 66h
-KEY_N7 equ 67h
-KEY_N8 equ 68h
-KEY_N9 equ 69h
+KEY_N0 dq 60h
+KEY_N1 dq 61h
+KEY_N2 dq 62h
+KEY_N3 dq 63h
+KEY_N4 dq 64h
+KEY_N5 dq 65h
+KEY_N6 dq 66h
+KEY_N7 dq 67h
+KEY_N8 dq 68h
+KEY_N9 dq 69h
 
 ; Arrow keys
-KEY_LAK equ 25h
-KEY_UAK equ 26h
-KEY_DAK equ 27h
-KEY_RAK equ 28h
+KEY_LAK dq 25h
+KEY_UAK dq 26h
+KEY_DAK dq 27h
+KEY_RAK dq 28h
 
 ; Letter keys
-KEY_A equ 41h
-KEY_B equ 42h
-KEY_C equ 43h
-KEY_D equ 44h
-KEY_E equ 45h
-KEY_F equ 46h
-KEY_G equ 47h
-KEY_H equ 48h
-KEY_I equ 49h
-KEY_J equ 4Ah
-KEY_K equ 4Bh
-KEY_L equ 4Ch
-KEY_M equ 4Dh
-KEY_N equ 4Eh
-KEY_O equ 4Fh
-KEY_P equ 50h
-KEY_Q equ 51h
-KEY_R equ 52h
-KEY_S equ 53h
-KEY_T equ 54h
-KEY_U equ 55h
-KEY_V equ 56h
-KEY_W equ 57h
-KEY_X equ 58h
-KEY_Y equ 59h
-KEY_Z equ 5Ah
+KEY_A dq 41h
+KEY_B dq 42h
+KEY_C dq 43h
+KEY_D dq 44h
+KEY_E dq 45h
+KEY_F dq 46h
+KEY_G dq 47h
+KEY_H dq 48h
+KEY_I dq 49h
+KEY_J dq 4Ah
+KEY_K dq 4Bh
+KEY_L dq 4Ch
+KEY_M dq 4Dh
+KEY_N dq 4Eh
+KEY_O dq 4Fh
+KEY_P dq 50h
+KEY_Q dq 51h
+KEY_R dq 52h
+KEY_S dq 53h
+KEY_T dq 54h
+KEY_U dq 55h
+KEY_V dq 56h
+KEY_W dq 57h
+KEY_X dq 58h
+KEY_Y dq 59h
+KEY_Z dq 5Ah
 
 .code
 main PROC
