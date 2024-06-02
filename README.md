@@ -10,8 +10,9 @@ For now In the early stages of development I am focusing on making the renderer 
 required. I will create matrix functions to allow for stuff such as seemless side scrolling, support for loading TGA, BMP and TIF files as I believe those are the best 3 for game development, It's unnecessary and general
 bad practice to use file types such as PNG and JPEG for game development. The renderer will be heavily oriented towards Windows but will support macOS at one point due to B-League Football requiring It (macOS support will
 most likely abandoned afterwards as It's too difficult to be worthwhile If It wasn't for being a requirement for one specific project). I consider adding Linux and Android support; Linux because Visual Studio has tools
-that simplify cross-compiling for It, Android as I have already begun work on Android games that had to be stopped due to the drama with Unity, I have already created a Google Developer account so It's too late to turn
-back on It.
+that simplify cross-compiling for It, Android as I have already begun work on Android games that had to be stopped due to the drama with Unity, I have already created a Google 
+Developer account so It's too late to turn back on It. Any macro libraries I create are being made In Assembly, turned into globals and Imported Into C, requires exactly x3
+the amount of code of but ensures true freedom and modularity for the engine, giving you the choice between choosing C, C++ and x64 MASM Assembly.
 
 In the later stages of developing the renderer, I would like to give It 3D capabilities to make It multipurpose rather than creating a seperate renderer for my future 3D game engines. After adding 3D functionality I could
 also allow for It to use the DirectX 11 API, although I likely won't as I Imagine It would create the same Issues GLFW made for me to a more severe degree.
