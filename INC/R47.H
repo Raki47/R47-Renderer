@@ -76,13 +76,13 @@ extern "C"
 // Check If project set to compile for Windows
 #define WIN32
 #if != WIN32
-#error This library only compiles to Windows!
+	#error This library only compiles to Windows!
 #endif
 
 // Making sure It's set to x64
 #include <stdint.h>
 #if INTPTR_MAX == INT32_MAX
-#error This library only works In x64 Architecture! Make sure you haven't set It to x86
+	#error This library only works In x64 Architecture! Make sure you haven't set It to x86
 #endif
 
 /*
