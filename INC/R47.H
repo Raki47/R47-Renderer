@@ -73,6 +73,18 @@ extern "C"
 }
 #endif
 
+// Check If project set to compile for Windows
+#define WIN32
+#if !WIN32
+#error This library only compiles to Windows!
+#endif
+
+// Making sure It's set to x64
+#include <stdint.h>
+#if INTPTR_MAX == INT32_MAX
+#error This library only works In x64 Architecture! Make sure you haven't set It to x86
+#endif
+
 /*
 This Isn't crucial for the renderer to work, I added It because I need C++11 minimum for a future
 project of mine. On the odd chance It Interferes with your project you can remove or change It but,
@@ -86,10 +98,4 @@ It would be unlikely to see.
 
 // ------------------------------------------------------------------------------------------------------
 
-#define WIN32
-#ifdef WIN32
-#ifndef WIN32
-
 #include "R47_MASM64.H"
-
-#endif //!WIN32
