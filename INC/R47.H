@@ -75,7 +75,7 @@ extern "C"
 
 // Check If project set to compile for Windows
 #define WIN32
-#if !WIN32
+#if != WIN32
 #error This library only compiles to Windows!
 #endif
 
