@@ -17,7 +17,35 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTH
 OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
+/*
+---------------------------------------------------------------------------------------------------------
+All Library Functions:
+---------------------------------------------------------------------------------------------------------
+- List of all special macros/variables In R47_MASM64.H
+- Continued list of Important functions In R47_MASM64.H
 
+Dependencies:
+There are multiple open source dependencies used for this project with Important functions, I am listing
+the names of them as they Include fair too many functions to list a second time here, these are
+- nuklear.h
+- gl.h
+- gles2.h
+- vulkan.h
+- stb_tilemap_editor.h
+- tinycthread (This one Isn't as Important to mention but thought It'd be good to mention all regardless)
+
+Continued list of R47 original functions (that're written In C, not Assembly):
+
+---------------------------------------------------------------------------------------------------------
+
+ --------------
+ | 02/06/2024 |
+ --------------
+ - Wrote 2 error directives for the project and Included R47_MASM64.H
+
+ - I decided to write all the file names In full caps as It helps with readability on my end while creating the renderer, I apologise If It
+   throws anyone off or causes any annoyances while making your projects with It.
+*/
 #pragma once // cleaner and simpler than a traditional header gaurd
 
 // ------------------------------------------------------------------------------------------------------
