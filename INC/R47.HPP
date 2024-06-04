@@ -18,6 +18,9 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTH
 OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
+// ------------------------------------------------------------------------------------------------------
+// MUST READ SETTINGS NOTICE (line 40) BEFORE USAGE
+// ------------------------------------------------------------------------------------------------------
 
 // I much prefer '#pragma once' over standard header guards, works with virtually every modern compiler depsite not being standard and makes the
 // file less prone to confusing the IDE when adding and modifying any defines, directives and conditonal compilation segments.
