@@ -25,6 +25,9 @@ DEALINGS IN THE SOFTWARE.
  - Finished Importing Assembly colour Library Into this header to allow use In both languages
 
  - Finished making Windows Key Codes Into globals and Importing them
+
+ - I could avoid all this extra complication/boilerplate code of working In C and ASM by working In ASM only but that would probably be too
+   difficult and this works fine anyway.
 */
 
 #pragma once
