@@ -19,6 +19,21 @@ DEALINGS IN THE SOFTWARE.
 */
 /*
 ---------------------------------------------------------------------------------------------------------
+READ BEFORE USING LIBRARY:
+---------------------------------------------------------------------------------------------------------
+This Is the main public header for the R47 renderer, this is the header that you must Include Into your
+project to Incorporate It.
+
+If you want to use the Nuklear library for making modern GUI In your project, you must add the 
+following code In your file before including this header:
+--------------------------
+#define R47_WITH_NUKLEAR
+#include "INC/R47.H"
+--------------------------
+The reason for this design choice Is due to Nuklear being a VERY big library which Is only used for GUI,
+by stopping It from being Included when unnecessary  It helps with performance optimisation.
+
+---------------------------------------------------------------------------------------------------------
 All Library Functions:
 ---------------------------------------------------------------------------------------------------------
 - List of all special macros/variables In R47_MASM64.H
@@ -81,6 +96,7 @@ extern "C"
 
 // Making sure It's set to x64
 #include <stdint.h>
+
 #if INTPTR_MAX == INT32_MAX
 	#error This library only works In x64 Architecture! Make sure you haven't set It to x86
 #endif
@@ -99,3 +115,8 @@ It would be unlikely to see.
 // ------------------------------------------------------------------------------------------------------
 
 #include "R47_MASM64.H"
+
+#ifdef R47_WITH_NUKLEAR
+#include "NUKLEAR.H"
+#endif
+
