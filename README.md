@@ -43,3 +43,8 @@ the currently small amount of open source resources to help with learning Assemb
 I'm trialing a different file organisation method to my usual. Inspired by the source code of one of the old cancelled ports of Mortal Kombat, all file names and extensions
 are capitilised. I thought that It looks cool, might not be viable for future projects as practically all libraries use lowercase. Once this library Is compiled that Issue
 will no longer matter, It won't cause Issues with the naming conventions of the executables that It's paired with.
+
+<i> 04/06/2024 Update </i>
+I have decided to keep this repository x64 Windows only, any versions of this renderer modififed to be built for a different OS (e.g. Android, macOS, Linux) will be
+uploaded to a different repository. Modified version will be as similar as possible while likely Including less Assembly to allow builds of your game to be as similar as
+possible across different platforms while also compromising due to lack of manpower and time on my end to replicate It perfectly.
