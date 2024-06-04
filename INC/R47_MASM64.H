@@ -19,15 +19,35 @@ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FR
 DEALINGS IN THE SOFTWARE.
 */
 /*
+----------------------------------------------------------------------
+ R47_MASM64.H Function And Macro List:
+----------------------------------------------------------------------
+- All macros are Imported directly bellow these comments
+
+- load_tga
+
+- load_bmp
+
+- load_tiff
+
+- free_image_data
+
+----------------------------------------------------------------------
+
  --------------
  | 02/06/2024 |
  --------------
- - Finished Importing Assembly colour Library Into this header to allow use In both languages
+ - Finished Importing Assembly colour Library Into this header to
+   allow use In both languages
 
  - Finished making Windows Key Codes Into globals and Importing them
 
- - I could avoid all this extra complication/boilerplate code of working In C and ASM by working In ASM only but that would probably be too
-   difficult and this works fine anyway.
+ --------------
+ | 03/06/2024 |
+ --------------
+ - I plan on using "extern void*" for Importing the MASM64 functions
+   for usage In C, for the future I may switch to C wrappers for
+   type safety (at the expense of code simplicity and performance).
 */
 
 #pragma once
@@ -112,13 +132,13 @@ extern unsigned long long R47_BLACK
 extern unsigned long long KEY_LMB; // Mouse Buttons
 extern unsigned long long KEY_RMB; // <------------
 extern unsigned long long KEY_ESC;
-extern unsigned long long KEY_RTN; // Return (enter)
+extern unsigned long long KEY_RTN; // Return/Enter Key
 extern unsigned long long KEY_CTRL;
 extern unsigned long long KEY_ALT;
-extern unsigned long long KEY_SPC; // Space
-extern unsigned long long KEY_BKSPC; // Backspace
-extern unsigned long long KEY_LSHFT; // Shift key
-extern unsigned long long KEY_RSHFT; // <--------
+extern unsigned long long KEY_SPC; // Space Key
+extern unsigned long long KEY_BKSPC; // Backspace Key
+extern unsigned long long KEY_LSHFT; // Shift Keys
+extern unsigned long long KEY_RSHFT; // <---------
 extern unsigned long long KEY_0;
 extern unsigned long long KEY_1;
 extern unsigned long long KEY_2;
@@ -129,7 +149,7 @@ extern unsigned long long KEY_6;
 extern unsigned long long KEY_7;
 extern unsigned long long KEY_8;
 extern unsigned long long KEY_9;
-extern unsigned long long KEY_N0; // N0 --> N9 = Numkeys
+extern unsigned long long KEY_N0; // N0 --> N9 = Numpad keys
 extern unsigned long long KEY_N1;
 extern unsigned long long KEY_N2;
 extern unsigned long long KEY_N3;
@@ -169,3 +189,35 @@ extern unsigned long long KEY_W;
 extern unsigned long long KEY_X;
 extern unsigned long long KEY_Y;
 extern unsigned long long KEY_Z;
+
+// -------------------------------------------------------------------
+// MASM64 functions
+// -------------------------------------------------------------------
+
+// Image loading functions
+
+// TGA Loader error codes
+#define TGA_ERROR_NONE               0
+#define TGA_ERROR_FILE_OPEN          -1
+#define TGA_ERROR_READ               -2
+#define TGA_ERROR_MEMORY             -3
+
+// BMP Loader error codes
+#define BMP_ERROR_NONE              0
+#define BMP_ERROR_FILE_OPEN         -1
+#define BMP_ERROR_READ              -2
+#define BMP_ERROR_MEMORY            -3
+
+// TIFF Loader error codes
+#define TIFF_ERROR_NONE             0
+#define TIFF_ERROR_FILE_OPEN        -1
+#define TIFF_ERROR_READ             -2
+#define TIFF_ERROR_MEMORY           -3
+
+void* load_tga(const char* filename);
+
+void* load_bmp(const char* filename);
+
+void* load_tiff(const char* filename);
+
+void free_image_data(void* data);
