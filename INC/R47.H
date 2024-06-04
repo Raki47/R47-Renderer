@@ -101,17 +101,6 @@ extern "C"
 	#error This library only works In x64 Architecture! Make sure you haven't set It to x86
 #endif
 
-/*
-This Isn't crucial for the renderer to work, I added It because I need C++11 minimum for a future
-project of mine. On the odd chance It Interferes with your project you can remove or change It but,
-It would be unlikely to see.
-*/
-#define __cplusplus 201103L
-
-#if __cplusplus < 201103L
-	#error "C++11 or higher is required."
-#endif
-
 // ------------------------------------------------------------------------------------------------------
 
 #include "R47_MASM64.H"
