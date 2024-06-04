@@ -918,32 +918,32 @@ GL_WRITE_ONLY equ 0x88B9
 GL_XOR equ 0x1506
 GL_ZERO equ 0
 
-#define GL_VERSION_1_0 1
-GLAD_API_CALL int GLAD_GL_VERSION_1_0;
-#define GL_VERSION_1_1 1
-GLAD_API_CALL int GLAD_GL_VERSION_1_1;
-#define GL_VERSION_1_2 1
-GLAD_API_CALL int GLAD_GL_VERSION_1_2;
-#define GL_VERSION_1_3 1
-GLAD_API_CALL int GLAD_GL_VERSION_1_3;
-#define GL_VERSION_1_4 1
-GLAD_API_CALL int GLAD_GL_VERSION_1_4;
-#define GL_VERSION_1_5 1
-GLAD_API_CALL int GLAD_GL_VERSION_1_5;
-#define GL_VERSION_2_0 1
-GLAD_API_CALL int GLAD_GL_VERSION_2_0;
-#define GL_VERSION_2_1 1
-GLAD_API_CALL int GLAD_GL_VERSION_2_1;
-#define GL_VERSION_3_0 1
-GLAD_API_CALL int GLAD_GL_VERSION_3_0;
-#define GL_VERSION_3_1 1
-GLAD_API_CALL int GLAD_GL_VERSION_3_1;
-#define GL_VERSION_3_2 1
-GLAD_API_CALL int GLAD_GL_VERSION_3_2;
-#define GL_VERSION_3_3 1
-GLAD_API_CALL int GLAD_GL_VERSION_3_3;
+GL_VERSION_1_0 equ 1
+GLAD_GL_VERSION_1_0 dd 0 ; Declare GLAD_GL_VERSION_1_0 as a DWORD, initialize to 0
+GL_VERSION_1_1 equ 1
+GLAD_GL_VERSION_1_1 dd 0 ; Same thing again for GLAD_GL_VERSION_1_1 and for the rest below
+GL_VERSION_1_2 equ 1
+GLAD_GL_VERSION_1_2 dd 0
+GL_VERSION_1_3 equ 1
+GLAD_GL_VERSION_1_3 dd 0
+GL_VERSION_1_4 equ 1
+GLAD_GL_VERSION_1_4 dd 0
+GL_VERSION_1_5 equ 1
+GLAD_GL_VERSION_1_5 dd 0
+GL_VERSION_2_0 equ 1
+GLAD_GL_VERSION_2_0 dd 0
+GL_VERSION_2_1 equ 1
+GLAD_GL_VERSION_2_1 dd 0
+GL_VERSION_3_0 equ 1
+GLAD_GL_VERSION_3_0 dd 0
+GL_VERSION_3_1 equ 1
+GLAD_GL_VERSION_3_1 dd 0
+GL_VERSION_3_2 equ 1
+GLAD_GL_VERSION_3_2 dd 0
+GL_VERSION_3_3 equ 1
+GLAD_GL_VERSION_3_3 dd 0
 
-
+; Start of untranslated
 typedef void (GLAD_API_PTR *PFNGLACTIVETEXTUREPROC)(GLenum texture);
 typedef void (GLAD_API_PTR *PFNGLATTACHSHADERPROC)(GLuint program, GLuint shader);
 typedef void (GLAD_API_PTR *PFNGLBEGINCONDITIONALRENDERPROC)(GLuint id, GLenum mode);
@@ -1288,318 +1288,410 @@ typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBP4UIVPROC)(GLuint index, GLenum typ
 typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBPOINTERPROC)(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const void * pointer);
 typedef void (GLAD_API_PTR *PFNGLVIEWPORTPROC)(GLint x, GLint y, GLsizei width, GLsizei height);
 typedef void (GLAD_API_PTR *PFNGLWAITSYNCPROC)(GLsync sync, GLbitfield flags, GLuint64 timeout);
+; End of untranslated
+GLAD_API_CALL PROC PFNGLACTIVETEXTUREPROC
+    jmp glad_glActiveTexture
+GLAD_API_CALL ENDP
 
-GLAD_API_CALL PFNGLACTIVETEXTUREPROC glad_glActiveTexture;
-#define glActiveTexture glad_glActiveTexture
-GLAD_API_CALL PFNGLATTACHSHADERPROC glad_glAttachShader;
-#define glAttachShader glad_glAttachShader
-GLAD_API_CALL PFNGLBEGINCONDITIONALRENDERPROC glad_glBeginConditionalRender;
-#define glBeginConditionalRender glad_glBeginConditionalRender
-GLAD_API_CALL PFNGLBEGINQUERYPROC glad_glBeginQuery;
-#define glBeginQuery glad_glBeginQuery
-GLAD_API_CALL PFNGLBEGINTRANSFORMFEEDBACKPROC glad_glBeginTransformFeedback;
-#define glBeginTransformFeedback glad_glBeginTransformFeedback
-GLAD_API_CALL PFNGLBINDATTRIBLOCATIONPROC glad_glBindAttribLocation;
-#define glBindAttribLocation glad_glBindAttribLocation
-GLAD_API_CALL PFNGLBINDBUFFERPROC glad_glBindBuffer;
-#define glBindBuffer glad_glBindBuffer
-GLAD_API_CALL PFNGLBINDBUFFERBASEPROC glad_glBindBufferBase;
-#define glBindBufferBase glad_glBindBufferBase
-GLAD_API_CALL PFNGLBINDBUFFERRANGEPROC glad_glBindBufferRange;
-#define glBindBufferRange glad_glBindBufferRange
-GLAD_API_CALL PFNGLBINDFRAGDATALOCATIONPROC glad_glBindFragDataLocation;
-#define glBindFragDataLocation glad_glBindFragDataLocation
-GLAD_API_CALL PFNGLBINDFRAGDATALOCATIONINDEXEDPROC glad_glBindFragDataLocationIndexed;
-#define glBindFragDataLocationIndexed glad_glBindFragDataLocationIndexed
-GLAD_API_CALL PFNGLBINDFRAMEBUFFERPROC glad_glBindFramebuffer;
-#define glBindFramebuffer glad_glBindFramebuffer
-GLAD_API_CALL PFNGLBINDRENDERBUFFERPROC glad_glBindRenderbuffer;
-#define glBindRenderbuffer glad_glBindRenderbuffer
-GLAD_API_CALL PFNGLBINDSAMPLERPROC glad_glBindSampler;
-#define glBindSampler glad_glBindSampler
-GLAD_API_CALL PFNGLBINDTEXTUREPROC glad_glBindTexture;
-#define glBindTexture glad_glBindTexture
-GLAD_API_CALL PFNGLBINDVERTEXARRAYPROC glad_glBindVertexArray;
-#define glBindVertexArray glad_glBindVertexArray
-GLAD_API_CALL PFNGLBLENDCOLORPROC glad_glBlendColor;
-#define glBlendColor glad_glBlendColor
-GLAD_API_CALL PFNGLBLENDEQUATIONPROC glad_glBlendEquation;
-#define glBlendEquation glad_glBlendEquation
-GLAD_API_CALL PFNGLBLENDEQUATIONSEPARATEPROC glad_glBlendEquationSeparate;
-#define glBlendEquationSeparate glad_glBlendEquationSeparate
-GLAD_API_CALL PFNGLBLENDFUNCPROC glad_glBlendFunc;
-#define glBlendFunc glad_glBlendFunc
-GLAD_API_CALL PFNGLBLENDFUNCSEPARATEPROC glad_glBlendFuncSeparate;
-#define glBlendFuncSeparate glad_glBlendFuncSeparate
-GLAD_API_CALL PFNGLBLITFRAMEBUFFERPROC glad_glBlitFramebuffer;
-#define glBlitFramebuffer glad_glBlitFramebuffer
-GLAD_API_CALL PFNGLBUFFERDATAPROC glad_glBufferData;
-#define glBufferData glad_glBufferData
-GLAD_API_CALL PFNGLBUFFERSUBDATAPROC glad_glBufferSubData;
-#define glBufferSubData glad_glBufferSubData
-GLAD_API_CALL PFNGLCHECKFRAMEBUFFERSTATUSPROC glad_glCheckFramebufferStatus;
-#define glCheckFramebufferStatus glad_glCheckFramebufferStatus
-GLAD_API_CALL PFNGLCLAMPCOLORPROC glad_glClampColor;
-#define glClampColor glad_glClampColor
-GLAD_API_CALL PFNGLCLEARPROC glad_glClear;
-#define glClear glad_glClear
-GLAD_API_CALL PFNGLCLEARBUFFERFIPROC glad_glClearBufferfi;
-#define glClearBufferfi glad_glClearBufferfi
-GLAD_API_CALL PFNGLCLEARBUFFERFVPROC glad_glClearBufferfv;
-#define glClearBufferfv glad_glClearBufferfv
-GLAD_API_CALL PFNGLCLEARBUFFERIVPROC glad_glClearBufferiv;
-#define glClearBufferiv glad_glClearBufferiv
-GLAD_API_CALL PFNGLCLEARBUFFERUIVPROC glad_glClearBufferuiv;
-#define glClearBufferuiv glad_glClearBufferuiv
-GLAD_API_CALL PFNGLCLEARCOLORPROC glad_glClearColor;
-#define glClearColor glad_glClearColor
-GLAD_API_CALL PFNGLCLEARDEPTHPROC glad_glClearDepth;
-#define glClearDepth glad_glClearDepth
-GLAD_API_CALL PFNGLCLEARSTENCILPROC glad_glClearStencil;
-#define glClearStencil glad_glClearStencil
-GLAD_API_CALL PFNGLCLIENTWAITSYNCPROC glad_glClientWaitSync;
-#define glClientWaitSync glad_glClientWaitSync
-GLAD_API_CALL PFNGLCOLORMASKPROC glad_glColorMask;
-#define glColorMask glad_glColorMask
-GLAD_API_CALL PFNGLCOLORMASKIPROC glad_glColorMaski;
-#define glColorMaski glad_glColorMaski
-GLAD_API_CALL PFNGLCOMPILESHADERPROC glad_glCompileShader;
-#define glCompileShader glad_glCompileShader
-GLAD_API_CALL PFNGLCOMPRESSEDTEXIMAGE1DPROC glad_glCompressedTexImage1D;
-#define glCompressedTexImage1D glad_glCompressedTexImage1D
-GLAD_API_CALL PFNGLCOMPRESSEDTEXIMAGE2DPROC glad_glCompressedTexImage2D;
-#define glCompressedTexImage2D glad_glCompressedTexImage2D
-GLAD_API_CALL PFNGLCOMPRESSEDTEXIMAGE3DPROC glad_glCompressedTexImage3D;
-#define glCompressedTexImage3D glad_glCompressedTexImage3D
-GLAD_API_CALL PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC glad_glCompressedTexSubImage1D;
-#define glCompressedTexSubImage1D glad_glCompressedTexSubImage1D
-GLAD_API_CALL PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC glad_glCompressedTexSubImage2D;
-#define glCompressedTexSubImage2D glad_glCompressedTexSubImage2D
-GLAD_API_CALL PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC glad_glCompressedTexSubImage3D;
-#define glCompressedTexSubImage3D glad_glCompressedTexSubImage3D
-GLAD_API_CALL PFNGLCOPYBUFFERSUBDATAPROC glad_glCopyBufferSubData;
-#define glCopyBufferSubData glad_glCopyBufferSubData
-GLAD_API_CALL PFNGLCOPYTEXIMAGE1DPROC glad_glCopyTexImage1D;
-#define glCopyTexImage1D glad_glCopyTexImage1D
-GLAD_API_CALL PFNGLCOPYTEXIMAGE2DPROC glad_glCopyTexImage2D;
-#define glCopyTexImage2D glad_glCopyTexImage2D
-GLAD_API_CALL PFNGLCOPYTEXSUBIMAGE1DPROC glad_glCopyTexSubImage1D;
-#define glCopyTexSubImage1D glad_glCopyTexSubImage1D
-GLAD_API_CALL PFNGLCOPYTEXSUBIMAGE2DPROC glad_glCopyTexSubImage2D;
-#define glCopyTexSubImage2D glad_glCopyTexSubImage2D
-GLAD_API_CALL PFNGLCOPYTEXSUBIMAGE3DPROC glad_glCopyTexSubImage3D;
-#define glCopyTexSubImage3D glad_glCopyTexSubImage3D
-GLAD_API_CALL PFNGLCREATEPROGRAMPROC glad_glCreateProgram;
-#define glCreateProgram glad_glCreateProgram
-GLAD_API_CALL PFNGLCREATESHADERPROC glad_glCreateShader;
-#define glCreateShader glad_glCreateShader
-GLAD_API_CALL PFNGLCULLFACEPROC glad_glCullFace;
-#define glCullFace glad_glCullFace
-GLAD_API_CALL PFNGLDELETEBUFFERSPROC glad_glDeleteBuffers;
-#define glDeleteBuffers glad_glDeleteBuffers
-GLAD_API_CALL PFNGLDELETEFRAMEBUFFERSPROC glad_glDeleteFramebuffers;
-#define glDeleteFramebuffers glad_glDeleteFramebuffers
-GLAD_API_CALL PFNGLDELETEPROGRAMPROC glad_glDeleteProgram;
-#define glDeleteProgram glad_glDeleteProgram
-GLAD_API_CALL PFNGLDELETEQUERIESPROC glad_glDeleteQueries;
-#define glDeleteQueries glad_glDeleteQueries
-GLAD_API_CALL PFNGLDELETERENDERBUFFERSPROC glad_glDeleteRenderbuffers;
-#define glDeleteRenderbuffers glad_glDeleteRenderbuffers
-GLAD_API_CALL PFNGLDELETESAMPLERSPROC glad_glDeleteSamplers;
-#define glDeleteSamplers glad_glDeleteSamplers
-GLAD_API_CALL PFNGLDELETESHADERPROC glad_glDeleteShader;
-#define glDeleteShader glad_glDeleteShader
-GLAD_API_CALL PFNGLDELETESYNCPROC glad_glDeleteSync;
-#define glDeleteSync glad_glDeleteSync
-GLAD_API_CALL PFNGLDELETETEXTURESPROC glad_glDeleteTextures;
-#define glDeleteTextures glad_glDeleteTextures
-GLAD_API_CALL PFNGLDELETEVERTEXARRAYSPROC glad_glDeleteVertexArrays;
-#define glDeleteVertexArrays glad_glDeleteVertexArrays
-GLAD_API_CALL PFNGLDEPTHFUNCPROC glad_glDepthFunc;
-#define glDepthFunc glad_glDepthFunc
-GLAD_API_CALL PFNGLDEPTHMASKPROC glad_glDepthMask;
-#define glDepthMask glad_glDepthMask
-GLAD_API_CALL PFNGLDEPTHRANGEPROC glad_glDepthRange;
-#define glDepthRange glad_glDepthRange
-GLAD_API_CALL PFNGLDETACHSHADERPROC glad_glDetachShader;
-#define glDetachShader glad_glDetachShader
-GLAD_API_CALL PFNGLDISABLEPROC glad_glDisable;
-#define glDisable glad_glDisable
-GLAD_API_CALL PFNGLDISABLEVERTEXATTRIBARRAYPROC glad_glDisableVertexAttribArray;
-#define glDisableVertexAttribArray glad_glDisableVertexAttribArray
-GLAD_API_CALL PFNGLDISABLEIPROC glad_glDisablei;
-#define glDisablei glad_glDisablei
-GLAD_API_CALL PFNGLDRAWARRAYSPROC glad_glDrawArrays;
-#define glDrawArrays glad_glDrawArrays
-GLAD_API_CALL PFNGLDRAWARRAYSINSTANCEDPROC glad_glDrawArraysInstanced;
-#define glDrawArraysInstanced glad_glDrawArraysInstanced
-GLAD_API_CALL PFNGLDRAWBUFFERPROC glad_glDrawBuffer;
-#define glDrawBuffer glad_glDrawBuffer
-GLAD_API_CALL PFNGLDRAWBUFFERSPROC glad_glDrawBuffers;
-#define glDrawBuffers glad_glDrawBuffers
-GLAD_API_CALL PFNGLDRAWELEMENTSPROC glad_glDrawElements;
-#define glDrawElements glad_glDrawElements
-GLAD_API_CALL PFNGLDRAWELEMENTSBASEVERTEXPROC glad_glDrawElementsBaseVertex;
-#define glDrawElementsBaseVertex glad_glDrawElementsBaseVertex
-GLAD_API_CALL PFNGLDRAWELEMENTSINSTANCEDPROC glad_glDrawElementsInstanced;
-#define glDrawElementsInstanced glad_glDrawElementsInstanced
-GLAD_API_CALL PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC glad_glDrawElementsInstancedBaseVertex;
-#define glDrawElementsInstancedBaseVertex glad_glDrawElementsInstancedBaseVertex
-GLAD_API_CALL PFNGLDRAWRANGEELEMENTSPROC glad_glDrawRangeElements;
-#define glDrawRangeElements glad_glDrawRangeElements
-GLAD_API_CALL PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC glad_glDrawRangeElementsBaseVertex;
-#define glDrawRangeElementsBaseVertex glad_glDrawRangeElementsBaseVertex
-GLAD_API_CALL PFNGLENABLEPROC glad_glEnable;
-#define glEnable glad_glEnable
-GLAD_API_CALL PFNGLENABLEVERTEXATTRIBARRAYPROC glad_glEnableVertexAttribArray;
-#define glEnableVertexAttribArray glad_glEnableVertexAttribArray
-GLAD_API_CALL PFNGLENABLEIPROC glad_glEnablei;
-#define glEnablei glad_glEnablei
-GLAD_API_CALL PFNGLENDCONDITIONALRENDERPROC glad_glEndConditionalRender;
-#define glEndConditionalRender glad_glEndConditionalRender
-GLAD_API_CALL PFNGLENDQUERYPROC glad_glEndQuery;
-#define glEndQuery glad_glEndQuery
-GLAD_API_CALL PFNGLENDTRANSFORMFEEDBACKPROC glad_glEndTransformFeedback;
-#define glEndTransformFeedback glad_glEndTransformFeedback
-GLAD_API_CALL PFNGLFENCESYNCPROC glad_glFenceSync;
-#define glFenceSync glad_glFenceSync
-GLAD_API_CALL PFNGLFINISHPROC glad_glFinish;
-#define glFinish glad_glFinish
-GLAD_API_CALL PFNGLFLUSHPROC glad_glFlush;
-#define glFlush glad_glFlush
-GLAD_API_CALL PFNGLFLUSHMAPPEDBUFFERRANGEPROC glad_glFlushMappedBufferRange;
-#define glFlushMappedBufferRange glad_glFlushMappedBufferRange
-GLAD_API_CALL PFNGLFRAMEBUFFERRENDERBUFFERPROC glad_glFramebufferRenderbuffer;
-#define glFramebufferRenderbuffer glad_glFramebufferRenderbuffer
-GLAD_API_CALL PFNGLFRAMEBUFFERTEXTUREPROC glad_glFramebufferTexture;
-#define glFramebufferTexture glad_glFramebufferTexture
-GLAD_API_CALL PFNGLFRAMEBUFFERTEXTURE1DPROC glad_glFramebufferTexture1D;
-#define glFramebufferTexture1D glad_glFramebufferTexture1D
-GLAD_API_CALL PFNGLFRAMEBUFFERTEXTURE2DPROC glad_glFramebufferTexture2D;
-#define glFramebufferTexture2D glad_glFramebufferTexture2D
-GLAD_API_CALL PFNGLFRAMEBUFFERTEXTURE3DPROC glad_glFramebufferTexture3D;
-#define glFramebufferTexture3D glad_glFramebufferTexture3D
-GLAD_API_CALL PFNGLFRAMEBUFFERTEXTURELAYERPROC glad_glFramebufferTextureLayer;
-#define glFramebufferTextureLayer glad_glFramebufferTextureLayer
-GLAD_API_CALL PFNGLFRONTFACEPROC glad_glFrontFace;
-#define glFrontFace glad_glFrontFace
-GLAD_API_CALL PFNGLGENBUFFERSPROC glad_glGenBuffers;
-#define glGenBuffers glad_glGenBuffers
-GLAD_API_CALL PFNGLGENFRAMEBUFFERSPROC glad_glGenFramebuffers;
-#define glGenFramebuffers glad_glGenFramebuffers
-GLAD_API_CALL PFNGLGENQUERIESPROC glad_glGenQueries;
-#define glGenQueries glad_glGenQueries
-GLAD_API_CALL PFNGLGENRENDERBUFFERSPROC glad_glGenRenderbuffers;
-#define glGenRenderbuffers glad_glGenRenderbuffers
-GLAD_API_CALL PFNGLGENSAMPLERSPROC glad_glGenSamplers;
-#define glGenSamplers glad_glGenSamplers
-GLAD_API_CALL PFNGLGENTEXTURESPROC glad_glGenTextures;
-#define glGenTextures glad_glGenTextures
-GLAD_API_CALL PFNGLGENVERTEXARRAYSPROC glad_glGenVertexArrays;
-#define glGenVertexArrays glad_glGenVertexArrays
-GLAD_API_CALL PFNGLGENERATEMIPMAPPROC glad_glGenerateMipmap;
-#define glGenerateMipmap glad_glGenerateMipmap
-GLAD_API_CALL PFNGLGETACTIVEATTRIBPROC glad_glGetActiveAttrib;
-#define glGetActiveAttrib glad_glGetActiveAttrib
-GLAD_API_CALL PFNGLGETACTIVEUNIFORMPROC glad_glGetActiveUniform;
-#define glGetActiveUniform glad_glGetActiveUniform
-GLAD_API_CALL PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC glad_glGetActiveUniformBlockName;
-#define glGetActiveUniformBlockName glad_glGetActiveUniformBlockName
-GLAD_API_CALL PFNGLGETACTIVEUNIFORMBLOCKIVPROC glad_glGetActiveUniformBlockiv;
-#define glGetActiveUniformBlockiv glad_glGetActiveUniformBlockiv
-GLAD_API_CALL PFNGLGETACTIVEUNIFORMNAMEPROC glad_glGetActiveUniformName;
-#define glGetActiveUniformName glad_glGetActiveUniformName
-GLAD_API_CALL PFNGLGETACTIVEUNIFORMSIVPROC glad_glGetActiveUniformsiv;
-#define glGetActiveUniformsiv glad_glGetActiveUniformsiv
-GLAD_API_CALL PFNGLGETATTACHEDSHADERSPROC glad_glGetAttachedShaders;
-#define glGetAttachedShaders glad_glGetAttachedShaders
-GLAD_API_CALL PFNGLGETATTRIBLOCATIONPROC glad_glGetAttribLocation;
-#define glGetAttribLocation glad_glGetAttribLocation
-GLAD_API_CALL PFNGLGETBOOLEANI_VPROC glad_glGetBooleani_v;
-#define glGetBooleani_v glad_glGetBooleani_v
-GLAD_API_CALL PFNGLGETBOOLEANVPROC glad_glGetBooleanv;
-#define glGetBooleanv glad_glGetBooleanv
-GLAD_API_CALL PFNGLGETBUFFERPARAMETERI64VPROC glad_glGetBufferParameteri64v;
-#define glGetBufferParameteri64v glad_glGetBufferParameteri64v
-GLAD_API_CALL PFNGLGETBUFFERPARAMETERIVPROC glad_glGetBufferParameteriv;
-#define glGetBufferParameteriv glad_glGetBufferParameteriv
-GLAD_API_CALL PFNGLGETBUFFERPOINTERVPROC glad_glGetBufferPointerv;
-#define glGetBufferPointerv glad_glGetBufferPointerv
-GLAD_API_CALL PFNGLGETBUFFERSUBDATAPROC glad_glGetBufferSubData;
-#define glGetBufferSubData glad_glGetBufferSubData
-GLAD_API_CALL PFNGLGETCOMPRESSEDTEXIMAGEPROC glad_glGetCompressedTexImage;
-#define glGetCompressedTexImage glad_glGetCompressedTexImage
-GLAD_API_CALL PFNGLGETDOUBLEVPROC glad_glGetDoublev;
-#define glGetDoublev glad_glGetDoublev
-GLAD_API_CALL PFNGLGETERRORPROC glad_glGetError;
-#define glGetError glad_glGetError
-GLAD_API_CALL PFNGLGETFLOATVPROC glad_glGetFloatv;
-#define glGetFloatv glad_glGetFloatv
-GLAD_API_CALL PFNGLGETFRAGDATAINDEXPROC glad_glGetFragDataIndex;
-#define glGetFragDataIndex glad_glGetFragDataIndex
-GLAD_API_CALL PFNGLGETFRAGDATALOCATIONPROC glad_glGetFragDataLocation;
-#define glGetFragDataLocation glad_glGetFragDataLocation
-GLAD_API_CALL PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC glad_glGetFramebufferAttachmentParameteriv;
-#define glGetFramebufferAttachmentParameteriv glad_glGetFramebufferAttachmentParameteriv
-GLAD_API_CALL PFNGLGETINTEGER64I_VPROC glad_glGetInteger64i_v;
-#define glGetInteger64i_v glad_glGetInteger64i_v
-GLAD_API_CALL PFNGLGETINTEGER64VPROC glad_glGetInteger64v;
-#define glGetInteger64v glad_glGetInteger64v
-GLAD_API_CALL PFNGLGETINTEGERI_VPROC glad_glGetIntegeri_v;
-#define glGetIntegeri_v glad_glGetIntegeri_v
-GLAD_API_CALL PFNGLGETINTEGERVPROC glad_glGetIntegerv;
-#define glGetIntegerv glad_glGetIntegerv
-GLAD_API_CALL PFNGLGETMULTISAMPLEFVPROC glad_glGetMultisamplefv;
-#define glGetMultisamplefv glad_glGetMultisamplefv
-GLAD_API_CALL PFNGLGETPROGRAMINFOLOGPROC glad_glGetProgramInfoLog;
-#define glGetProgramInfoLog glad_glGetProgramInfoLog
-GLAD_API_CALL PFNGLGETPROGRAMIVPROC glad_glGetProgramiv;
-#define glGetProgramiv glad_glGetProgramiv
-GLAD_API_CALL PFNGLGETQUERYOBJECTI64VPROC glad_glGetQueryObjecti64v;
-#define glGetQueryObjecti64v glad_glGetQueryObjecti64v
-GLAD_API_CALL PFNGLGETQUERYOBJECTIVPROC glad_glGetQueryObjectiv;
-#define glGetQueryObjectiv glad_glGetQueryObjectiv
-GLAD_API_CALL PFNGLGETQUERYOBJECTUI64VPROC glad_glGetQueryObjectui64v;
-#define glGetQueryObjectui64v glad_glGetQueryObjectui64v
-GLAD_API_CALL PFNGLGETQUERYOBJECTUIVPROC glad_glGetQueryObjectuiv;
-#define glGetQueryObjectuiv glad_glGetQueryObjectuiv
-GLAD_API_CALL PFNGLGETQUERYIVPROC glad_glGetQueryiv;
-#define glGetQueryiv glad_glGetQueryiv
-GLAD_API_CALL PFNGLGETRENDERBUFFERPARAMETERIVPROC glad_glGetRenderbufferParameteriv;
-#define glGetRenderbufferParameteriv glad_glGetRenderbufferParameteriv
-GLAD_API_CALL PFNGLGETSAMPLERPARAMETERIIVPROC glad_glGetSamplerParameterIiv;
-#define glGetSamplerParameterIiv glad_glGetSamplerParameterIiv
-GLAD_API_CALL PFNGLGETSAMPLERPARAMETERIUIVPROC glad_glGetSamplerParameterIuiv;
-#define glGetSamplerParameterIuiv glad_glGetSamplerParameterIuiv
-GLAD_API_CALL PFNGLGETSAMPLERPARAMETERFVPROC glad_glGetSamplerParameterfv;
-#define glGetSamplerParameterfv glad_glGetSamplerParameterfv
-GLAD_API_CALL PFNGLGETSAMPLERPARAMETERIVPROC glad_glGetSamplerParameteriv;
-#define glGetSamplerParameteriv glad_glGetSamplerParameteriv
-GLAD_API_CALL PFNGLGETSHADERINFOLOGPROC glad_glGetShaderInfoLog;
-#define glGetShaderInfoLog glad_glGetShaderInfoLog
-GLAD_API_CALL PFNGLGETSHADERSOURCEPROC glad_glGetShaderSource;
-#define glGetShaderSource glad_glGetShaderSource
-GLAD_API_CALL PFNGLGETSHADERIVPROC glad_glGetShaderiv;
-#define glGetShaderiv glad_glGetShaderiv
-GLAD_API_CALL PFNGLGETSTRINGPROC glad_glGetString;
-#define glGetString glad_glGetString
-GLAD_API_CALL PFNGLGETSTRINGIPROC glad_glGetStringi;
-#define glGetStringi glad_glGetStringi
-GLAD_API_CALL PFNGLGETSYNCIVPROC glad_glGetSynciv;
-#define glGetSynciv glad_glGetSynciv
-GLAD_API_CALL PFNGLGETTEXIMAGEPROC glad_glGetTexImage;
-#define glGetTexImage glad_glGetTexImage
-GLAD_API_CALL PFNGLGETTEXLEVELPARAMETERFVPROC glad_glGetTexLevelParameterfv;
-#define glGetTexLevelParameterfv glad_glGetTexLevelParameterfv
-GLAD_API_CALL PFNGLGETTEXLEVELPARAMETERIVPROC glad_glGetTexLevelParameteriv;
-#define glGetTexLevelParameteriv glad_glGetTexLevelParameteriv
-GLAD_API_CALL PFNGLGETTEXPARAMETERIIVPROC glad_glGetTexParameterIiv;
-#define glGetTexParameterIiv glad_glGetTexParameterIiv
-GLAD_API_CALL PFNGLGETTEXPARAMETERIUIVPROC glad_glGetTexParameterIuiv;
-#define glGetTexParameterIuiv glad_glGetTexParameterIuiv
-GLAD_API_CALL PFNGLGETTEXPARAMETERFVPROC glad_glGetTexParameterfv;
-#define glGetTexParameterfv glad_glGetTexParameterfv
-GLAD_API_CALL PFNGLGETTEXPARAMETERIVPROC glad_glGetTexParameteriv;
+glActiveTexture EQU glad_glActiveTexture
+
+GLAD_API_CALL PROC PFNGLATTACHSHADERPROC
+    jmp glad_glAttachShader
+GLAD_API_CALL ENDP
+
+glAttachShader EQU glad_glAttachShader
+
+GLAD_API_CALL PROC PFNGLBEGINCONDITIONALRENDERPROC
+    jmp glad_glBeginConditionalRender
+GLAD_API_CALL ENDP
+
+glBeginConditionalRender EQU glad_glBeginConditionalRender
+
+GLAD_API_CALL PROC PFNGLBEGINQUERYPROC
+    jmp glad_glBeginQuery
+GLAD_API_CALL ENDP
+
+glBeginQuery EQU glad_glBeginQuery
+
+GLAD_API_CALL PROC PFNGLBEGINTRANSFORMFEEDBACKPROC
+    jmp glad_glBeginTransformFeedback
+GLAD_API_CALL ENDP
+
+glBeginTransformFeedback EQU glad_glBeginTransformFeedback
+
+GLAD_API_CALL PROC PFNGLBINDATTRIBLOCATIONPROC
+    jmp glad_glBindAttribLocation
+GLAD_API_CALL ENDP
+
+glBindAttribLocation EQU glad_glBindAttribLocation
+
+GLAD_API_CALL PROC PFNGLBINDBUFFERPROC
+    jmp glad_glBindBuffer
+GLAD_API_CALL ENDP
+
+glBindBuffer EQU glad_glBindBuffer
+
+GLAD_API_CALL PROC PFNGLBINDBUFFERBASEPROC
+    jmp glad_glBindBufferBase
+GLAD_API_CALL ENDP
+
+glBindBufferBase EQU glad_glBindBufferBase
+
+GLAD_API_CALL PROC PFNGLBINDBUFFERRANGEPROC
+    jmp glad_glBindBufferRange
+GLAD_API_CALL ENDP
+
+glBindBufferRange EQU glad_glBindBufferRange
+
+GLAD_API_CALL PROC PFNGLBINDFRAGDATALOCATIONPROC
+    jmp glad_glBindFragDataLocation
+GLAD_API_CALL ENDP
+
+glBindFragDataLocation EQU glad_glBindFragDataLocation
+
+GLAD_API_CALL PROC PFNGLBINDFRAGDATALOCATIONINDEXEDPROC
+    jmp glad_glBindFragDataLocationIndexed
+GLAD_API_CALL ENDP
+
+glBindFragDataLocationIndexed EQU glad_glBindFragDataLocationIndexed
+
+GLAD_API_CALL PROC PFNGLBINDFRAMEBUFFERPROC
+    jmp glad_glBindFramebuffer
+GLAD_API_CALL ENDP
+
+glBindFramebuffer EQU glad_glBindFramebuffer
+
+GLAD_API_CALL PROC PFNGLBINDRENDERBUFFERPROC
+    jmp glad_glBindRenderbuffer
+GLAD_API_CALL ENDP
+
+glBindRenderbuffer EQU glad_glBindRenderbuffer
+
+GLAD_API_CALL PROC PFNGLBINDSAMPLERPROC
+    jmp glad_glBindSampler
+GLAD_API_CALL ENDP
+
+glBindSampler EQU glad_glBindSampler
+
+GLAD_API_CALL PROC PFNGLBINDTEXTUREPROC
+    jmp glad_glBindTexture
+GLAD_API_CALL ENDP
+
+glBindTexture EQU glad_glBindTexture
+
+GLAD_API_CALL PROC PFNGLBINDVERTEXARRAYPROC
+    jmp glad_glBindVertexArray
+GLAD_API_CALL ENDP
+
+glBindVertexArray EQU glad_glBindVertexArray
+
+GLAD_API_CALL PROC PFNGLBLENDCOLORPROC
+    jmp glad_glBlendColor
+GLAD_API_CALL ENDP
+
+glBlendColor EQU glad_glBlendColor
+
+GLAD_API_CALL PROC PFNGLBLENDEQUATIONPROC
+    jmp glad_glBlendEquation
+GLAD_API_CALL ENDP
+
+glBlendEquation EQU glad_glBlendEquation
+
+GLAD_API_CALL PROC PFNGLBLENDEQUATIONSEPARATEPROC
+    jmp glad_glBlendEquationSeparate
+GLAD_API_CALL ENDP
+
+glBlendEquationSeparate EQU glad_glBlendEquationSeparate
+
+GLAD_API_CALL PROC PFNGLBLENDFUNCPROC
+    jmp glad_glBlendFunc
+GLAD_API_CALL ENDP
+
+glBlendFunc EQU glad_glBlendFunc
+
+GLAD_API_CALL PROC PFNGLBLENDFUNCSEPARATEPROC
+    jmp glad_glBlendFuncSeparate
+GLAD_API_CALL ENDP
+
+glBlendFuncSeparate EQU glad_glBlendFuncSeparate
+
+GLAD_API_CALL PROC PFNGLBLITFRAMEBUFFERPROC
+    jmp glad_glBlitFramebuffer
+GLAD_API_CALL ENDP
+
+glBlitFramebuffer EQU glad_glBlitFramebuffer
+
+GLAD_API_CALL PROC PFNGLBUFFERDATAPROC
+    jmp glad_glBufferData
+GLAD_API_CALL ENDP
+
+glBufferData EQU glad_glBufferData
+
+GLAD_API_CALL PROC PFNGLBUFFERSUBDATAPROC
+    jmp glad_glBufferSubData
+GLAD_API_CALL ENDP
+
+glBufferSubData EQU glad_glBufferSubData
+
+GLAD_API_CALL PROC PFNGLCHECKFRAMEBUFFERSTATUSPROC
+    jmp glad_glCheckFramebufferStatus
+GLAD_API_CALL ENDP
+
+glCheckFramebufferStatus EQU glad_glCheckFramebufferStatus
+
+GLAD_API_CALL PROC PFNGLCLAMPCOLORPROC
+    jmp glad_glClampColor
+GLAD_API_CALL ENDP
+
+glClampColor EQU glad_glClampColor
+
+GLAD_API_CALL PROC PFNGLCLEARPROC
+    jmp glad_glClear
+GLAD_API_CALL ENDP
+
+glClear EQU glad_glClear
+
+GLAD_API_CALL PROC PFNGLCLEARBUFFERFIPROC
+    jmp glad_glClearBufferfi
+GLAD_API_CALL ENDP
+
+glClearBufferfi EQU glad_glClearBufferfi
+
+GLAD_API_CALL PROC PFNGLCLEARBUFFERFVPROC
+    jmp glad_glClearBufferfv
+GLAD_API_CALL ENDP
+
+glClearBufferfv EQU glad
+
+GLAD_API_CALL PROC PFNGLDELETEFRAMEBUFFERSPROC
+    jmp glad_glDeleteFramebuffers
+GLAD_API_CALL ENDP
+
+glDeleteFramebuffers EQU glad_glDeleteFramebuffers
+
+GLAD_API_CALL PROC PFNGLDELETEPROGRAMPROC
+    jmp glad_glDeleteProgram
+GLAD_API_CALL ENDP
+
+glDeleteProgram EQU glad_glDeleteProgram
+
+GLAD_API_CALL PROC PFNGLDELETEQUERIESPROC
+    jmp glad_glDeleteQueries
+GLAD_API_CALL ENDP
+
+glDeleteQueries EQU glad_glDeleteQueries
+
+GLAD_API_CALL PROC PFNGLDELETERENDERBUFFERSPROC
+    jmp glad_glDeleteRenderbuffers
+GLAD_API_CALL ENDP
+
+glDeleteRenderbuffers EQU glad_glDeleteRenderbuffers
+
+GLAD_API_CALL PROC PFNGLDELETESAMPLERSPROC
+    jmp glad_glDeleteSamplers
+GLAD_API_CALL ENDP
+
+glDeleteSamplers EQU glad_glDeleteSamplers
+
+GLAD_API_CALL PROC PFNGLDELETESHADERPROC
+    jmp glad_glDeleteShader
+GLAD_API_CALL ENDP
+
+glDeleteShader EQU glad_glDeleteShader
+
+GLAD_API_CALL PROC PFNGLDELETESYNCPROC
+    jmp glad_glDeleteSync
+GLAD_API_CALL ENDP
+
+glDeleteSync EQU glad_glDeleteSync
+
+GLAD_API_CALL PROC PFNGLDELETETEXTURESPROC
+    jmp glad_glDeleteTextures
+GLAD_API_CALL ENDP
+
+glDeleteTextures EQU glad_glDeleteTextures
+
+GLAD_API_CALL PROC PFNGLDELETEVERTEXARRAYSPROC
+    jmp glad_glDeleteVertexArrays
+GLAD_API_CALL ENDP
+
+glDeleteVertexArrays EQU glad_glDeleteVertexArrays
+
+GLAD_API_CALL PROC PFNGLDEPTHFUNCPROC
+    jmp glad_glDepthFunc
+GLAD_API_CALL ENDP
+
+glDepthFunc EQU glad_glDepthFunc
+
+GLAD_API_CALL PROC PFNGLDEPTHMASKPROC
+    jmp glad_glDepthMask
+GLAD_API_CALL ENDP
+
+glDepthMask EQU glad_glDepthMask
+
+GLAD_API_CALL PROC PFNGLDEPTHRANGEPROC
+    jmp glad_glDepthRange
+GLAD_API_CALL ENDP
+
+glDepthRange EQU glad_glDepthRange
+
+GLAD_API_CALL PROC PFNGLDETACHSHADERPROC
+    jmp glad_glDetachShader
+GLAD_API_CALL ENDP
+
+glDetachShader EQU glad_glDetachShader
+
+GLAD_API_CALL PROC PFNGLDISABLEPROC
+    jmp glad_glDisable
+GLAD_API_CALL ENDP
+
+glDisable EQU glad_glDisable
+
+GLAD_API_CALL PROC PFNGLDISABLEVERTEXATTRIBARRAYPROC
+    jmp glad_glDisableVertexAttribArray
+GLAD_API_CALL ENDP
+
+glDisableVertexAttribArray EQU glad_glDisableVertexAttribArray
+
+GLAD_API_CALL PROC PFNGLDISABLEIPROC
+    jmp glad_glDisablei
+GLAD_API_CALL ENDP
+
+glDisablei EQU glad_glDisablei
+
+GLAD_API_CALL PROC PFNGLDRAWARRAYSPROC
+    jmp glad_glDrawArrays
+GLAD_API_CALL ENDP
+
+glDrawArrays EQU glad_glDrawArrays
+
+GLAD_API_CALL PROC PFNGLDRAWARRAYSINSTANCEDPROC
+    jmp glad_glDrawArraysInstanced
+GLAD_API_CALL ENDP
+
+glDrawArraysInstanced EQU glad_glDrawArraysInstanced
+
+GLAD_API_CALL PROC PFNGLDRAWBUFFERPROC
+    jmp glad_glDrawBuffer
+GLAD_API_CALL ENDP
+
+glDrawBuffer EQU glad_glDrawBuffer
+
+GLAD_API_CALL PROC PFNGLDRAWBUFFERSPROC
+    jmp glad_glDrawBuffers
+GLAD_API_CALL ENDP
+
+glDrawBuffers EQU glad_glDrawBuffers
+
+GLAD_API_CALL PROC PFNGLDRAWELEMENTSPROC
+    jmp glad_glDrawElements
+GLAD_API_CALL ENDP
+
+glDrawElements EQU glad_glDrawElements
+
+GLAD_API_CALL PROC PFNGLDRAWELEMENTSBASEVERTEXPROC
+    jmp glad_glDrawElementsBaseVertex
+GLAD_API_CALL ENDP
+
+glDrawElementsBaseVertex EQU glad_glDrawElementsBaseVertex
+
+GLAD_API_CALL PROC PFNGLDRAWELEMENTSINSTANCEDPROC
+    jmp glad_glDrawElementsInstanced
+GLAD_API_CALL ENDP
+
+glDrawElementsInstanced EQU glad_glDrawElementsInstanced
+
+GLAD_API_CALL PROC PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC
+    jmp glad_glDrawElementsInstancedBaseVertex
+GLAD_API_CALL ENDP
+
+glDrawElementsInstancedBaseVertex EQU glad_glDrawElementsInstancedBaseVertex
+
+GLAD_API_CALL PROC PFNGLDRAWRANGEELEMENTSPROC
+    jmp glad_glDrawRangeElements
+GLAD_API_CALL ENDP
+
+glDrawRangeElements EQU glad_glDrawRangeElements
+
+GLAD_API_CALL PROC PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC
+    jmp glad_glDrawRangeElementsBaseVertex
+GLAD_API_CALL ENDP
+
+glDrawRangeElementsBaseVertex EQU glad_glDrawRangeElementsBaseVertex
+
+GLAD_API_CALL PROC PFNGLENABLEPROC
+    jmp glad_glEnable
+GLAD_API_CALL ENDP
+
+glEnable EQU glad_glEnable
+
+GLAD_API_CALL PROC PFNGLENABLEVERTEXATTRIBARRAYPROC
+    jmp glad_glEnableVertexAttribArray
+GLAD_API_CALL ENDP
+
+glEnableVertexAttribArray EQU glad_glEnableVertexAttribArray
+
+GLAD_API_CALL PROC PFNGLENABLEIPROC
+    jmp glad_glEnablei
+GLAD_API_CALL ENDP
+
+glEnablei EQU glad_glEnablei
+
+GLAD_API_CALL PROC PFNGLENDCONDITIONALRENDERPROC
+    jmp glad_glEndConditionalRender
+GLAD_API_CALL ENDP
+
+glEndConditionalRender EQU glad_glEndConditionalRender
+
+GLAD_API_CALL PROC PFNGLENDQUERYPROC
+    jmp glad_glEndQuery
+GLAD_API_CALL ENDP
+
+glEndQuery EQU glad_glEndQuery
+
+GLAD_API_CALL PROC PFNGLENDTRANSFORMFEEDBACKPROC
+    jmp glad_glEndTransformFeedback
+GLAD_API_CALL ENDP
+
+glEndTransformFeedback EQU glad_glEndTransformFeedback
+
+GLAD_API_CALL PROC PFNGLFENCESYNCPROC
+    jmp glad_glFenceSync
+GLAD_API_CALL ENDP
+
+glFenceSync EQU glad_glFenceSync
+
+GLAD_API_CALL PROC PFNGLFINISHPROC
+    jmp glad_glFinish
+GLAD_API_CALL ENDP
+
+glFinish EQU glad_glFinish
+
+GLAD_API_CALL PROC PFNGLFLUSHPROC
+    jmp glad_glFlush
+GLAD_API_CALL ENDP
+
+glFlush EQU glad_glFlush
+
+GLAD_API_CALL PROC PFNGLFLUSHMAPPEDBUFFERRANGEPROC
+    jmp glad_glFlushMappedBufferRange
+GLAD_API_CALL ENDP
+
+glFlushMappedBufferRange EQU glad_glFlushMappedBufferRange
+
+GLAD_API_CALL PROC PFNGLFRAMEBUFFERRENDERBUFFERPROC
+    jmp glad_glFramebufferRenderbuffer
+GLAD_API_CALL ENDP
+
+glFramebufferRenderbuffer EQU glad_glFramebufferRenderbuffer
+
+GLAD_API_CALL PROC PFNGLFRAMEBUFFERTEXTUREPROC
+    jmp glad_glFramebufferTexture
+GLAD_API_CALL ENDP
+
+glFramebufferTexture EQU glad_glFramebuffer
+
+; Start of untranslated
 #define glGetTexParameteriv glad_glGetTexParameteriv
 GLAD_API_CALL PFNGLGETTRANSFORMFEEDBACKVARYINGPROC glad_glGetTransformFeedbackVarying;
 #define glGetTransformFeedbackVarying glad_glGetTransformFeedbackVarying
@@ -1977,408 +2069,295 @@ GLAD_API_CALL PFNGLVIEWPORTPROC glad_glViewport;
 #define glViewport glad_glViewport
 GLAD_API_CALL PFNGLWAITSYNCPROC glad_glWaitSync;
 #define glWaitSync glad_glWaitSync
+; End of untranslated
+; gladLoadGLUserPtr
+EXTERNDEF gladLoadGLUserPtr :PROC
+EXTERNDEF GLADuserptrloadfunc :QWORD
+EXTERNDEF GLAD_API_CALL :DWORD
+
+PUBLIC gladLoadGLUserPtr
+
+gladLoadGLUserPtr PROC
+    ; Parameters:
+    ; RCX: GLADuserptrloadfunc load
+    ; RDX: PVOID userptr
+    
+    mov rax, GLAD_API_CALL
+    lea rcx, [rax + gladLoadGLUserPtrOffset]
+    call rcx
+    
+    ret
+gladLoadGLUserPtr ENDP
+
+; gladLoadGL
+EXTERNDEF gladLoadGL :PROC
+EXTERNDEF GLADloadfunc :QWORD
+EXTERNDEF GLAD_API_CALL :DWORD
+
+PUBLIC gladLoadGL
+
+gladLoadGL PROC
+    ; Parameters:
+    ; RCX: GLADloadfunc load
+    
+    mov rax, GLAD_API_CALL
+    lea rcx, [rax + gladLoadGLOffset]
+    call rcx
+    
+    ret
+gladLoadGL ENDP
+
+; *
+; * SPDX-License-Identifier: (WTFPL OR CC0-1.0) AND Apache-2.0
+; *
+
+IFDEF _MSC_VER
+GLAD_IMPL_UTIL_SSCANF equ sscanf_s
+ELSEIF
+GLAD_IMPL_UTIL_SSCANF equ sscanf
+ENDIF
+
+GLAD_GL_VERSION_1_0 DD 0
+GLAD_GL_VERSION_1_1 DD 0
+GLAD_GL_VERSION_1_2 DD 0
+GLAD_GL_VERSION_1_3 DD 0
+GLAD_GL_VERSION_1_4 DD 0
+GLAD_GL_VERSION_1_5 DD 0
+GLAD_GL_VERSION_2_0 DD 0
+GLAD_GL_VERSION_2_1 DD 0
+GLAD_GL_VERSION_3_0 DD 0
+GLAD_GL_VERSION_3_1 DD 0
+GLAD_GL_VERSION_3_2 DD 0
+GLAD_GL_VERSION_3_3 DD 0
 
 
+EXTERNDEF glad_glActiveTexture:QWORD
+EXTERNDEF glad_glAttachShader:QWORD
+EXTERNDEF glad_glBeginConditionalRender:QWORD
+EXTERNDEF glad_glBeginQuery:QWORD
+EXTERNDEF glad_glBeginTransformFeedback:QWORD
+EXTERNDEF glad_glBindAttribLocation:QWORD
+EXTERNDEF glad_glBindBuffer:QWORD
+EXTERNDEF glad_glBindBufferBase:QWORD
+EXTERNDEF glad_glBindBufferRange:QWORD
+EXTERNDEF glad_glBindFragDataLocation:QWORD
+EXTERNDEF glad_glBindFragDataLocationIndexed:QWORD
+EXTERNDEF glad_glBindFramebuffer:QWORD
+EXTERNDEF glad_glBindRenderbuffer:QWORD
+EXTERNDEF glad_glBindSampler:QWORD
+EXTERNDEF glad_glBindTexture:QWORD
+EXTERNDEF glad_glBindVertexArray:QWORD
+EXTERNDEF glad_glBlendColor:QWORD
+EXTERNDEF glad_glBlendEquation:QWORD
+EXTERNDEF glad_glBlendEquationSeparate:QWORD
+EXTERNDEF glad_glBlendFunc:QWORD
+EXTERNDEF glad_glBlendFuncSeparate:QWORD
+EXTERNDEF glad_glBlitFramebuffer:QWORD
+EXTERNDEF glad_glBufferData:QWORD
+EXTERNDEF glad_glBufferSubData:QWORD
+EXTERNDEF glad_glCheckFramebufferStatus:QWORD
+EXTERNDEF glad_glClampColor:QWORD
+EXTERNDEF glad_glClear:QWORD
+EXTERNDEF glad_glClearBufferfi:QWORD
+EXTERNDEF glad_glClearBufferfv:QWORD
+EXTERNDEF glad_glClearBufferiv:QWORD
+EXTERNDEF glad_glClearBufferuiv:QWORD
+EXTERNDEF glad_glClearColor:QWORD
+EXTERNDEF glad_glClearDepth:QWORD
+EXTERNDEF glad_glClearStencil:QWORD
+EXTERNDEF glad_glClientWaitSync:QWORD
+EXTERNDEF glad_glColorMask:QWORD
+EXTERNDEF glad_glColorMaski:QWORD
+EXTERNDEF glad_glCompileShader:QWORD
+EXTERNDEF glad_glCompressedTexImage1D:QWORD
+EXTERNDEF glad_glCompressedTexImage2D:QWORD
+EXTERNDEF glad_glCompressedTexImage3D:QWORD
+EXTERNDEF glad_glCompressedTexSubImage1D:QWORD
+EXTERNDEF glad_glCompressedTexSubImage2D:QWORD
+EXTERNDEF glad_glCompressedTexSubImage3D:QWORD
+EXTERNDEF glad_glCopyBufferSubData:QWORD
+EXTERNDEF glad_glCopyTexImage1D:QWORD
+EXTERNDEF glad_glCopyTexImage2D:QWORD
+EXTERNDEF glad_glCopyTexSubImage1D:QWORD
+EXTERNDEF glad_glCopyTexSubImage2D:QWORD
+EXTERNDEF glad_glCopyTexSubImage3D:QWORD
+EXTERNDEF glad_glCreateProgram:QWORD
+EXTERNDEF glad_glCreateShader:QWORD
+EXTERNDEF glad_glCullFace:QWORD
+EXTERNDEF glad_glDeleteBuffers:QWORD
+EXTERNDEF glad_glDeleteFramebuffers:QWORD
+EXTERNDEF glad_glDeleteProgram:QWORD
+EXTERNDEF glad_glDeleteQueries:QWORD
+EXTERNDEF glad_glDeleteRenderbuffers:QWORD
+EXTERNDEF glad_glDeleteSamplers:QWORD
+EXTERNDEF glad_glDeleteShader:QWORD
+EXTERNDEF glad_glDeleteSync:QWORD
+EXTERNDEF glad_glDeleteTextures:QWORD
+EXTERNDEF glad_glDeleteVertexArrays:QWORD
+EXTERNDEF glad_glDepthFunc:QWORD
+EXTERNDEF glad_glDepthMask:QWORD
+EXTERNDEF glad_glDepthRange:QWORD
+EXTERNDEF glad_glDetachShader:QWORD
+EXTERNDEF glad_glDisable:QWORD
+EXTERNDEF glad_glDisableVertexAttribArray:QWORD
+EXTERNDEF glad_glDisablei:QWORD
+EXTERNDEF glad_glDrawArrays:QWORD
+EXTERNDEF glad_glDrawArraysInstanced:QWORD
+EXTERNDEF glad_glDrawBuffer:QWORD
+EXTERNDEF glad_glDrawBuffers:QWORD
+EXTERNDEF glad_glDrawElements:QWORD
+EXTERNDEF glad_glDrawElementsBaseVertex:QWORD
+EXTERNDEF glad_glDrawElementsInstanced:QWORD
+EXTERNDEF glad_glDrawElementsInstancedBaseVertex:QWORD
+EXTERNDEF glad_glDrawRangeElements:QWORD
+EXTERNDEF glad_glDrawRangeElementsBaseVertex:QWORD
+EXTERNDEF glad_glEnable:QWORD
+EXTERNDEF glad_glEnableVertexAttribArray:QWORD
+EXTERNDEF glad_glEnablei:QWORD
+EXTERNDEF glad_glEndConditionalRender:QWORD
+EXTERNDEF glad_glEndQuery:QWORD
+EXTERNDEF glad_glEndTransformFeedback:QWORD
+EXTERNDEF glad_glFenceSync:QWORD
+EXTERNDEF glad_glFinish:QWORD
+EXTERNDEF glad_glFlush:QWORD
+EXTERNDEF glad_glFlushMappedBufferRange:QWORD
+EXTERNDEF glad_glFramebufferRenderbuffer:QWORD
+EXTERNDEF glad_glFramebufferTexture:QWORD
+EXTERNDEF glad_glFramebufferTexture1D:QWORD
+EXTERNDEF glad_glFramebufferTexture2D:QWORD
+EXTERNDEF glad_glFramebufferTexture3D:QWORD
+EXTERNDEF glad_glFramebufferTextureLayer:QWORD
+EXTERNDEF glad_glFrontFace:QWORD
+EXTERNDEF glad_glGenBuffers:QWORD
+EXTERNDEF glad_glGenFramebuffers:QWORD
+EXTERNDEF glad_glGenQueries:QWORD
+EXTERNDEF glad_glGenRenderbuffers:QWORD
+EXTERNDEF glad_glGenSamplers:QWORD
+EXTERNDEF glad_glGenTextures:QWORD
+EXTERNDEF glad_glGenVertexArrays:QWORD
+EXTERNDEF glad_glGenerateMipmap:QWORD
+EXTERNDEF glad_glGetActiveAttrib:QWORD
+EXTERNDEF glad_glGetActiveUniform:QWORD
+EXTERNDEF glad_glGetActiveUniformBlockName:QWORD
+EXTERNDEF glad_glGetActiveUniformBlockiv:QWORD
+EXTERNDEF glad_glGetActiveUniformName:QWORD
+EXTERNDEF glad_glGetActiveUniformsiv:QWORD
+EXTERNDEF glad_glGetAttachedShaders:QWORD
+glad_glActiveTexture NULL
+glad_glAttachShader NULL
+glad_glBeginConditionalRender NULL
+glad_glBeginQuery NULL
+glad_glBeginTransformFeedback NULL
+glad_glBindAttribLocation NULL
+glad_glBindBuffer NULL
+glad_glBindBufferBase NULL
+glad_glBindBufferRange NULL
+glad_glBindFragDataLocation NULL
+glad_glBindFragDataLocationIndexed NULL
+glad_glBindFramebuffer NULL
+glad_glBindRenderbuffer NULL
+glad_glBindSampler NULL
+glad_glBindTexture NULL
+glad_glBindVertexArray NULL
+glad_glBlendColor NULL
+glad_glBlendEquation NULL
+glad_glBlendEquationSeparate NULL
+glad_glBlendFunc NULL
+glad_glBlendFuncSeparate NULL
+glad_glBlitFramebuffer NULL
+glad_glBufferData NULL
+glad_glBufferSubData NULL
+glad_glCheckFramebufferStatus NULL
+glad_glClampColor NULL
+glad_glClear NULL
+glad_glClearBufferfi NULL
+glad_glClearBufferfv NULL
+glad_glClearBufferiv NULL
+glad_glClearBufferuiv NULL
+glad_glClearColor NULL
+glad_glClearDepth NULL
+glad_glClearStencil NULL
+glad_glClientWaitSync NULL
+glad_glColorMask NULL
+glad_glColorMaski NULL
+glad_glCompileShader NULL
+glad_glCompressedTexImage1D NULL
+glad_glCompressedTexImage2D NULL
+glad_glCompressedTexImage3D NULL
+glad_glCompressedTexSubImage1D NULL
+glad_glCompressedTexSubImage2D NULL
+glad_glCompressedTexSubImage3D NULL
+glad_glCopyBufferSubData NULL
+glad_glCopyTexImage1D NULL
+glad_glCopyTexImage2D NULL
+glad_glCopyTexSubImage1D NULL
+glad_glCopyTexSubImage2D NULL
+glad_glCopyTexSubImage3D NULL
+glad_glCreateProgram NULL
+glad_glCreateShader NULL
+glad_glCullFace NULL
+glad_glDeleteBuffers NULL
+glad_glDeleteFramebuffers NULL
+glad_glDeleteProgram NULL
+glad_glDeleteQueries NULL
+glad_glDeleteRenderbuffers NULL
+glad_glDeleteSamplers NULL
+glad_glDeleteShader NULL
+glad_glDeleteSync NULL
+glad_glDeleteTextures NULL
+glad_glDeleteVertexArrays NULL
+glad_glDepthFunc NULL
+glad_glDepthMask NULL
+glad_glDepthRange NULL
+glad_glDetachShader NULL
+glad_glDisable NULL
+glad_glDisableVertexAttribArray NULL
+glad_glDisablei NULL
+glad_glDrawArrays NULL
+glad_glDrawArraysInstanced NULL
+glad_glDrawBuffer NULL
+glad_glDrawBuffers NULL
+glad_glDrawElements NULL
+glad_glDrawElementsBaseVertex NULL
+glad_glDrawElementsInstanced NULL
+glad_glDrawElementsInstancedBaseVertex NULL
+glad_glDrawRangeElements NULL
+glad_glDrawRangeElementsBaseVertex NULL
+glad_glEnable NULL
+glad_glEnableVertexAttribArray NULL
+glad_glEnablei NULL
+glad_glEndConditionalRender NULL
+glad_glEndQuery NULL
+glad_glEndTransformFeedback NULL
+glad_glFenceSync NULL
+glad_glFinish NULL
+glad_glFlush NULL
+glad_glFlushMappedBufferRange NULL
+glad_glFramebufferRenderbuffer NULL
+glad_glFramebufferTexture NULL
+glad_glFramebufferTexture1D NULL
+glad_glFramebufferTexture2D NULL
+glad_glFramebufferTexture3D NULL
+glad_glFramebufferTextureLayer NULL
+glad_glFrontFace NULL
+glad_glGenBuffers NULL
+glad_glGenFramebuffers NULL
+glad_glGenQueries NULL
+glad_glGenRenderbuffers NULL
+glad_glGenSamplers NULL
+glad_glGenTextures NULL
+glad_glGenVertexArrays NULL
+glad_glGenerateMipmap NULL
+glad_glGetActiveAttrib NULL
+glad_glGetActiveUniform NULL
+glad_glGetActiveUniformBlockName NULL
+glad_glGetActiveUniformBlockiv NULL
+glad_glGetActiveUniformName NULL
+glad_glGetActiveUniformsiv NULL
+glad_glGetAttachedShaders NULL
 
 
-
-GLAD_API_CALL int gladLoadGLUserPtr( GLADuserptrloadfunc load, void *userptr);
-GLAD_API_CALL int gladLoadGL( GLADloadfunc load);
-
-
-
-#ifdef __cplusplus
-}
-#endif
-#endif
-
-/* Source */
-#ifdef GLAD_GL_IMPLEMENTATION
-/**
- * SPDX-License-Identifier: (WTFPL OR CC0-1.0) AND Apache-2.0
- */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#ifndef GLAD_IMPL_UTIL_C_
-#define GLAD_IMPL_UTIL_C_
-
-#ifdef _MSC_VER
-#define GLAD_IMPL_UTIL_SSCANF sscanf_s
-#else
-#define GLAD_IMPL_UTIL_SSCANF sscanf
-#endif
-
-#endif /* GLAD_IMPL_UTIL_C_ */
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-
-
-int GLAD_GL_VERSION_1_0 = 0;
-int GLAD_GL_VERSION_1_1 = 0;
-int GLAD_GL_VERSION_1_2 = 0;
-int GLAD_GL_VERSION_1_3 = 0;
-int GLAD_GL_VERSION_1_4 = 0;
-int GLAD_GL_VERSION_1_5 = 0;
-int GLAD_GL_VERSION_2_0 = 0;
-int GLAD_GL_VERSION_2_1 = 0;
-int GLAD_GL_VERSION_3_0 = 0;
-int GLAD_GL_VERSION_3_1 = 0;
-int GLAD_GL_VERSION_3_2 = 0;
-int GLAD_GL_VERSION_3_3 = 0;
-
-
-
-PFNGLACTIVETEXTUREPROC glad_glActiveTexture = NULL;
-PFNGLATTACHSHADERPROC glad_glAttachShader = NULL;
-PFNGLBEGINCONDITIONALRENDERPROC glad_glBeginConditionalRender = NULL;
-PFNGLBEGINQUERYPROC glad_glBeginQuery = NULL;
-PFNGLBEGINTRANSFORMFEEDBACKPROC glad_glBeginTransformFeedback = NULL;
-PFNGLBINDATTRIBLOCATIONPROC glad_glBindAttribLocation = NULL;
-PFNGLBINDBUFFERPROC glad_glBindBuffer = NULL;
-PFNGLBINDBUFFERBASEPROC glad_glBindBufferBase = NULL;
-PFNGLBINDBUFFERRANGEPROC glad_glBindBufferRange = NULL;
-PFNGLBINDFRAGDATALOCATIONPROC glad_glBindFragDataLocation = NULL;
-PFNGLBINDFRAGDATALOCATIONINDEXEDPROC glad_glBindFragDataLocationIndexed = NULL;
-PFNGLBINDFRAMEBUFFERPROC glad_glBindFramebuffer = NULL;
-PFNGLBINDRENDERBUFFERPROC glad_glBindRenderbuffer = NULL;
-PFNGLBINDSAMPLERPROC glad_glBindSampler = NULL;
-PFNGLBINDTEXTUREPROC glad_glBindTexture = NULL;
-PFNGLBINDVERTEXARRAYPROC glad_glBindVertexArray = NULL;
-PFNGLBLENDCOLORPROC glad_glBlendColor = NULL;
-PFNGLBLENDEQUATIONPROC glad_glBlendEquation = NULL;
-PFNGLBLENDEQUATIONSEPARATEPROC glad_glBlendEquationSeparate = NULL;
-PFNGLBLENDFUNCPROC glad_glBlendFunc = NULL;
-PFNGLBLENDFUNCSEPARATEPROC glad_glBlendFuncSeparate = NULL;
-PFNGLBLITFRAMEBUFFERPROC glad_glBlitFramebuffer = NULL;
-PFNGLBUFFERDATAPROC glad_glBufferData = NULL;
-PFNGLBUFFERSUBDATAPROC glad_glBufferSubData = NULL;
-PFNGLCHECKFRAMEBUFFERSTATUSPROC glad_glCheckFramebufferStatus = NULL;
-PFNGLCLAMPCOLORPROC glad_glClampColor = NULL;
-PFNGLCLEARPROC glad_glClear = NULL;
-PFNGLCLEARBUFFERFIPROC glad_glClearBufferfi = NULL;
-PFNGLCLEARBUFFERFVPROC glad_glClearBufferfv = NULL;
-PFNGLCLEARBUFFERIVPROC glad_glClearBufferiv = NULL;
-PFNGLCLEARBUFFERUIVPROC glad_glClearBufferuiv = NULL;
-PFNGLCLEARCOLORPROC glad_glClearColor = NULL;
-PFNGLCLEARDEPTHPROC glad_glClearDepth = NULL;
-PFNGLCLEARSTENCILPROC glad_glClearStencil = NULL;
-PFNGLCLIENTWAITSYNCPROC glad_glClientWaitSync = NULL;
-PFNGLCOLORMASKPROC glad_glColorMask = NULL;
-PFNGLCOLORMASKIPROC glad_glColorMaski = NULL;
-PFNGLCOMPILESHADERPROC glad_glCompileShader = NULL;
-PFNGLCOMPRESSEDTEXIMAGE1DPROC glad_glCompressedTexImage1D = NULL;
-PFNGLCOMPRESSEDTEXIMAGE2DPROC glad_glCompressedTexImage2D = NULL;
-PFNGLCOMPRESSEDTEXIMAGE3DPROC glad_glCompressedTexImage3D = NULL;
-PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC glad_glCompressedTexSubImage1D = NULL;
-PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC glad_glCompressedTexSubImage2D = NULL;
-PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC glad_glCompressedTexSubImage3D = NULL;
-PFNGLCOPYBUFFERSUBDATAPROC glad_glCopyBufferSubData = NULL;
-PFNGLCOPYTEXIMAGE1DPROC glad_glCopyTexImage1D = NULL;
-PFNGLCOPYTEXIMAGE2DPROC glad_glCopyTexImage2D = NULL;
-PFNGLCOPYTEXSUBIMAGE1DPROC glad_glCopyTexSubImage1D = NULL;
-PFNGLCOPYTEXSUBIMAGE2DPROC glad_glCopyTexSubImage2D = NULL;
-PFNGLCOPYTEXSUBIMAGE3DPROC glad_glCopyTexSubImage3D = NULL;
-PFNGLCREATEPROGRAMPROC glad_glCreateProgram = NULL;
-PFNGLCREATESHADERPROC glad_glCreateShader = NULL;
-PFNGLCULLFACEPROC glad_glCullFace = NULL;
-PFNGLDELETEBUFFERSPROC glad_glDeleteBuffers = NULL;
-PFNGLDELETEFRAMEBUFFERSPROC glad_glDeleteFramebuffers = NULL;
-PFNGLDELETEPROGRAMPROC glad_glDeleteProgram = NULL;
-PFNGLDELETEQUERIESPROC glad_glDeleteQueries = NULL;
-PFNGLDELETERENDERBUFFERSPROC glad_glDeleteRenderbuffers = NULL;
-PFNGLDELETESAMPLERSPROC glad_glDeleteSamplers = NULL;
-PFNGLDELETESHADERPROC glad_glDeleteShader = NULL;
-PFNGLDELETESYNCPROC glad_glDeleteSync = NULL;
-PFNGLDELETETEXTURESPROC glad_glDeleteTextures = NULL;
-PFNGLDELETEVERTEXARRAYSPROC glad_glDeleteVertexArrays = NULL;
-PFNGLDEPTHFUNCPROC glad_glDepthFunc = NULL;
-PFNGLDEPTHMASKPROC glad_glDepthMask = NULL;
-PFNGLDEPTHRANGEPROC glad_glDepthRange = NULL;
-PFNGLDETACHSHADERPROC glad_glDetachShader = NULL;
-PFNGLDISABLEPROC glad_glDisable = NULL;
-PFNGLDISABLEVERTEXATTRIBARRAYPROC glad_glDisableVertexAttribArray = NULL;
-PFNGLDISABLEIPROC glad_glDisablei = NULL;
-PFNGLDRAWARRAYSPROC glad_glDrawArrays = NULL;
-PFNGLDRAWARRAYSINSTANCEDPROC glad_glDrawArraysInstanced = NULL;
-PFNGLDRAWBUFFERPROC glad_glDrawBuffer = NULL;
-PFNGLDRAWBUFFERSPROC glad_glDrawBuffers = NULL;
-PFNGLDRAWELEMENTSPROC glad_glDrawElements = NULL;
-PFNGLDRAWELEMENTSBASEVERTEXPROC glad_glDrawElementsBaseVertex = NULL;
-PFNGLDRAWELEMENTSINSTANCEDPROC glad_glDrawElementsInstanced = NULL;
-PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC glad_glDrawElementsInstancedBaseVertex = NULL;
-PFNGLDRAWRANGEELEMENTSPROC glad_glDrawRangeElements = NULL;
-PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC glad_glDrawRangeElementsBaseVertex = NULL;
-PFNGLENABLEPROC glad_glEnable = NULL;
-PFNGLENABLEVERTEXATTRIBARRAYPROC glad_glEnableVertexAttribArray = NULL;
-PFNGLENABLEIPROC glad_glEnablei = NULL;
-PFNGLENDCONDITIONALRENDERPROC glad_glEndConditionalRender = NULL;
-PFNGLENDQUERYPROC glad_glEndQuery = NULL;
-PFNGLENDTRANSFORMFEEDBACKPROC glad_glEndTransformFeedback = NULL;
-PFNGLFENCESYNCPROC glad_glFenceSync = NULL;
-PFNGLFINISHPROC glad_glFinish = NULL;
-PFNGLFLUSHPROC glad_glFlush = NULL;
-PFNGLFLUSHMAPPEDBUFFERRANGEPROC glad_glFlushMappedBufferRange = NULL;
-PFNGLFRAMEBUFFERRENDERBUFFERPROC glad_glFramebufferRenderbuffer = NULL;
-PFNGLFRAMEBUFFERTEXTUREPROC glad_glFramebufferTexture = NULL;
-PFNGLFRAMEBUFFERTEXTURE1DPROC glad_glFramebufferTexture1D = NULL;
-PFNGLFRAMEBUFFERTEXTURE2DPROC glad_glFramebufferTexture2D = NULL;
-PFNGLFRAMEBUFFERTEXTURE3DPROC glad_glFramebufferTexture3D = NULL;
-PFNGLFRAMEBUFFERTEXTURELAYERPROC glad_glFramebufferTextureLayer = NULL;
-PFNGLFRONTFACEPROC glad_glFrontFace = NULL;
-PFNGLGENBUFFERSPROC glad_glGenBuffers = NULL;
-PFNGLGENFRAMEBUFFERSPROC glad_glGenFramebuffers = NULL;
-PFNGLGENQUERIESPROC glad_glGenQueries = NULL;
-PFNGLGENRENDERBUFFERSPROC glad_glGenRenderbuffers = NULL;
-PFNGLGENSAMPLERSPROC glad_glGenSamplers = NULL;
-PFNGLGENTEXTURESPROC glad_glGenTextures = NULL;
-PFNGLGENVERTEXARRAYSPROC glad_glGenVertexArrays = NULL;
-PFNGLGENERATEMIPMAPPROC glad_glGenerateMipmap = NULL;
-PFNGLGETACTIVEATTRIBPROC glad_glGetActiveAttrib = NULL;
-PFNGLGETACTIVEUNIFORMPROC glad_glGetActiveUniform = NULL;
-PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC glad_glGetActiveUniformBlockName = NULL;
-PFNGLGETACTIVEUNIFORMBLOCKIVPROC glad_glGetActiveUniformBlockiv = NULL;
-PFNGLGETACTIVEUNIFORMNAMEPROC glad_glGetActiveUniformName = NULL;
-PFNGLGETACTIVEUNIFORMSIVPROC glad_glGetActiveUniformsiv = NULL;
-PFNGLGETATTACHEDSHADERSPROC glad_glGetAttachedShaders = NULL;
-PFNGLGETATTRIBLOCATIONPROC glad_glGetAttribLocation = NULL;
-PFNGLGETBOOLEANI_VPROC glad_glGetBooleani_v = NULL;
-PFNGLGETBOOLEANVPROC glad_glGetBooleanv = NULL;
-PFNGLGETBUFFERPARAMETERI64VPROC glad_glGetBufferParameteri64v = NULL;
-PFNGLGETBUFFERPARAMETERIVPROC glad_glGetBufferParameteriv = NULL;
-PFNGLGETBUFFERPOINTERVPROC glad_glGetBufferPointerv = NULL;
-PFNGLGETBUFFERSUBDATAPROC glad_glGetBufferSubData = NULL;
-PFNGLGETCOMPRESSEDTEXIMAGEPROC glad_glGetCompressedTexImage = NULL;
-PFNGLGETDOUBLEVPROC glad_glGetDoublev = NULL;
-PFNGLGETERRORPROC glad_glGetError = NULL;
-PFNGLGETFLOATVPROC glad_glGetFloatv = NULL;
-PFNGLGETFRAGDATAINDEXPROC glad_glGetFragDataIndex = NULL;
-PFNGLGETFRAGDATALOCATIONPROC glad_glGetFragDataLocation = NULL;
-PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC glad_glGetFramebufferAttachmentParameteriv = NULL;
-PFNGLGETINTEGER64I_VPROC glad_glGetInteger64i_v = NULL;
-PFNGLGETINTEGER64VPROC glad_glGetInteger64v = NULL;
-PFNGLGETINTEGERI_VPROC glad_glGetIntegeri_v = NULL;
-PFNGLGETINTEGERVPROC glad_glGetIntegerv = NULL;
-PFNGLGETMULTISAMPLEFVPROC glad_glGetMultisamplefv = NULL;
-PFNGLGETPROGRAMINFOLOGPROC glad_glGetProgramInfoLog = NULL;
-PFNGLGETPROGRAMIVPROC glad_glGetProgramiv = NULL;
-PFNGLGETQUERYOBJECTI64VPROC glad_glGetQueryObjecti64v = NULL;
-PFNGLGETQUERYOBJECTIVPROC glad_glGetQueryObjectiv = NULL;
-PFNGLGETQUERYOBJECTUI64VPROC glad_glGetQueryObjectui64v = NULL;
-PFNGLGETQUERYOBJECTUIVPROC glad_glGetQueryObjectuiv = NULL;
-PFNGLGETQUERYIVPROC glad_glGetQueryiv = NULL;
-PFNGLGETRENDERBUFFERPARAMETERIVPROC glad_glGetRenderbufferParameteriv = NULL;
-PFNGLGETSAMPLERPARAMETERIIVPROC glad_glGetSamplerParameterIiv = NULL;
-PFNGLGETSAMPLERPARAMETERIUIVPROC glad_glGetSamplerParameterIuiv = NULL;
-PFNGLGETSAMPLERPARAMETERFVPROC glad_glGetSamplerParameterfv = NULL;
-PFNGLGETSAMPLERPARAMETERIVPROC glad_glGetSamplerParameteriv = NULL;
-PFNGLGETSHADERINFOLOGPROC glad_glGetShaderInfoLog = NULL;
-PFNGLGETSHADERSOURCEPROC glad_glGetShaderSource = NULL;
-PFNGLGETSHADERIVPROC glad_glGetShaderiv = NULL;
-PFNGLGETSTRINGPROC glad_glGetString = NULL;
-PFNGLGETSTRINGIPROC glad_glGetStringi = NULL;
-PFNGLGETSYNCIVPROC glad_glGetSynciv = NULL;
-PFNGLGETTEXIMAGEPROC glad_glGetTexImage = NULL;
-PFNGLGETTEXLEVELPARAMETERFVPROC glad_glGetTexLevelParameterfv = NULL;
-PFNGLGETTEXLEVELPARAMETERIVPROC glad_glGetTexLevelParameteriv = NULL;
-PFNGLGETTEXPARAMETERIIVPROC glad_glGetTexParameterIiv = NULL;
-PFNGLGETTEXPARAMETERIUIVPROC glad_glGetTexParameterIuiv = NULL;
-PFNGLGETTEXPARAMETERFVPROC glad_glGetTexParameterfv = NULL;
-PFNGLGETTEXPARAMETERIVPROC glad_glGetTexParameteriv = NULL;
-PFNGLGETTRANSFORMFEEDBACKVARYINGPROC glad_glGetTransformFeedbackVarying = NULL;
-PFNGLGETUNIFORMBLOCKINDEXPROC glad_glGetUniformBlockIndex = NULL;
-PFNGLGETUNIFORMINDICESPROC glad_glGetUniformIndices = NULL;
-PFNGLGETUNIFORMLOCATIONPROC glad_glGetUniformLocation = NULL;
-PFNGLGETUNIFORMFVPROC glad_glGetUniformfv = NULL;
-PFNGLGETUNIFORMIVPROC glad_glGetUniformiv = NULL;
-PFNGLGETUNIFORMUIVPROC glad_glGetUniformuiv = NULL;
-PFNGLGETVERTEXATTRIBIIVPROC glad_glGetVertexAttribIiv = NULL;
-PFNGLGETVERTEXATTRIBIUIVPROC glad_glGetVertexAttribIuiv = NULL;
-PFNGLGETVERTEXATTRIBPOINTERVPROC glad_glGetVertexAttribPointerv = NULL;
-PFNGLGETVERTEXATTRIBDVPROC glad_glGetVertexAttribdv = NULL;
-PFNGLGETVERTEXATTRIBFVPROC glad_glGetVertexAttribfv = NULL;
-PFNGLGETVERTEXATTRIBIVPROC glad_glGetVertexAttribiv = NULL;
-PFNGLHINTPROC glad_glHint = NULL;
-PFNGLISBUFFERPROC glad_glIsBuffer = NULL;
-PFNGLISENABLEDPROC glad_glIsEnabled = NULL;
-PFNGLISENABLEDIPROC glad_glIsEnabledi = NULL;
-PFNGLISFRAMEBUFFERPROC glad_glIsFramebuffer = NULL;
-PFNGLISPROGRAMPROC glad_glIsProgram = NULL;
-PFNGLISQUERYPROC glad_glIsQuery = NULL;
-PFNGLISRENDERBUFFERPROC glad_glIsRenderbuffer = NULL;
-PFNGLISSAMPLERPROC glad_glIsSampler = NULL;
-PFNGLISSHADERPROC glad_glIsShader = NULL;
-PFNGLISSYNCPROC glad_glIsSync = NULL;
-PFNGLISTEXTUREPROC glad_glIsTexture = NULL;
-PFNGLISVERTEXARRAYPROC glad_glIsVertexArray = NULL;
-PFNGLLINEWIDTHPROC glad_glLineWidth = NULL;
-PFNGLLINKPROGRAMPROC glad_glLinkProgram = NULL;
-PFNGLLOGICOPPROC glad_glLogicOp = NULL;
-PFNGLMAPBUFFERPROC glad_glMapBuffer = NULL;
-PFNGLMAPBUFFERRANGEPROC glad_glMapBufferRange = NULL;
-PFNGLMULTIDRAWARRAYSPROC glad_glMultiDrawArrays = NULL;
-PFNGLMULTIDRAWELEMENTSPROC glad_glMultiDrawElements = NULL;
-PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC glad_glMultiDrawElementsBaseVertex = NULL;
-PFNGLPIXELSTOREFPROC glad_glPixelStoref = NULL;
-PFNGLPIXELSTOREIPROC glad_glPixelStorei = NULL;
-PFNGLPOINTPARAMETERFPROC glad_glPointParameterf = NULL;
-PFNGLPOINTPARAMETERFVPROC glad_glPointParameterfv = NULL;
-PFNGLPOINTPARAMETERIPROC glad_glPointParameteri = NULL;
-PFNGLPOINTPARAMETERIVPROC glad_glPointParameteriv = NULL;
-PFNGLPOINTSIZEPROC glad_glPointSize = NULL;
-PFNGLPOLYGONMODEPROC glad_glPolygonMode = NULL;
-PFNGLPOLYGONOFFSETPROC glad_glPolygonOffset = NULL;
-PFNGLPRIMITIVERESTARTINDEXPROC glad_glPrimitiveRestartIndex = NULL;
-PFNGLPROVOKINGVERTEXPROC glad_glProvokingVertex = NULL;
-PFNGLQUERYCOUNTERPROC glad_glQueryCounter = NULL;
-PFNGLREADBUFFERPROC glad_glReadBuffer = NULL;
-PFNGLREADPIXELSPROC glad_glReadPixels = NULL;
-PFNGLRENDERBUFFERSTORAGEPROC glad_glRenderbufferStorage = NULL;
-PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC glad_glRenderbufferStorageMultisample = NULL;
-PFNGLSAMPLECOVERAGEPROC glad_glSampleCoverage = NULL;
-PFNGLSAMPLEMASKIPROC glad_glSampleMaski = NULL;
-PFNGLSAMPLERPARAMETERIIVPROC glad_glSamplerParameterIiv = NULL;
-PFNGLSAMPLERPARAMETERIUIVPROC glad_glSamplerParameterIuiv = NULL;
-PFNGLSAMPLERPARAMETERFPROC glad_glSamplerParameterf = NULL;
-PFNGLSAMPLERPARAMETERFVPROC glad_glSamplerParameterfv = NULL;
-PFNGLSAMPLERPARAMETERIPROC glad_glSamplerParameteri = NULL;
-PFNGLSAMPLERPARAMETERIVPROC glad_glSamplerParameteriv = NULL;
-PFNGLSCISSORPROC glad_glScissor = NULL;
-PFNGLSHADERSOURCEPROC glad_glShaderSource = NULL;
-PFNGLSTENCILFUNCPROC glad_glStencilFunc = NULL;
-PFNGLSTENCILFUNCSEPARATEPROC glad_glStencilFuncSeparate = NULL;
-PFNGLSTENCILMASKPROC glad_glStencilMask = NULL;
-PFNGLSTENCILMASKSEPARATEPROC glad_glStencilMaskSeparate = NULL;
-PFNGLSTENCILOPPROC glad_glStencilOp = NULL;
-PFNGLSTENCILOPSEPARATEPROC glad_glStencilOpSeparate = NULL;
-PFNGLTEXBUFFERPROC glad_glTexBuffer = NULL;
-PFNGLTEXIMAGE1DPROC glad_glTexImage1D = NULL;
-PFNGLTEXIMAGE2DPROC glad_glTexImage2D = NULL;
-PFNGLTEXIMAGE2DMULTISAMPLEPROC glad_glTexImage2DMultisample = NULL;
-PFNGLTEXIMAGE3DPROC glad_glTexImage3D = NULL;
-PFNGLTEXIMAGE3DMULTISAMPLEPROC glad_glTexImage3DMultisample = NULL;
-PFNGLTEXPARAMETERIIVPROC glad_glTexParameterIiv = NULL;
-PFNGLTEXPARAMETERIUIVPROC glad_glTexParameterIuiv = NULL;
-PFNGLTEXPARAMETERFPROC glad_glTexParameterf = NULL;
-PFNGLTEXPARAMETERFVPROC glad_glTexParameterfv = NULL;
-PFNGLTEXPARAMETERIPROC glad_glTexParameteri = NULL;
-PFNGLTEXPARAMETERIVPROC glad_glTexParameteriv = NULL;
-PFNGLTEXSUBIMAGE1DPROC glad_glTexSubImage1D = NULL;
-PFNGLTEXSUBIMAGE2DPROC glad_glTexSubImage2D = NULL;
-PFNGLTEXSUBIMAGE3DPROC glad_glTexSubImage3D = NULL;
-PFNGLTRANSFORMFEEDBACKVARYINGSPROC glad_glTransformFeedbackVaryings = NULL;
-PFNGLUNIFORM1FPROC glad_glUniform1f = NULL;
-PFNGLUNIFORM1FVPROC glad_glUniform1fv = NULL;
-PFNGLUNIFORM1IPROC glad_glUniform1i = NULL;
-PFNGLUNIFORM1IVPROC glad_glUniform1iv = NULL;
-PFNGLUNIFORM1UIPROC glad_glUniform1ui = NULL;
-PFNGLUNIFORM1UIVPROC glad_glUniform1uiv = NULL;
-PFNGLUNIFORM2FPROC glad_glUniform2f = NULL;
-PFNGLUNIFORM2FVPROC glad_glUniform2fv = NULL;
-PFNGLUNIFORM2IPROC glad_glUniform2i = NULL;
-PFNGLUNIFORM2IVPROC glad_glUniform2iv = NULL;
-PFNGLUNIFORM2UIPROC glad_glUniform2ui = NULL;
-PFNGLUNIFORM2UIVPROC glad_glUniform2uiv = NULL;
-PFNGLUNIFORM3FPROC glad_glUniform3f = NULL;
-PFNGLUNIFORM3FVPROC glad_glUniform3fv = NULL;
-PFNGLUNIFORM3IPROC glad_glUniform3i = NULL;
-PFNGLUNIFORM3IVPROC glad_glUniform3iv = NULL;
-PFNGLUNIFORM3UIPROC glad_glUniform3ui = NULL;
-PFNGLUNIFORM3UIVPROC glad_glUniform3uiv = NULL;
-PFNGLUNIFORM4FPROC glad_glUniform4f = NULL;
-PFNGLUNIFORM4FVPROC glad_glUniform4fv = NULL;
-PFNGLUNIFORM4IPROC glad_glUniform4i = NULL;
-PFNGLUNIFORM4IVPROC glad_glUniform4iv = NULL;
-PFNGLUNIFORM4UIPROC glad_glUniform4ui = NULL;
-PFNGLUNIFORM4UIVPROC glad_glUniform4uiv = NULL;
-PFNGLUNIFORMBLOCKBINDINGPROC glad_glUniformBlockBinding = NULL;
-PFNGLUNIFORMMATRIX2FVPROC glad_glUniformMatrix2fv = NULL;
-PFNGLUNIFORMMATRIX2X3FVPROC glad_glUniformMatrix2x3fv = NULL;
-PFNGLUNIFORMMATRIX2X4FVPROC glad_glUniformMatrix2x4fv = NULL;
-PFNGLUNIFORMMATRIX3FVPROC glad_glUniformMatrix3fv = NULL;
-PFNGLUNIFORMMATRIX3X2FVPROC glad_glUniformMatrix3x2fv = NULL;
-PFNGLUNIFORMMATRIX3X4FVPROC glad_glUniformMatrix3x4fv = NULL;
-PFNGLUNIFORMMATRIX4FVPROC glad_glUniformMatrix4fv = NULL;
-PFNGLUNIFORMMATRIX4X2FVPROC glad_glUniformMatrix4x2fv = NULL;
-PFNGLUNIFORMMATRIX4X3FVPROC glad_glUniformMatrix4x3fv = NULL;
-PFNGLUNMAPBUFFERPROC glad_glUnmapBuffer = NULL;
-PFNGLUSEPROGRAMPROC glad_glUseProgram = NULL;
-PFNGLVALIDATEPROGRAMPROC glad_glValidateProgram = NULL;
-PFNGLVERTEXATTRIB1DPROC glad_glVertexAttrib1d = NULL;
-PFNGLVERTEXATTRIB1DVPROC glad_glVertexAttrib1dv = NULL;
-PFNGLVERTEXATTRIB1FPROC glad_glVertexAttrib1f = NULL;
-PFNGLVERTEXATTRIB1FVPROC glad_glVertexAttrib1fv = NULL;
-PFNGLVERTEXATTRIB1SPROC glad_glVertexAttrib1s = NULL;
-PFNGLVERTEXATTRIB1SVPROC glad_glVertexAttrib1sv = NULL;
-PFNGLVERTEXATTRIB2DPROC glad_glVertexAttrib2d = NULL;
-PFNGLVERTEXATTRIB2DVPROC glad_glVertexAttrib2dv = NULL;
-PFNGLVERTEXATTRIB2FPROC glad_glVertexAttrib2f = NULL;
-PFNGLVERTEXATTRIB2FVPROC glad_glVertexAttrib2fv = NULL;
-PFNGLVERTEXATTRIB2SPROC glad_glVertexAttrib2s = NULL;
-PFNGLVERTEXATTRIB2SVPROC glad_glVertexAttrib2sv = NULL;
-PFNGLVERTEXATTRIB3DPROC glad_glVertexAttrib3d = NULL;
-PFNGLVERTEXATTRIB3DVPROC glad_glVertexAttrib3dv = NULL;
-PFNGLVERTEXATTRIB3FPROC glad_glVertexAttrib3f = NULL;
-PFNGLVERTEXATTRIB3FVPROC glad_glVertexAttrib3fv = NULL;
-PFNGLVERTEXATTRIB3SPROC glad_glVertexAttrib3s = NULL;
-PFNGLVERTEXATTRIB3SVPROC glad_glVertexAttrib3sv = NULL;
-PFNGLVERTEXATTRIB4NBVPROC glad_glVertexAttrib4Nbv = NULL;
-PFNGLVERTEXATTRIB4NIVPROC glad_glVertexAttrib4Niv = NULL;
-PFNGLVERTEXATTRIB4NSVPROC glad_glVertexAttrib4Nsv = NULL;
-PFNGLVERTEXATTRIB4NUBPROC glad_glVertexAttrib4Nub = NULL;
-PFNGLVERTEXATTRIB4NUBVPROC glad_glVertexAttrib4Nubv = NULL;
-PFNGLVERTEXATTRIB4NUIVPROC glad_glVertexAttrib4Nuiv = NULL;
-PFNGLVERTEXATTRIB4NUSVPROC glad_glVertexAttrib4Nusv = NULL;
-PFNGLVERTEXATTRIB4BVPROC glad_glVertexAttrib4bv = NULL;
-PFNGLVERTEXATTRIB4DPROC glad_glVertexAttrib4d = NULL;
-PFNGLVERTEXATTRIB4DVPROC glad_glVertexAttrib4dv = NULL;
-PFNGLVERTEXATTRIB4FPROC glad_glVertexAttrib4f = NULL;
-PFNGLVERTEXATTRIB4FVPROC glad_glVertexAttrib4fv = NULL;
-PFNGLVERTEXATTRIB4IVPROC glad_glVertexAttrib4iv = NULL;
-PFNGLVERTEXATTRIB4SPROC glad_glVertexAttrib4s = NULL;
-PFNGLVERTEXATTRIB4SVPROC glad_glVertexAttrib4sv = NULL;
-PFNGLVERTEXATTRIB4UBVPROC glad_glVertexAttrib4ubv = NULL;
-PFNGLVERTEXATTRIB4UIVPROC glad_glVertexAttrib4uiv = NULL;
-PFNGLVERTEXATTRIB4USVPROC glad_glVertexAttrib4usv = NULL;
-PFNGLVERTEXATTRIBDIVISORPROC glad_glVertexAttribDivisor = NULL;
-PFNGLVERTEXATTRIBI1IPROC glad_glVertexAttribI1i = NULL;
-PFNGLVERTEXATTRIBI1IVPROC glad_glVertexAttribI1iv = NULL;
-PFNGLVERTEXATTRIBI1UIPROC glad_glVertexAttribI1ui = NULL;
-PFNGLVERTEXATTRIBI1UIVPROC glad_glVertexAttribI1uiv = NULL;
-PFNGLVERTEXATTRIBI2IPROC glad_glVertexAttribI2i = NULL;
-PFNGLVERTEXATTRIBI2IVPROC glad_glVertexAttribI2iv = NULL;
-PFNGLVERTEXATTRIBI2UIPROC glad_glVertexAttribI2ui = NULL;
-PFNGLVERTEXATTRIBI2UIVPROC glad_glVertexAttribI2uiv = NULL;
-PFNGLVERTEXATTRIBI3IPROC glad_glVertexAttribI3i = NULL;
-PFNGLVERTEXATTRIBI3IVPROC glad_glVertexAttribI3iv = NULL;
-PFNGLVERTEXATTRIBI3UIPROC glad_glVertexAttribI3ui = NULL;
-PFNGLVERTEXATTRIBI3UIVPROC glad_glVertexAttribI3uiv = NULL;
-PFNGLVERTEXATTRIBI4BVPROC glad_glVertexAttribI4bv = NULL;
-PFNGLVERTEXATTRIBI4IPROC glad_glVertexAttribI4i = NULL;
-PFNGLVERTEXATTRIBI4IVPROC glad_glVertexAttribI4iv = NULL;
-PFNGLVERTEXATTRIBI4SVPROC glad_glVertexAttribI4sv = NULL;
-PFNGLVERTEXATTRIBI4UBVPROC glad_glVertexAttribI4ubv = NULL;
-PFNGLVERTEXATTRIBI4UIPROC glad_glVertexAttribI4ui = NULL;
-PFNGLVERTEXATTRIBI4UIVPROC glad_glVertexAttribI4uiv = NULL;
-PFNGLVERTEXATTRIBI4USVPROC glad_glVertexAttribI4usv = NULL;
-PFNGLVERTEXATTRIBIPOINTERPROC glad_glVertexAttribIPointer = NULL;
-PFNGLVERTEXATTRIBP1UIPROC glad_glVertexAttribP1ui = NULL;
-PFNGLVERTEXATTRIBP1UIVPROC glad_glVertexAttribP1uiv = NULL;
-PFNGLVERTEXATTRIBP2UIPROC glad_glVertexAttribP2ui = NULL;
-PFNGLVERTEXATTRIBP2UIVPROC glad_glVertexAttribP2uiv = NULL;
-PFNGLVERTEXATTRIBP3UIPROC glad_glVertexAttribP3ui = NULL;
-PFNGLVERTEXATTRIBP3UIVPROC glad_glVertexAttribP3uiv = NULL;
-PFNGLVERTEXATTRIBP4UIPROC glad_glVertexAttribP4ui = NULL;
-PFNGLVERTEXATTRIBP4UIVPROC glad_glVertexAttribP4uiv = NULL;
-PFNGLVERTEXATTRIBPOINTERPROC glad_glVertexAttribPointer = NULL;
-PFNGLVIEWPORTPROC glad_glViewport = NULL;
-PFNGLWAITSYNCPROC glad_glWaitSync = NULL;
-
-
+; Start of untranslated
 static void glad_gl_load_GL_VERSION_1_0( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GL_VERSION_1_0) return;
     glad_glBlendFunc = (PFNGLBLENDFUNCPROC) load(userptr, "glBlendFunc");
@@ -2935,3 +2914,5 @@ int gladLoadGLUserPtr( GLADuserptrloadfunc load, void *userptr) {
 int gladLoadGL( GLADloadfunc load) {
     return gladLoadGLUserPtr( glad_gl_get_proc_from_userptr, GLAD_GNUC_EXTENSION (void*) load);
 }
+
+; End of untranslated
