@@ -3116,56 +3116,315 @@ glad_glGetAttachedShaders NULL
 
 
 ; Start of untranslated
-static void glad_gl_load_GL_VERSION_1_0( GLADuserptrloadfunc load, void* userptr) {
-    if(!GLAD_GL_VERSION_1_0) return;
-    glad_glBlendFunc = (PFNGLBLENDFUNCPROC) load(userptr, "glBlendFunc");
-    glad_glClear = (PFNGLCLEARPROC) load(userptr, "glClear");
-    glad_glClearColor = (PFNGLCLEARCOLORPROC) load(userptr, "glClearColor");
-    glad_glClearDepth = (PFNGLCLEARDEPTHPROC) load(userptr, "glClearDepth");
-    glad_glClearStencil = (PFNGLCLEARSTENCILPROC) load(userptr, "glClearStencil");
-    glad_glColorMask = (PFNGLCOLORMASKPROC) load(userptr, "glColorMask");
-    glad_glCullFace = (PFNGLCULLFACEPROC) load(userptr, "glCullFace");
-    glad_glDepthFunc = (PFNGLDEPTHFUNCPROC) load(userptr, "glDepthFunc");
-    glad_glDepthMask = (PFNGLDEPTHMASKPROC) load(userptr, "glDepthMask");
-    glad_glDepthRange = (PFNGLDEPTHRANGEPROC) load(userptr, "glDepthRange");
-    glad_glDisable = (PFNGLDISABLEPROC) load(userptr, "glDisable");
-    glad_glDrawBuffer = (PFNGLDRAWBUFFERPROC) load(userptr, "glDrawBuffer");
-    glad_glEnable = (PFNGLENABLEPROC) load(userptr, "glEnable");
-    glad_glFinish = (PFNGLFINISHPROC) load(userptr, "glFinish");
-    glad_glFlush = (PFNGLFLUSHPROC) load(userptr, "glFlush");
-    glad_glFrontFace = (PFNGLFRONTFACEPROC) load(userptr, "glFrontFace");
-    glad_glGetBooleanv = (PFNGLGETBOOLEANVPROC) load(userptr, "glGetBooleanv");
-    glad_glGetDoublev = (PFNGLGETDOUBLEVPROC) load(userptr, "glGetDoublev");
-    glad_glGetError = (PFNGLGETERRORPROC) load(userptr, "glGetError");
-    glad_glGetFloatv = (PFNGLGETFLOATVPROC) load(userptr, "glGetFloatv");
-    glad_glGetIntegerv = (PFNGLGETINTEGERVPROC) load(userptr, "glGetIntegerv");
-    glad_glGetString = (PFNGLGETSTRINGPROC) load(userptr, "glGetString");
-    glad_glGetTexImage = (PFNGLGETTEXIMAGEPROC) load(userptr, "glGetTexImage");
-    glad_glGetTexLevelParameterfv = (PFNGLGETTEXLEVELPARAMETERFVPROC) load(userptr, "glGetTexLevelParameterfv");
-    glad_glGetTexLevelParameteriv = (PFNGLGETTEXLEVELPARAMETERIVPROC) load(userptr, "glGetTexLevelParameteriv");
-    glad_glGetTexParameterfv = (PFNGLGETTEXPARAMETERFVPROC) load(userptr, "glGetTexParameterfv");
-    glad_glGetTexParameteriv = (PFNGLGETTEXPARAMETERIVPROC) load(userptr, "glGetTexParameteriv");
-    glad_glHint = (PFNGLHINTPROC) load(userptr, "glHint");
-    glad_glIsEnabled = (PFNGLISENABLEDPROC) load(userptr, "glIsEnabled");
-    glad_glLineWidth = (PFNGLLINEWIDTHPROC) load(userptr, "glLineWidth");
-    glad_glLogicOp = (PFNGLLOGICOPPROC) load(userptr, "glLogicOp");
-    glad_glPixelStoref = (PFNGLPIXELSTOREFPROC) load(userptr, "glPixelStoref");
-    glad_glPixelStorei = (PFNGLPIXELSTOREIPROC) load(userptr, "glPixelStorei");
-    glad_glPointSize = (PFNGLPOINTSIZEPROC) load(userptr, "glPointSize");
-    glad_glPolygonMode = (PFNGLPOLYGONMODEPROC) load(userptr, "glPolygonMode");
-    glad_glReadBuffer = (PFNGLREADBUFFERPROC) load(userptr, "glReadBuffer");
-    glad_glReadPixels = (PFNGLREADPIXELSPROC) load(userptr, "glReadPixels");
-    glad_glScissor = (PFNGLSCISSORPROC) load(userptr, "glScissor");
-    glad_glStencilFunc = (PFNGLSTENCILFUNCPROC) load(userptr, "glStencilFunc");
-    glad_glStencilMask = (PFNGLSTENCILMASKPROC) load(userptr, "glStencilMask");
-    glad_glStencilOp = (PFNGLSTENCILOPPROC) load(userptr, "glStencilOp");
-    glad_glTexImage1D = (PFNGLTEXIMAGE1DPROC) load(userptr, "glTexImage1D");
-    glad_glTexImage2D = (PFNGLTEXIMAGE2DPROC) load(userptr, "glTexImage2D");
-    glad_glTexParameterf = (PFNGLTEXPARAMETERFPROC) load(userptr, "glTexParameterf");
-    glad_glTexParameterfv = (PFNGLTEXPARAMETERFVPROC) load(userptr, "glTexParameterfv");
-    glad_glTexParameteri = (PFNGLTEXPARAMETERIPROC) load(userptr, "glTexParameteri");
-    glad_glTexParameteriv = (PFNGLTEXPARAMETERIVPROC) load(userptr, "glTexParameteriv");
-    glad_glViewport = (PFNGLVIEWPORTPROC) load(userptr, "glViewport");
+; Define GLAD_GL_VERSION_1_0 as external variable
+EXTERN GLAD_GL_VERSION_1_0:DWORD
+
+; Define the function pointer types as external
+EXTERN glad_glBlendFunc:QWORD
+EXTERN glad_glClear:QWORD
+EXTERN glad_glClearColor:QWORD
+EXTERN glad_glClearDepth:QWORD
+EXTERN glad_glClearStencil:QWORD
+EXTERN glad_glColorMask:QWORD
+EXTERN glad_glCullFace:QWORD
+EXTERN glad_glDepthFunc:QWORD
+EXTERN glad_glDepthMask:QWORD
+EXTERN glad_glDepthRange:QWORD
+EXTERN glad_glDisable:QWORD
+EXTERN glad_glDrawBuffer:QWORD
+EXTERN glad_glEnable:QWORD
+EXTERN glad_glFinish:QWORD
+EXTERN glad_glFlush:QWORD
+EXTERN glad_glFrontFace:QWORD
+EXTERN glad_glGetBooleanv:QWORD
+EXTERN glad_glGetDoublev:QWORD
+EXTERN glad_glGetError:QWORD
+EXTERN glad_glGetFloatv:QWORD
+EXTERN glad_glGetIntegerv:QWORD
+EXTERN glad_glGetString:QWORD
+EXTERN glad_glGetTexImage:QWORD
+EXTERN glad_glGetTexLevelParameterfv:QWORD
+EXTERN glad_glGetTexLevelParameteriv:QWORD
+EXTERN glad_glGetTexParameterfv:QWORD
+EXTERN glad_glGetTexParameteriv:QWORD
+EXTERN glad_glHint:QWORD
+EXTERN glad_glIsEnabled:QWORD
+EXTERN glad_glLineWidth:QWORD
+EXTERN glad_glLogicOp:QWORD
+EXTERN glad_glPixelStoref:QWORD
+EXTERN glad_glPixelStorei:QWORD
+EXTERN glad_glPointSize:QWORD
+EXTERN glad_glPolygonMode:QWORD
+EXTERN glad_glReadBuffer:QWORD
+EXTERN glad_glReadPixels:QWORD
+EXTERN glad_glScissor:QWORD
+EXTERN glad_glStencilFunc:QWORD
+EXTERN glad_glStencilMask:QWORD
+EXTERN glad_glStencilOp:QWORD
+EXTERN glad_glTexImage1D:QWORD
+EXTERN glad_glTexImage2D:QWORD
+EXTERN glad_glTexParameterf:QWORD
+EXTERN glad_glTexParameterfv:QWORD
+EXTERN glad_glTexParameteri:QWORD
+EXTERN glad_glTexParameteriv:QWORD
+EXTERN glad_glViewport:QWORD
+
+.code
+glad_gl_load_GL_VERSION_1_0 PROC load:QWORD, userptr:QWORD
+    ; Check if GLAD_GL_VERSION_1_0 is not set
+    mov eax, GLAD_GL_VERSION_1_0
+    test eax, eax
+    jz skip_load
+
+    ; Load function pointers using the provided load function
+    mov rcx, userptr
+    mov rdx, OFFSET glBlendFunc_name
+    call [load]
+    mov glad_glBlendFunc, rax
+
+    mov rdx, OFFSET glClear_name
+    call [load]
+    mov glad_glClear, rax
+
+    mov rdx, OFFSET glClearColor_name
+    call [load]
+    mov glad_glClearColor, rax
+
+    mov rdx, OFFSET glClearDepth_name
+    call [load]
+    mov glad_glClearDepth, rax
+
+    mov rdx, OFFSET glClearStencil_name
+    call [load]
+    mov glad_glClearStencil, rax
+
+    mov rdx, OFFSET glColorMask_name
+    call [load]
+    mov glad_glColorMask, rax
+
+    mov rdx, OFFSET glCullFace_name
+    call [load]
+    mov glad_glCullFace, rax
+
+    mov rdx, OFFSET glDepthFunc_name
+    call [load]
+    mov glad_glDepthFunc, rax
+
+    mov rdx, OFFSET glDepthMask_name
+    call [load]
+    mov glad_glDepthMask, rax
+
+    mov rdx, OFFSET glDepthRange_name
+    call [load]
+    mov glad_glDepthRange, rax
+
+    mov rdx, OFFSET glDisable_name
+    call [load]
+    mov glad_glDisable, rax
+
+    mov rdx, OFFSET glDrawBuffer_name
+    call [load]
+    mov glad_glDrawBuffer, rax
+
+    mov rdx, OFFSET glEnable_name
+    call [load]
+    mov glad_glEnable, rax
+
+    mov rdx, OFFSET glFinish_name
+    call [load]
+    mov glad_glFinish, rax
+
+    mov rdx, OFFSET glFlush_name
+    call [load]
+    mov glad_glFlush, rax
+
+    mov rdx, OFFSET glFrontFace_name
+    call [load]
+    mov glad_glFrontFace, rax
+
+    mov rdx, OFFSET glGetBooleanv_name
+    call [load]
+    mov glad_glGetBooleanv, rax
+
+    mov rdx, OFFSET glGetDoublev_name
+    call [load]
+    mov glad_glGetDoublev, rax
+
+    mov rdx, OFFSET glGetError_name
+    call [load]
+    mov glad_glGetError, rax
+
+    mov rdx, OFFSET glGetFloatv_name
+    call [load]
+    mov glad_glGetFloatv, rax
+
+    mov rdx, OFFSET glGetIntegerv_name
+    call [load]
+    mov glad_glGetIntegerv, rax
+
+    mov rdx, OFFSET glGetString_name
+    call [load]
+    mov glad_glGetString, rax
+
+    mov rdx, OFFSET glGetTexImage_name
+    call [load]
+    mov glad_glGetTexImage, rax
+
+    mov rdx, OFFSET glGetTexLevelParameterfv_name
+    call [load]
+    mov glad_glGetTexLevelParameterfv, rax
+
+    mov rdx, OFFSET glGetTexLevelParameteriv_name
+    call [load]
+    mov glad_glGetTexLevelParameteriv, rax
+
+    mov rdx, OFFSET glGetTexParameterfv_name
+    call [load]
+    mov glad_glGetTexParameterfv, rax
+
+    mov rdx, OFFSET glGetTexParameteriv_name
+    call [load]
+    mov glad_glGetTexParameteriv, rax
+
+    mov rdx, OFFSET glHint_name
+    call [load]
+    mov glad_glHint, rax
+
+    mov rdx, OFFSET glIsEnabled_name
+    call [load]
+    mov glad_glIsEnabled, rax
+
+    mov rdx, OFFSET glLineWidth_name
+    call [load]
+    mov glad_glLineWidth, rax
+
+    mov rdx, OFFSET glLogicOp_name
+    call [load]
+    mov glad_glLogicOp, rax
+
+    mov rdx, OFFSET glPixelStoref_name
+    call [load]
+    mov glad_glPixelStoref, rax
+
+    mov rdx, OFFSET glPixelStorei_name
+    call [load]
+    mov glad_glPixelStorei, rax
+
+    mov rdx, OFFSET glPointSize_name
+    call [load]
+    mov glad_glPointSize, rax
+
+    mov rdx, OFFSET glPolygonMode_name
+    call [load]
+    mov glad_glPolygonMode, rax
+
+    mov rdx, OFFSET glReadBuffer_name
+    call [load]
+    mov glad_glReadBuffer, rax
+
+    mov rdx, OFFSET glReadPixels_name
+    call [load]
+    mov glad_glReadPixels, rax
+
+    mov rdx, OFFSET glScissor_name
+    call [load]
+    mov glad_glScissor, rax
+
+    mov rdx, OFFSET glStencilFunc_name
+    call [load]
+    mov glad_glStencilFunc, rax
+
+    mov rdx, OFFSET glStencilMask_name
+    call [load]
+    mov glad_glStencilMask, rax
+
+    mov rdx, OFFSET glStencilOp_name
+    call [load]
+    mov glad_glStencilOp, rax
+
+    mov rdx, OFFSET glTexImage1D_name
+    call [load]
+    mov glad_glTexImage1D, rax
+
+    mov rdx, OFFSET glTexImage2D_name
+    call [load]
+    mov glad_glTexImage2D, rax
+
+    mov rdx, OFFSET glTexParameterf_name
+    call [load]
+    mov glad_glTexParameterf, rax
+
+    mov rdx, OFFSET glTexParameterfv_name
+    call [load]
+    mov glad_glTexParameterfv, rax
+
+    mov rdx, OFFSET glTexParameteri_name
+    call [load]
+    mov glad_glTexParameteri, rax
+
+    mov rdx, OFFSET glTexParameteriv_name
+    call [load]
+    mov glad_glTexParameteriv, rax
+
+    mov rdx, OFFSET glViewport_name
+    call [load]
+    mov glad_glViewport, rax
+
+skip_load:
+    ret
+glad_gl_load_GL_VERSION_1_0 ENDP
+
+.data
+glBlendFunc_name BYTE "glBlendFunc",0
+glClear_name BYTE "glClear",0
+glClearColor_name BYTE "glClearColor",0
+glClearDepth_name BYTE "glClearDepth",0
+glClearStencil_name BYTE "glClearStencil",0
+glColorMask_name BYTE "glColorMask",0
+glCullFace_name BYTE "glCullFace",0
+glDepthFunc_name BYTE "glDepthFunc",0
+glDepthMask_name BYTE "glDepthMask",0
+glDepthRange_name BYTE "glDepthRange",0
+glDisable_name BYTE "glDisable",0
+glDrawBuffer_name BYTE "glDrawBuffer",0
+glEnable_name BYTE "glEnable",0
+glFinish_name BYTE "glFinish",0
+glFlush_name BYTE "glFlush",0
+glFrontFace_name BYTE "glFrontFace",0
+glGetBooleanv_name BYTE "glGetBooleanv",0
+glGetDoublev_name BYTE "glGetDoublev",0
+glGetError_name BYTE "glGetError",0
+glGetFloatv_name BYTE "glGetFloatv",0
+glGetIntegerv_name BYTE "glGetIntegerv",0
+glGetString_name BYTE "glGetString",0
+glGetTexImage_name BYTE "glGetTexImage",0
+glGetTexLevelParameterfv_name BYTE "glGetTexLevelParameterfv",0
+glGetTexLevelParameteriv_name BYTE "glGetTexLevelParameteriv",0
+glGetTexParameterfv_name BYTE "glGetTexParameterfv",0
+glGetTexParameteriv_name BYTE "glGetTexParameteriv",0
+glHint_name BYTE "glHint",0
+glIsEnabled_name BYTE "glIsEnabled",0
+glLineWidth_name BYTE "glLineWidth",0
+glLogicOp_name BYTE "glLogicOp",0
+glPixelStoref_name BYTE "glPixelStoref",0
+glPixelStorei_name BYTE "glPixelStorei",0
+glPointSize_name BYTE "glPointSize",0
+glPolygonMode_name BYTE "glPolygonMode",0
+glReadBuffer_name BYTE "glReadBuffer",0
+glReadPixels_name BYTE "glReadPixels",0
+glScissor_name BYTE "glScissor",0
+glStencilFunc_name BYTE "glStencilFunc",0
+glStencilMask_name BYTE "glStencilMask",0
+glStencilOp_name BYTE "glStencilOp",0
+glTexImage1D_name BYTE "glTexImage1D",0
+glTexImage2D_name BYTE "glTexImage2D",0
+glTexParameterf_name BYTE "glTexParameterf",0
+glTexParameterfv_name BYTE "glTexParameterfv",0
+glTexParameteri_name BYTE "glTexParameteri",0
+glTexParameteriv_name BYTE "glTexParameteriv",0
+glViewport_name BYTE "glViewport",0
+
+; The rest, untranslated past this comment
 }
 static void glad_gl_load_GL_VERSION_1_1( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GL_VERSION_1_1) return;
