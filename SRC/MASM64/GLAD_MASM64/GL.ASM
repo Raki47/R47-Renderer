@@ -3424,77 +3424,403 @@ glTexParameteri_name BYTE "glTexParameteri",0
 glTexParameteriv_name BYTE "glTexParameteriv",0
 glViewport_name BYTE "glViewport",0
 
+
+EXTERN GLAD_GL_VERSION_1_1:DWORD
+
+EXTERN glad_glBindTexture: QWORD
+EXTERN glad_glCopyTexImage1D: QWORD
+EXTERN glad_glCopyTexImage2D: QWORD
+EXTERN glad_glCopyTexSubImage1D: QWORD
+EXTERN glad_glCopyTexSubImage2D: QWORD
+EXTERN glad_glDeleteTextures: QWORD
+EXTERN glad_glDrawArrays: QWORD
+EXTERN glad_glDrawElements: QWORD
+EXTERN glad_glGenTextures: QWORD
+EXTERN glad_glIsTexture: QWORD
+EXTERN glad_glPolygonOffset: QWORD
+EXTERN glad_glTexSubImage1D: QWORD
+EXTERN glad_glTexSubImage2D: QWORD
+
+glad_gl_load_GL_VERSION_1_1 PROC load:QWORD, userptr:QWORD
+    ; Check if GLAD_GL_VERSION_1_1 is loaded
+    cmp byte ptr [GLAD_GL_VERSION_1_1], 0
+    je .done
+    
+    ; Load the function pointers
+    mov rcx, userptr
+    mov rdx, OFFSET "glBindTexture"
+    call qword ptr [load]
+    mov qword ptr [glad_glBindTexture], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glCopyTexImage1D"
+    call qword ptr [load]
+    mov qword ptr [glad_glCopyTexImage1D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glCopyTexImage2D"
+    call qword ptr [load]
+    mov qword ptr [glad_glCopyTexImage2D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glCopyTexSubImage1D"
+    call qword ptr [load]
+    mov qword ptr [glad_glCopyTexSubImage1D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glCopyTexSubImage2D"
+    call qword ptr [load]
+    mov qword ptr [glad_glCopyTexSubImage2D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glDeleteTextures"
+    call qword ptr [load]
+    mov qword ptr [glad_glDeleteTextures], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glDrawArrays"
+    call qword ptr [load]
+    mov qword ptr [glad_glDrawArrays], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glDrawElements"
+    call qword ptr [load]
+    mov qword ptr [glad_glDrawElements], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glGenTextures"
+    call qword ptr [load]
+    mov qword ptr [glad_glGenTextures], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glIsTexture"
+    call qword ptr [load]
+    mov qword ptr [glad_glIsTexture], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glPolygonOffset"
+    call qword ptr [load]
+    mov qword ptr [glad_glPolygonOffset], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glTexSubImage1D"
+    call qword ptr [load]
+    mov qword ptr [glad_glTexSubImage1D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glTexSubImage2D"
+    call qword ptr [load]
+    mov qword ptr [glad_glTexSubImage2D], rax
+
+.done:
+    ret
+glad_gl_load_GL_VERSION_1_1 ENDP
+
+
+EXTERN GLAD_GL_VERSION_1_2:DWORD
+
+EXTERN glad_glCopyTexSubImage3D: QWORD
+EXTERN glad_glDrawRangeElements: QWORD
+EXTERN glad_glTexImage3D: QWORD
+EXTERN glad_glTexSubImage3D: QWORD
+
+glad_gl_load_GL_VERSION_1_2 PROC load:QWORD, userptr:QWORD
+    ; Check if GLAD_GL_VERSION_1_2 is loaded
+    cmp byte ptr [GLAD_GL_VERSION_1_2], 0
+    je .done
+    
+    ; Load the function pointers
+    mov rcx, userptr
+    mov rdx, OFFSET "glCopyTexSubImage3D"
+    call qword ptr [load]
+    mov qword ptr [glad_glCopyTexSubImage3D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glDrawRangeElements"
+    call qword ptr [load]
+    mov qword ptr [glad_glDrawRangeElements], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glTexImage3D"
+    call qword ptr [load]
+    mov qword ptr [glad_glTexImage3D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glTexSubImage3D"
+    call qword ptr [load]
+    mov qword ptr [glad_glTexSubImage3D], rax
+
+.done:
+    ret
+glad_gl_load_GL_VERSION_1_2 ENDP
+
+
+EXTERN GLAD_GL_VERSION_1_3:DWORD
+
+EXTERN glad_glActiveTexture: QWORD
+EXTERN glad_glCompressedTexImage1D: QWORD
+EXTERN glad_glCompressedTexImage2D: QWORD
+EXTERN glad_glCompressedTexImage3D: QWORD
+EXTERN glad_glCompressedTexSubImage1D: QWORD
+EXTERN glad_glCompressedTexSubImage2D: QWORD
+EXTERN glad_glCompressedTexSubImage3D: QWORD
+EXTERN glad_glGetCompressedTexImage: QWORD
+EXTERN glad_glSampleCoverage: QWORD
+
+glad_gl_load_GL_VERSION_1_3 PROC load:QWORD, userptr:QWORD
+    ; Check if GLAD_GL_VERSION_1_3 is loaded
+    cmp byte ptr [GLAD_GL_VERSION_1_3], 0
+    je .done
+    
+    ; Load the function pointers
+    mov rcx, userptr
+    mov rdx, OFFSET "glActiveTexture"
+    call qword ptr [load]
+    mov qword ptr [glad_glActiveTexture], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glCompressedTexImage1D"
+    call qword ptr [load]
+    mov qword ptr [glad_glCompressedTexImage1D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glCompressedTexImage2D"
+    call qword ptr [load]
+    mov qword ptr [glad_glCompressedTexImage2D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glCompressedTexImage3D"
+    call qword ptr [load]
+    mov qword ptr [glad_glCompressedTexImage3D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glCompressedTexSubImage1D"
+    call qword ptr [load]
+    mov qword ptr [glad_glCompressedTexSubImage1D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glCompressedTexSubImage2D"
+    call qword ptr [load]
+    mov qword ptr [glad_glCompressedTexSubImage2D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glCompressedTexSubImage3D"
+    call qword ptr [load]
+    mov qword ptr [glad_glCompressedTexSubImage3D], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetCompressedTexImage"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetCompressedTexImage], rax
+    
+    mov rcx, userptr
+    mov rdx, OFFSET "glSampleCoverage"
+    call qword ptr [load]
+    mov qword ptr [glad_glSampleCoverage], rax
+
+.done:
+    ret
+glad_gl_load_GL_VERSION_1_3 ENDP
+
+
+EXTERN GLAD_GL_VERSION_1_4:DWORD
+
+EXTERN glad_glBlendColor: QWORD
+EXTERN glad_glBlendEquation: QWORD
+EXTERN glad_glBlendFuncSeparate: QWORD
+EXTERN glad_glMultiDrawArrays: QWORD
+EXTERN glad_glMultiDrawElements: QWORD
+EXTERN glad_glPointParameterf: QWORD
+EXTERN glad_glPointParameterfv: QWORD
+EXTERN glad_glPointParameteri: QWORD
+EXTERN glad_glPointParameteriv: QWORD
+
+glad_gl_load_GL_VERSION_1_4 PROC load:QWORD, userptr:QWORD
+    ; Check if GLAD_GL_VERSION_1_4 is loaded
+    cmp byte ptr [GLAD_GL_VERSION_1_4], 0
+    je .done
+
+    ; Load the function pointers
+    mov rcx, userptr
+    mov rdx, OFFSET "glBlendColor"
+    call qword ptr [load]
+    mov qword ptr [glad_glBlendColor], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glBlendEquation"
+    call qword ptr [load]
+    mov qword ptr [glad_glBlendEquation], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glBlendFuncSeparate"
+    call qword ptr [load]
+    mov qword ptr [glad_glBlendFuncSeparate], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glMultiDrawArrays"
+    call qword ptr [load]
+    mov qword ptr [glad_glMultiDrawArrays], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glMultiDrawElements"
+    call qword ptr [load]
+    mov qword ptr [glad_glMultiDrawElements], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glPointParameterf"
+    call qword ptr [load]
+    mov qword ptr [glad_glPointParameterf], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glPointParameterfv"
+    call qword ptr [load]
+    mov qword ptr [glad_glPointParameterfv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glPointParameteri"
+    call qword ptr [load]
+    mov qword ptr [glad_glPointParameteri], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glPointParameteriv"
+    call qword ptr [load]
+    mov qword ptr [glad_glPointParameteriv], rax
+
+.done:
+    ret
+glad_gl_load_GL_VERSION_1_4 ENDP
+
+
+EXTERN GLAD_GL_VERSION_1_5:DWORD
+
+EXTERN glad_glBeginQuery: QWORD
+EXTERN glad_glBindBuffer: QWORD
+EXTERN glad_glBufferData: QWORD
+EXTERN glad_glBufferSubData: QWORD
+EXTERN glad_glDeleteBuffers: QWORD
+EXTERN glad_glDeleteQueries: QWORD
+EXTERN glad_glEndQuery: QWORD
+EXTERN glad_glGenBuffers: QWORD
+EXTERN glad_glGenQueries: QWORD
+EXTERN glad_glGetBufferParameteriv: QWORD
+EXTERN glad_glGetBufferPointerv: QWORD
+EXTERN glad_glGetBufferSubData: QWORD
+EXTERN glad_glGetQueryObjectiv: QWORD
+EXTERN glad_glGetQueryObjectuiv: QWORD
+EXTERN glad_glGetQueryiv: QWORD
+EXTERN glad_glIsBuffer: QWORD
+EXTERN glad_glIsQuery: QWORD
+EXTERN glad_glMapBuffer: QWORD
+EXTERN glad_glUnmapBuffer: QWORD
+
+glad_gl_load_GL_VERSION_1_5 PROC load:QWORD, userptr:QWORD
+    ; Check if GLAD_GL_VERSION_1_5 is loaded
+    cmp byte ptr [GLAD_GL_VERSION_1_5], 0
+    je .done
+
+    ; Load the function pointers
+    mov rcx, userptr
+    mov rdx, OFFSET "glBeginQuery"
+    call qword ptr [load]
+    mov qword ptr [glad_glBeginQuery], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glBindBuffer"
+    call qword ptr [load]
+    mov qword ptr [glad_glBindBuffer], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glBufferData"
+    call qword ptr [load]
+    mov qword ptr [glad_glBufferData], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glBufferSubData"
+    call qword ptr [load]
+    mov qword ptr [glad_glBufferSubData], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glDeleteBuffers"
+    call qword ptr [load]
+    mov qword ptr [glad_glDeleteBuffers], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glDeleteQueries"
+    call qword ptr [load]
+    mov qword ptr [glad_glDeleteQueries], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glEndQuery"
+    call qword ptr [load]
+    mov qword ptr [glad_glEndQuery], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGenBuffers"
+    call qword ptr [load]
+    mov qword ptr [glad_glGenBuffers], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGenQueries"
+    call qword ptr [load]
+    mov qword ptr [glad_glGenQueries], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetBufferParameteriv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetBufferParameteriv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetBufferPointerv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetBufferPointerv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetBufferSubData"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetBufferSubData], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetQueryObjectiv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetQueryObjectiv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetQueryObjectuiv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetQueryObjectuiv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetQueryiv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetQueryiv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glIsBuffer"
+    call qword ptr [load]
+    mov qword ptr [glad_glIsBuffer], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glIsQuery"
+    call qword ptr [load]
+    mov qword ptr [glad_glIsQuery], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glMapBuffer"
+    call qword ptr [load]
+    mov qword ptr [glad_glMapBuffer], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUnmapBuffer"
+    call qword ptr [load]
+    mov qword ptr [glad_glUnmapBuffer], rax
+
+.done:
+    ret
+glad_gl_load_GL_VERSION_1_5 ENDP
+
 ; The rest, untranslated past this comment
-}
-static void glad_gl_load_GL_VERSION_1_1( GLADuserptrloadfunc load, void* userptr) {
-    if(!GLAD_GL_VERSION_1_1) return;
-    glad_glBindTexture = (PFNGLBINDTEXTUREPROC) load(userptr, "glBindTexture");
-    glad_glCopyTexImage1D = (PFNGLCOPYTEXIMAGE1DPROC) load(userptr, "glCopyTexImage1D");
-    glad_glCopyTexImage2D = (PFNGLCOPYTEXIMAGE2DPROC) load(userptr, "glCopyTexImage2D");
-    glad_glCopyTexSubImage1D = (PFNGLCOPYTEXSUBIMAGE1DPROC) load(userptr, "glCopyTexSubImage1D");
-    glad_glCopyTexSubImage2D = (PFNGLCOPYTEXSUBIMAGE2DPROC) load(userptr, "glCopyTexSubImage2D");
-    glad_glDeleteTextures = (PFNGLDELETETEXTURESPROC) load(userptr, "glDeleteTextures");
-    glad_glDrawArrays = (PFNGLDRAWARRAYSPROC) load(userptr, "glDrawArrays");
-    glad_glDrawElements = (PFNGLDRAWELEMENTSPROC) load(userptr, "glDrawElements");
-    glad_glGenTextures = (PFNGLGENTEXTURESPROC) load(userptr, "glGenTextures");
-    glad_glIsTexture = (PFNGLISTEXTUREPROC) load(userptr, "glIsTexture");
-    glad_glPolygonOffset = (PFNGLPOLYGONOFFSETPROC) load(userptr, "glPolygonOffset");
-    glad_glTexSubImage1D = (PFNGLTEXSUBIMAGE1DPROC) load(userptr, "glTexSubImage1D");
-    glad_glTexSubImage2D = (PFNGLTEXSUBIMAGE2DPROC) load(userptr, "glTexSubImage2D");
-}
-static void glad_gl_load_GL_VERSION_1_2( GLADuserptrloadfunc load, void* userptr) {
-    if(!GLAD_GL_VERSION_1_2) return;
-    glad_glCopyTexSubImage3D = (PFNGLCOPYTEXSUBIMAGE3DPROC) load(userptr, "glCopyTexSubImage3D");
-    glad_glDrawRangeElements = (PFNGLDRAWRANGEELEMENTSPROC) load(userptr, "glDrawRangeElements");
-    glad_glTexImage3D = (PFNGLTEXIMAGE3DPROC) load(userptr, "glTexImage3D");
-    glad_glTexSubImage3D = (PFNGLTEXSUBIMAGE3DPROC) load(userptr, "glTexSubImage3D");
-}
-static void glad_gl_load_GL_VERSION_1_3( GLADuserptrloadfunc load, void* userptr) {
-    if(!GLAD_GL_VERSION_1_3) return;
-    glad_glActiveTexture = (PFNGLACTIVETEXTUREPROC) load(userptr, "glActiveTexture");
-    glad_glCompressedTexImage1D = (PFNGLCOMPRESSEDTEXIMAGE1DPROC) load(userptr, "glCompressedTexImage1D");
-    glad_glCompressedTexImage2D = (PFNGLCOMPRESSEDTEXIMAGE2DPROC) load(userptr, "glCompressedTexImage2D");
-    glad_glCompressedTexImage3D = (PFNGLCOMPRESSEDTEXIMAGE3DPROC) load(userptr, "glCompressedTexImage3D");
-    glad_glCompressedTexSubImage1D = (PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC) load(userptr, "glCompressedTexSubImage1D");
-    glad_glCompressedTexSubImage2D = (PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC) load(userptr, "glCompressedTexSubImage2D");
-    glad_glCompressedTexSubImage3D = (PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC) load(userptr, "glCompressedTexSubImage3D");
-    glad_glGetCompressedTexImage = (PFNGLGETCOMPRESSEDTEXIMAGEPROC) load(userptr, "glGetCompressedTexImage");
-    glad_glSampleCoverage = (PFNGLSAMPLECOVERAGEPROC) load(userptr, "glSampleCoverage");
-}
-static void glad_gl_load_GL_VERSION_1_4( GLADuserptrloadfunc load, void* userptr) {
-    if(!GLAD_GL_VERSION_1_4) return;
-    glad_glBlendColor = (PFNGLBLENDCOLORPROC) load(userptr, "glBlendColor");
-    glad_glBlendEquation = (PFNGLBLENDEQUATIONPROC) load(userptr, "glBlendEquation");
-    glad_glBlendFuncSeparate = (PFNGLBLENDFUNCSEPARATEPROC) load(userptr, "glBlendFuncSeparate");
-    glad_glMultiDrawArrays = (PFNGLMULTIDRAWARRAYSPROC) load(userptr, "glMultiDrawArrays");
-    glad_glMultiDrawElements = (PFNGLMULTIDRAWELEMENTSPROC) load(userptr, "glMultiDrawElements");
-    glad_glPointParameterf = (PFNGLPOINTPARAMETERFPROC) load(userptr, "glPointParameterf");
-    glad_glPointParameterfv = (PFNGLPOINTPARAMETERFVPROC) load(userptr, "glPointParameterfv");
-    glad_glPointParameteri = (PFNGLPOINTPARAMETERIPROC) load(userptr, "glPointParameteri");
-    glad_glPointParameteriv = (PFNGLPOINTPARAMETERIVPROC) load(userptr, "glPointParameteriv");
-}
-static void glad_gl_load_GL_VERSION_1_5( GLADuserptrloadfunc load, void* userptr) {
-    if(!GLAD_GL_VERSION_1_5) return;
-    glad_glBeginQuery = (PFNGLBEGINQUERYPROC) load(userptr, "glBeginQuery");
-    glad_glBindBuffer = (PFNGLBINDBUFFERPROC) load(userptr, "glBindBuffer");
-    glad_glBufferData = (PFNGLBUFFERDATAPROC) load(userptr, "glBufferData");
-    glad_glBufferSubData = (PFNGLBUFFERSUBDATAPROC) load(userptr, "glBufferSubData");
-    glad_glDeleteBuffers = (PFNGLDELETEBUFFERSPROC) load(userptr, "glDeleteBuffers");
-    glad_glDeleteQueries = (PFNGLDELETEQUERIESPROC) load(userptr, "glDeleteQueries");
-    glad_glEndQuery = (PFNGLENDQUERYPROC) load(userptr, "glEndQuery");
-    glad_glGenBuffers = (PFNGLGENBUFFERSPROC) load(userptr, "glGenBuffers");
-    glad_glGenQueries = (PFNGLGENQUERIESPROC) load(userptr, "glGenQueries");
-    glad_glGetBufferParameteriv = (PFNGLGETBUFFERPARAMETERIVPROC) load(userptr, "glGetBufferParameteriv");
-    glad_glGetBufferPointerv = (PFNGLGETBUFFERPOINTERVPROC) load(userptr, "glGetBufferPointerv");
-    glad_glGetBufferSubData = (PFNGLGETBUFFERSUBDATAPROC) load(userptr, "glGetBufferSubData");
-    glad_glGetQueryObjectiv = (PFNGLGETQUERYOBJECTIVPROC) load(userptr, "glGetQueryObjectiv");
-    glad_glGetQueryObjectuiv = (PFNGLGETQUERYOBJECTUIVPROC) load(userptr, "glGetQueryObjectuiv");
-    glad_glGetQueryiv = (PFNGLGETQUERYIVPROC) load(userptr, "glGetQueryiv");
-    glad_glIsBuffer = (PFNGLISBUFFERPROC) load(userptr, "glIsBuffer");
-    glad_glIsQuery = (PFNGLISQUERYPROC) load(userptr, "glIsQuery");
-    glad_glMapBuffer = (PFNGLMAPBUFFERPROC) load(userptr, "glMapBuffer");
-    glad_glUnmapBuffer = (PFNGLUNMAPBUFFERPROC) load(userptr, "glUnmapBuffer");
-}
+
+
 static void glad_gl_load_GL_VERSION_2_0( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GL_VERSION_2_0) return;
     glad_glAttachShader = (PFNGLATTACHSHADERPROC) load(userptr, "glAttachShader");
