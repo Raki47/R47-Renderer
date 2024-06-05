@@ -28,7 +28,7 @@
 ; *************************************************************************************
 ; * Translated from C Into MASM64 by Raki47, Filip Rancic
 ; *************************************************************************************
-; * So far I have translated up to line 917 of this file, I have fully removed Khronos 
+; * So far I have translated everything but typedefs and the end, I have fully removed Khronos 
 ; * from GLAD for far easier translation (Lets pray this doesn't break It).
 ; * This translation will simplify using glad for MASM64 as well as remove a lot of
 ; * header file related bloat when accessing It's functions from out of the renderer 
@@ -47,6 +47,8 @@ mov rax, x  ; Move the value of x to RAX (which effectively uses x)
 IFDEF GLAD_API_CALL
   GLAD_API_CALL equ extern
 ENDIF
+
+GLAD_PLATFORM_WIN32 equ 1
 
 ; Define GLAD_API_PTR for MASM64
 IFDEF APIENTRY
@@ -3115,7 +3117,6 @@ glad_glGetActiveUniformsiv NULL
 glad_glGetAttachedShaders NULL
 
 
-; Start of untranslated
 ; Define GLAD_GL_VERSION_1_0 as external variable
 EXTERN GLAD_GL_VERSION_1_0:DWORD
 
@@ -3818,275 +3819,1533 @@ glad_gl_load_GL_VERSION_1_5 PROC load:QWORD, userptr:QWORD
     ret
 glad_gl_load_GL_VERSION_1_5 ENDP
 
+
+EXTERN GLAD_GL_VERSION_2_0: DWORD
+
+EXTERN glad_glAttachShader: QWORD
+EXTERN glad_glBindAttribLocation: QWORD
+EXTERN glad_glBlendEquationSeparate: QWORD
+EXTERN glad_glCompileShader: QWORD
+EXTERN glad_glCreateProgram: QWORD
+EXTERN glad_glCreateShader: QWORD
+EXTERN glad_glDeleteProgram: QWORD
+EXTERN glad_glDeleteShader: QWORD
+EXTERN glad_glDetachShader: QWORD
+EXTERN glad_glDisableVertexAttribArray: QWORD
+EXTERN glad_glDrawBuffers: QWORD
+EXTERN glad_glEnableVertexAttribArray: QWORD
+EXTERN glad_glGetActiveAttrib: QWORD
+EXTERN glad_glGetActiveUniform: QWORD
+EXTERN glad_glGetAttachedShaders: QWORD
+EXTERN glad_glGetAttribLocation: QWORD
+EXTERN glad_glGetProgramInfoLog: QWORD
+EXTERN glad_glGetProgramiv: QWORD
+EXTERN glad_glGetShaderInfoLog: QWORD
+EXTERN glad_glGetShaderSource: QWORD
+EXTERN glad_glGetShaderiv: QWORD
+EXTERN glad_glGetUniformLocation: QWORD
+EXTERN glad_glGetUniformfv: QWORD
+EXTERN glad_glGetUniformiv: QWORD
+EXTERN glad_glGetVertexAttribPointerv: QWORD
+EXTERN glad_glGetVertexAttribdv: QWORD
+EXTERN glad_glGetVertexAttribfv: QWORD
+EXTERN glad_glGetVertexAttribiv: QWORD
+EXTERN glad_glIsProgram: QWORD
+EXTERN glad_glIsShader: QWORD
+EXTERN glad_glLinkProgram: QWORD
+EXTERN glad_glShaderSource: QWORD
+EXTERN glad_glStencilFuncSeparate: QWORD
+EXTERN glad_glStencilMaskSeparate: QWORD
+EXTERN glad_glStencilOpSeparate: QWORD
+EXTERN glad_glUniform1f: QWORD
+EXTERN glad_glUniform1fv: QWORD
+EXTERN glad_glUniform1i: QWORD
+EXTERN glad_glUniform1iv: QWORD
+EXTERN glad_glUniform2f: QWORD
+EXTERN glad_glUniform2fv: QWORD
+EXTERN glad_glUniform2i: QWORD
+EXTERN glad_glUniform2iv: QWORD
+EXTERN glad_glUniform3f: QWORD
+EXTERN glad_glUniform3fv: QWORD
+EXTERN glad_glUniform3i: QWORD
+EXTERN glad_glUniform3iv: QWORD
+EXTERN glad_glUniform4f: QWORD
+EXTERN glad_glUniform4fv: QWORD
+EXTERN glad_glUniform4i: QWORD
+EXTERN glad_glUniform4iv: QWORD
+EXTERN glad_glUniformMatrix2fv: QWORD
+EXTERN glad_glUniformMatrix3fv: QWORD
+EXTERN glad_glUniformMatrix4fv: QWORD
+EXTERN glad_glUseProgram: QWORD
+EXTERN glad_glValidateProgram: QWORD
+EXTERN glad_glVertexAttrib1d: QWORD
+EXTERN glad_glVertexAttrib1dv: QWORD
+EXTERN glad_glVertexAttrib1f: QWORD
+EXTERN glad_glVertexAttrib1fv: QWORD
+EXTERN glad_glVertexAttrib1s: QWORD
+EXTERN glad_glVertexAttrib1sv: QWORD
+EXTERN glad_glVertexAttrib2d: QWORD
+EXTERN glad_glVertexAttrib2dv: QWORD
+EXTERN glad_glVertexAttrib2f: QWORD
+EXTERN glad_glVertexAttrib2fv: QWORD
+EXTERN glad_glVertexAttrib2s: QWORD
+EXTERN glad_glVertexAttrib2sv: QWORD
+EXTERN glad_glVertexAttrib3d: QWORD
+EXTERN glad_glVertexAttrib3dv: QWORD
+EXTERN glad_glVertexAttrib3f: QWORD
+EXTERN glad_glVertexAttrib3fv: QWORD
+EXTERN glad_glVertexAttrib3s: QWORD
+EXTERN glad_glVertexAttrib3sv: QWORD
+EXTERN glad_glVertexAttrib4Nbv: QWORD
+EXTERN glad_glVertexAttrib4Niv: QWORD
+EXTERN glad_glVertexAttrib4Nsv: QWORD
+EXTERN glad_glVertexAttrib4Nub: QWORD
+EXTERN glad_glVertexAttrib4Nubv: QWORD
+EXTERN glad_glVertexAttrib4Nuiv: QWORD
+EXTERN glad_glVertexAttrib4Nusv: QWORD
+EXTERN glad_glVertexAttrib4bv: QWORD
+EXTERN glad_glVertexAttrib4d: QWORD
+EXTERN glad_glVertexAttrib4dv: QWORD
+EXTERN glad_glVertexAttrib4f: QWORD
+EXTERN glad_glVertexAttrib4fv: QWORD
+EXTERN glad_glVertexAttrib4iv: QWORD
+EXTERN glad_glVertexAttrib4s: QWORD
+EXTERN glad_glVertexAttrib4sv: QWORD
+EXTERN glad_glVertexAttrib4ubv: QWORD
+EXTERN glad_glVertexAttrib4uiv: QWORD
+EXTERN glad_glVertexAttrib4usv: QWORD
+EXTERN glad_glVertexAttribPointer: QWORD
+
+glad_gl_load_GL_VERSION_2_0 PROC load:QWORD, userptr:QWORD
+    ; Check if GLAD_GL_VERSION_2_0 is loaded
+    cmp byte ptr [GLAD_GL_VERSION_2_0], 0
+    je .done
+
+    ; Load the function pointers
+    mov rcx, userptr
+    mov rdx, OFFSET "glAttachShader"
+    call qword ptr [load]
+    mov qword ptr [glad_glAttachShader], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glBindAttribLocation"
+    call qword ptr [load]
+    mov qword ptr [glad_glBindAttribLocation], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glBlendEquationSeparate"
+    call qword ptr [load]
+    mov qword ptr [glad_glBlendEquationSeparate], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glCompileShader"
+    call qword ptr [load]
+    mov qword ptr [glad_glCompileShader], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glCreateProgram"
+    call qword ptr [load]
+    mov qword ptr [glad_glCreateProgram], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glCreateShader"
+    call qword ptr [load]
+    mov qword ptr [glad_glCreateShader], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glDeleteProgram"
+    call qword ptr [load]
+    mov qword ptr [glad_glDeleteProgram], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glDeleteShader"
+    call qword ptr [load]
+    mov qword ptr [glad_glDeleteShader], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glDetachShader"
+    call qword ptr [load]
+    mov qword ptr [glad_glDetachShader], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glDisableVertexAttribArray"
+    call qword ptr [load]
+    mov qword ptr [glad_glDisableVertexAttribArray], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glDrawBuffers"
+    call qword ptr [load]
+    mov qword ptr [glad_glDrawBuffers], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glEnableVertexAttribArray"
+    call qword ptr [load]
+    mov qword ptr [glad_glEnableVertexAttribArray], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetActiveAttrib"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetActiveAttrib], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetActiveUniform"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetActiveUniform], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetAttachedShaders"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetAttachedShaders], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetAttribLocation"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetAttribLocation], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetProgramInfoLog"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetProgramInfoLog], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetProgramiv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetProgramiv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetShaderInfoLog"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetShaderInfoLog], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetShaderSource"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetShaderSource], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetShaderiv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetShaderiv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetUniformLocation"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetUniformLocation], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetUniformfv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetUniformfv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetUniformiv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetUniformiv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetVertexAttribPointerv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetVertexAttribPointerv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetVertexAttribdv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetVertexAttribdv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetVertexAttribfv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetVertexAttribfv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glGetVertexAttribiv"
+    call qword ptr [load]
+    mov qword ptr [glad_glGetVertexAttribiv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glIsProgram"
+    call qword ptr [load]
+    mov qword ptr [glad_glIsProgram], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glIsShader"
+    call qword ptr [load]
+    mov qword ptr [glad_glIsShader], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glLinkProgram"
+    call qword ptr [load]
+    mov qword ptr [glad_glLinkProgram], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glShaderSource"
+    call qword ptr [load]
+    mov qword ptr [glad_glShaderSource], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glStencilFuncSeparate"
+    call qword ptr [load]
+    mov qword ptr [glad_glStencilFuncSeparate], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glStencilMaskSeparate"
+    call qword ptr [load]
+    mov qword ptr [glad_glStencilMaskSeparate], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glStencilOpSeparate"
+    call qword ptr [load]
+    mov qword ptr [glad_glStencilOpSeparate], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform1f"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform1f], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform1fv"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform1fv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform1i"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform1i], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform1iv"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform1iv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform2f"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform2f], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform2fv"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform2fv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform2i"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform2i], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform2iv"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform2iv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform3f"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform3f], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform3fv"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform3fv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform3i"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform3i], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform3iv"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform3iv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform4f"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform4f], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform4fv"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform4fv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform4i"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform4i], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniform4iv"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniform4iv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniformMatrix2fv"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniformMatrix2fv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniformMatrix3fv"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniformMatrix3fv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUniformMatrix4fv"
+    call qword ptr [load]
+    mov qword ptr [glad_glUniformMatrix4fv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glUseProgram"
+    call qword ptr [load]
+    mov qword ptr [glad_glUseProgram], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glValidateProgram"
+    call qword ptr [load]
+    mov qword ptr [glad_glValidateProgram], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glVertexAttrib1d"
+    call qword ptr [load]
+    mov qword ptr [glad_glVertexAttrib1d], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glVertexAttrib1dv"
+    call qword ptr [load]
+    mov qword ptr [glad_glVertexAttrib1dv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glVertexAttrib1f"
+    call qword ptr [load]
+    mov qword ptr [glad_glVertexAttrib1f], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glVertexAttrib1fv"
+    call qword ptr [load]
+    mov qword ptr [glad_glVertexAttrib1fv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glVertexAttrib1s"
+    call qword ptr [load]
+    mov qword ptr [glad_glVertexAttrib1s], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glVertexAttrib1sv"
+    call qword ptr [load]
+    mov qword ptr [glad_glVertexAttrib1sv], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glVertexAttrib2d"
+    call qword ptr [load]
+    mov qword ptr [glad_glVertexAttrib2d], rax
+
+    mov rcx, userptr
+    mov rdx, OFFSET "glVertexAttrib2dv"
+    call qword ptr [load]
+    mov qword ptr [glad_glVertexAttrib2dv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib2f"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib2f], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib2fv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib2fv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib2s"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib2s], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib2sv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib2sv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib3d"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib3d], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib3dv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib3dv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib3f"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib3f], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib3fv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib3fv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib3s"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib3s], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib3sv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib3sv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4Nbv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4Nbv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4Niv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4Niv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4Nsv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4Nsv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4Nub"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4Nub], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4Nubv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4Nubv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4Nuiv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4Nuiv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4Nusv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4Nusv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4bv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4bv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4d"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4d], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4dv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4dv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4f"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4f], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4fv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4fv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4iv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4iv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4s"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4s], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4sv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4sv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4ubv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4ubv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4uiv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4uiv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttrib4usv"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttrib4usv], rax
+
+mov rcx, userptr
+mov rdx, OFFSET "glVertexAttribPointer"
+call qword ptr [load]
+mov qword ptr [glad_glVertexAttribPointer], rax
+
+.done:
+    ret
+glad_gl_load_GL_VERSION_2_0 ENDP
+
 ; The rest, untranslated past this comment
+; void glad_gl_load_GL_VERSION_2_1(GLADuserptrloadfunc load, void* userptr)
+glad_gl_load_GL_VERSION_2_1 PROC
+    ; Prologue
+    sub rsp, 28h
+    mov qword ptr [rsp + 20h], rcx
+    mov qword ptr [rsp + 28h], rdx
+
+    ; Check if GLAD_GL_VERSION_2_1 is not enabled
+    mov eax, dword ptr [GLAD_GL_VERSION_2_1]
+    test eax, eax
+    jz @end
+
+    ; Load glad_glUniformMatrix2x3fv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniformMatrix2x3fv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniformMatrix2x3fv], rax
+
+    ; Load glad_glUniformMatrix2x4fv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniformMatrix2x4fv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniformMatrix2x4fv], rax
+
+    ; Load glad_glUniformMatrix3x2fv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniformMatrix3x2fv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniformMatrix3x2fv], rax
+
+    ; Load glad_glUniformMatrix3x4fv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniformMatrix3x4fv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniformMatrix3x4fv], rax
+
+    ; Load glad_glUniformMatrix4x2fv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniformMatrix4x2fv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniformMatrix4x2fv], rax
+
+    ; Load glad_glUniformMatrix4x3fv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniformMatrix4x3fv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniformMatrix4x3fv], rax
+
+@end:
+    ; Epilogue
+    add rsp, 28h
+    ret
+glad_gl_load_GL_VERSION_2_1 ENDP
+
+; void glad_gl_load_GL_VERSION_3_0(GLADuserptrloadfunc load, void* userptr)
+glad_gl_load_GL_VERSION_3_0 PROC
+    ; Prologue
+    sub rsp, 28h
+    mov qword ptr [rsp + 20h], rcx
+    mov qword ptr [rsp + 28h], rdx
+
+    ; Check if GLAD_GL_VERSION_3_0 is not enabled
+    mov eax, dword ptr [GLAD_GL_VERSION_3_0]
+    test eax, eax
+    jz @end
+
+    ; Load glad_glBeginConditionalRender
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glBeginConditionalRender"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glBeginConditionalRender], rax
+
+    ; Load glad_glBeginTransformFeedback
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glBeginTransformFeedback"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glBeginTransformFeedback], rax
+
+    ; Load glad_glBindBufferBase
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glBindBufferBase"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glBindBufferBase], rax
+
+    ; Load glad_glBindBufferRange
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glBindBufferRange"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glBindBufferRange], rax
+
+    ; Load glad_glBindFragDataLocation
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glBindFragDataLocation"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glBindFragDataLocation], rax
+
+    ; Load glad_glBindFramebuffer
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glBindFramebuffer"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glBindFramebuffer], rax
+
+    ; Load glad_glBindRenderbuffer
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glBindRenderbuffer"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glBindRenderbuffer], rax
+
+    ; Load glad_glBindVertexArray
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glBindVertexArray"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glBindVertexArray], rax
+
+    ; Load glad_glBlitFramebuffer
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glBlitFramebuffer"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glBlitFramebuffer], rax
+
+    ; Load glad_glCheckFramebufferStatus
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glCheckFramebufferStatus"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glCheckFramebufferStatus], rax
+
+    ; Load glad_glClampColor
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glClampColor"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glClampColor], rax
+
+    ; Load glad_glClearBufferfi
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glClearBufferfi"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glClearBufferfi], rax
+
+    ; Load glad_glClearBufferfv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glClearBufferfv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glClearBufferfv], rax
+
+    ; Load glad_glClearBufferiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glClearBufferiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glClearBufferiv], rax
+
+    ; Load glad_glClearBufferuiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glClearBufferuiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glClearBufferuiv], rax
+
+    ; Load glad_glColorMaski
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glColorMaski"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glColorMaski], rax
+
+    ; Load glad_glDeleteFramebuffers
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glDeleteFramebuffers"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glDeleteFramebuffers], rax
+
+    ; Load glad_glDeleteRenderbuffers
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glDeleteRenderbuffers"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glDeleteRenderbuffers], rax
+
+    ; Load glad_glDeleteVertexArrays
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glDeleteVertexArrays"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glDeleteVertexArrays], rax
+
+    ; Load glad_glDisablei
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glDisablei"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glDisablei], rax
+
+    ; Load glad_glEnablei
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glEnablei"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glEnablei], rax
+
+    ; Load glad_glEndConditionalRender
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glEndConditionalRender"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glEndConditionalRender], rax
+
+    ; Load glad_glEndTransformFeedback
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glEndTransformFeedback"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glEndTransformFeedback], rax
+
+    ; Load glad_glFlushMappedBufferRange
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glFlushMappedBufferRange"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glFlushMappedBufferRange], rax
+
+    ; Load glad_glFramebufferRenderbuffer
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glFramebufferRenderbuffer"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glFramebufferRenderbuffer], rax
+
+    ; Load glad_glFramebufferTexture1D
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glFramebufferTexture1D"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glFramebufferTexture1D], rax
+
+    ; Load glad_glFramebufferTexture2D
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glFramebufferTexture2D"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glFramebufferTexture2D], rax
+
+    ; Load glad_glFramebufferTexture3D
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glFramebufferTexture3D"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glFramebufferTexture3D], rax
+
+    ; Load glad_glFramebufferTextureLayer
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glFramebufferTextureLayer"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glFramebufferTextureLayer], rax
+
+    ; Load glad_glGenFramebuffers
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glGenFramebuffers"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glGenFramebuffers], rax
+
+    ; Load glad_glGenRenderbuffers
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glGenRenderbuffers"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glGenRenderbuffers], rax
+
+    ; Load glad_glGenVertexArrays
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glGenVertexArrays"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glGenVertexArrays], rax
+
+    ; Load glad_glGetTexParameterIiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glGetTexParameterIiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glGetTexParameterIiv], rax
+
+    ; Load glad_glGetTexParameterIuiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glGetTexParameterIuiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glGetTexParameterIuiv], rax
+
+    ; Load glad_glGetTransformFeedbackVarying
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glGetTransformFeedbackVarying"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glGetTransformFeedbackVarying], rax
+
+    ; Load glad_glGetUniformuiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glGetUniformuiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glGetUniformuiv], rax
+
+    ; Load glad_glGetVertexAttribIiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glGetVertexAttribIiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glGetVertexAttribIiv], rax
+
+    ; Load glad_glGetVertexAttribIuiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glGetVertexAttribIuiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glGetVertexAttribIuiv], rax
+
+    ; Load glad_glIsEnabledi
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glIsEnabledi"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glIsEnabledi], rax
+
+    ; Load glad_glIsFramebuffer
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glIsFramebuffer"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glIsFramebuffer], rax
+
+    ; Load glad_glIsRenderbuffer
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glIsRenderbuffer"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glIsRenderbuffer], rax
+
+    ; Load glad_glIsVertexArray
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glIsVertexArray"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glIsVertexArray], rax
+
+    ; Load glad_glMapBufferRange
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glMapBufferRange"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glMapBufferRange], rax
+
+    ; Load glad_glRenderbufferStorage
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glRenderbufferStorage"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glRenderbufferStorage], rax
+
+    ; Load glad_glRenderbufferStorageMultisample
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glRenderbufferStorageMultisample"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glRenderbufferStorageMultisample], rax
+
+    ; Load glad_glTexParameterIiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glTexParameterIiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glTexParameterIiv], rax
+
+    ; Load glad_glTexParameterIuiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glTexParameterIuiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glTexParameterIuiv], rax
+
+    ; Load glad_glTransformFeedbackVaryings
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glTransformFeedbackVaryings"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glTransformFeedbackVaryings], rax
+
+    ; Load glad_glUniform1ui
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniform1ui"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniform1ui], rax
+
+    ; Load glad_glUniform1uiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniform1uiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniform1uiv], rax
+
+    ; Load glad_glUniform2ui
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniform2ui"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniform2ui], rax
+
+    ; Load glad_glUniform2uiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniform2uiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniform2uiv], rax
+
+    ; Load glad_glUniform3ui
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniform3ui"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniform3ui], rax
+
+    ; Load glad_glUniform3uiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniform3uiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniform3uiv], rax
+
+    ; Load glad_glUniform4ui
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniform4ui"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniform4ui], rax
+
+    ; Load glad_glUniform4uiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glUniform4uiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glUniform4uiv], rax
+
+    ; Load glad_glVertexAttribI1i
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI1i"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI1i], rax
+
+    ; Load glad_glVertexAttribI1iv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI1iv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI1iv], rax
+
+    ; Load glad_glVertexAttribI1ui
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI1ui"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI1ui], rax
+
+    ; Load glad_glVertexAttribI1uiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI1uiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI1uiv], rax
+
+    ; Load glad_glVertexAttribI2i
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI2i"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI2i], rax
+
+    ; Load glad_glVertexAttribI2iv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI2iv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI2iv], rax
+
+    ; Load glad_glVertexAttribI2ui
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI2ui"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI2ui], rax
+
+    ; Load glad_glVertexAttribI2uiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI2uiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI2uiv], rax
+
+    ; Load glad_glVertexAttribI3i
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI3i"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI3i], rax
+
+    ; Load glad_glVertexAttribI3iv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI3iv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI3iv], rax
+
+    ; Load glad_glVertexAttribI3ui
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI3ui"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI3ui], rax
+
+    ; Load glad_glVertexAttribI3uiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI3uiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI3uiv], rax
+
+    ; Load glad_glVertexAttribI4bv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI4bv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI4bv], rax
+
+    ; Load glad_glVertexAttribI4i
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI4i"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI4i], rax
+
+    ; Load glad_glVertexAttribI4iv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI4iv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI4iv], rax
+
+    ; Load glad_glVertexAttribI4sv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI4sv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI4sv], rax
+
+    ; Load glad_glVertexAttribI4ubv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI4ubv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI4ubv], rax
+
+    ; Load glad_glVertexAttribI4ui
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI4ui"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI4ui], rax
+
+    ; Load glad_glVertexAttribI4uiv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI4uiv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI4uiv], rax
+
+    ; Load glad_glVertexAttribI4usv
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribI4usv"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribI4usv], rax
+
+    ; Load glad_glVertexAttribIPointer
+    mov rcx, qword ptr [rsp + 28h]
+    mov rdx, OFFSET "glVertexAttribIPointer"
+    call qword ptr [rsp + 20h]
+    mov qword ptr [glad_glVertexAttribIPointer], rax
+
+    ; Epilogue
+    add rsp, 28h
+    ret
+glad_gl_load_GL_VERSION_3_0 ENDP
 
 
-static void glad_gl_load_GL_VERSION_2_0( GLADuserptrloadfunc load, void* userptr) {
-    if(!GLAD_GL_VERSION_2_0) return;
-    glad_glAttachShader = (PFNGLATTACHSHADERPROC) load(userptr, "glAttachShader");
-    glad_glBindAttribLocation = (PFNGLBINDATTRIBLOCATIONPROC) load(userptr, "glBindAttribLocation");
-    glad_glBlendEquationSeparate = (PFNGLBLENDEQUATIONSEPARATEPROC) load(userptr, "glBlendEquationSeparate");
-    glad_glCompileShader = (PFNGLCOMPILESHADERPROC) load(userptr, "glCompileShader");
-    glad_glCreateProgram = (PFNGLCREATEPROGRAMPROC) load(userptr, "glCreateProgram");
-    glad_glCreateShader = (PFNGLCREATESHADERPROC) load(userptr, "glCreateShader");
-    glad_glDeleteProgram = (PFNGLDELETEPROGRAMPROC) load(userptr, "glDeleteProgram");
-    glad_glDeleteShader = (PFNGLDELETESHADERPROC) load(userptr, "glDeleteShader");
-    glad_glDetachShader = (PFNGLDETACHSHADERPROC) load(userptr, "glDetachShader");
-    glad_glDisableVertexAttribArray = (PFNGLDISABLEVERTEXATTRIBARRAYPROC) load(userptr, "glDisableVertexAttribArray");
-    glad_glDrawBuffers = (PFNGLDRAWBUFFERSPROC) load(userptr, "glDrawBuffers");
-    glad_glEnableVertexAttribArray = (PFNGLENABLEVERTEXATTRIBARRAYPROC) load(userptr, "glEnableVertexAttribArray");
-    glad_glGetActiveAttrib = (PFNGLGETACTIVEATTRIBPROC) load(userptr, "glGetActiveAttrib");
-    glad_glGetActiveUniform = (PFNGLGETACTIVEUNIFORMPROC) load(userptr, "glGetActiveUniform");
-    glad_glGetAttachedShaders = (PFNGLGETATTACHEDSHADERSPROC) load(userptr, "glGetAttachedShaders");
-    glad_glGetAttribLocation = (PFNGLGETATTRIBLOCATIONPROC) load(userptr, "glGetAttribLocation");
-    glad_glGetProgramInfoLog = (PFNGLGETPROGRAMINFOLOGPROC) load(userptr, "glGetProgramInfoLog");
-    glad_glGetProgramiv = (PFNGLGETPROGRAMIVPROC) load(userptr, "glGetProgramiv");
-    glad_glGetShaderInfoLog = (PFNGLGETSHADERINFOLOGPROC) load(userptr, "glGetShaderInfoLog");
-    glad_glGetShaderSource = (PFNGLGETSHADERSOURCEPROC) load(userptr, "glGetShaderSource");
-    glad_glGetShaderiv = (PFNGLGETSHADERIVPROC) load(userptr, "glGetShaderiv");
-    glad_glGetUniformLocation = (PFNGLGETUNIFORMLOCATIONPROC) load(userptr, "glGetUniformLocation");
-    glad_glGetUniformfv = (PFNGLGETUNIFORMFVPROC) load(userptr, "glGetUniformfv");
-    glad_glGetUniformiv = (PFNGLGETUNIFORMIVPROC) load(userptr, "glGetUniformiv");
-    glad_glGetVertexAttribPointerv = (PFNGLGETVERTEXATTRIBPOINTERVPROC) load(userptr, "glGetVertexAttribPointerv");
-    glad_glGetVertexAttribdv = (PFNGLGETVERTEXATTRIBDVPROC) load(userptr, "glGetVertexAttribdv");
-    glad_glGetVertexAttribfv = (PFNGLGETVERTEXATTRIBFVPROC) load(userptr, "glGetVertexAttribfv");
-    glad_glGetVertexAttribiv = (PFNGLGETVERTEXATTRIBIVPROC) load(userptr, "glGetVertexAttribiv");
-    glad_glIsProgram = (PFNGLISPROGRAMPROC) load(userptr, "glIsProgram");
-    glad_glIsShader = (PFNGLISSHADERPROC) load(userptr, "glIsShader");
-    glad_glLinkProgram = (PFNGLLINKPROGRAMPROC) load(userptr, "glLinkProgram");
-    glad_glShaderSource = (PFNGLSHADERSOURCEPROC) load(userptr, "glShaderSource");
-    glad_glStencilFuncSeparate = (PFNGLSTENCILFUNCSEPARATEPROC) load(userptr, "glStencilFuncSeparate");
-    glad_glStencilMaskSeparate = (PFNGLSTENCILMASKSEPARATEPROC) load(userptr, "glStencilMaskSeparate");
-    glad_glStencilOpSeparate = (PFNGLSTENCILOPSEPARATEPROC) load(userptr, "glStencilOpSeparate");
-    glad_glUniform1f = (PFNGLUNIFORM1FPROC) load(userptr, "glUniform1f");
-    glad_glUniform1fv = (PFNGLUNIFORM1FVPROC) load(userptr, "glUniform1fv");
-    glad_glUniform1i = (PFNGLUNIFORM1IPROC) load(userptr, "glUniform1i");
-    glad_glUniform1iv = (PFNGLUNIFORM1IVPROC) load(userptr, "glUniform1iv");
-    glad_glUniform2f = (PFNGLUNIFORM2FPROC) load(userptr, "glUniform2f");
-    glad_glUniform2fv = (PFNGLUNIFORM2FVPROC) load(userptr, "glUniform2fv");
-    glad_glUniform2i = (PFNGLUNIFORM2IPROC) load(userptr, "glUniform2i");
-    glad_glUniform2iv = (PFNGLUNIFORM2IVPROC) load(userptr, "glUniform2iv");
-    glad_glUniform3f = (PFNGLUNIFORM3FPROC) load(userptr, "glUniform3f");
-    glad_glUniform3fv = (PFNGLUNIFORM3FVPROC) load(userptr, "glUniform3fv");
-    glad_glUniform3i = (PFNGLUNIFORM3IPROC) load(userptr, "glUniform3i");
-    glad_glUniform3iv = (PFNGLUNIFORM3IVPROC) load(userptr, "glUniform3iv");
-    glad_glUniform4f = (PFNGLUNIFORM4FPROC) load(userptr, "glUniform4f");
-    glad_glUniform4fv = (PFNGLUNIFORM4FVPROC) load(userptr, "glUniform4fv");
-    glad_glUniform4i = (PFNGLUNIFORM4IPROC) load(userptr, "glUniform4i");
-    glad_glUniform4iv = (PFNGLUNIFORM4IVPROC) load(userptr, "glUniform4iv");
-    glad_glUniformMatrix2fv = (PFNGLUNIFORMMATRIX2FVPROC) load(userptr, "glUniformMatrix2fv");
-    glad_glUniformMatrix3fv = (PFNGLUNIFORMMATRIX3FVPROC) load(userptr, "glUniformMatrix3fv");
-    glad_glUniformMatrix4fv = (PFNGLUNIFORMMATRIX4FVPROC) load(userptr, "glUniformMatrix4fv");
-    glad_glUseProgram = (PFNGLUSEPROGRAMPROC) load(userptr, "glUseProgram");
-    glad_glValidateProgram = (PFNGLVALIDATEPROGRAMPROC) load(userptr, "glValidateProgram");
-    glad_glVertexAttrib1d = (PFNGLVERTEXATTRIB1DPROC) load(userptr, "glVertexAttrib1d");
-    glad_glVertexAttrib1dv = (PFNGLVERTEXATTRIB1DVPROC) load(userptr, "glVertexAttrib1dv");
-    glad_glVertexAttrib1f = (PFNGLVERTEXATTRIB1FPROC) load(userptr, "glVertexAttrib1f");
-    glad_glVertexAttrib1fv = (PFNGLVERTEXATTRIB1FVPROC) load(userptr, "glVertexAttrib1fv");
-    glad_glVertexAttrib1s = (PFNGLVERTEXATTRIB1SPROC) load(userptr, "glVertexAttrib1s");
-    glad_glVertexAttrib1sv = (PFNGLVERTEXATTRIB1SVPROC) load(userptr, "glVertexAttrib1sv");
-    glad_glVertexAttrib2d = (PFNGLVERTEXATTRIB2DPROC) load(userptr, "glVertexAttrib2d");
-    glad_glVertexAttrib2dv = (PFNGLVERTEXATTRIB2DVPROC) load(userptr, "glVertexAttrib2dv");
-    glad_glVertexAttrib2f = (PFNGLVERTEXATTRIB2FPROC) load(userptr, "glVertexAttrib2f");
-    glad_glVertexAttrib2fv = (PFNGLVERTEXATTRIB2FVPROC) load(userptr, "glVertexAttrib2fv");
-    glad_glVertexAttrib2s = (PFNGLVERTEXATTRIB2SPROC) load(userptr, "glVertexAttrib2s");
-    glad_glVertexAttrib2sv = (PFNGLVERTEXATTRIB2SVPROC) load(userptr, "glVertexAttrib2sv");
-    glad_glVertexAttrib3d = (PFNGLVERTEXATTRIB3DPROC) load(userptr, "glVertexAttrib3d");
-    glad_glVertexAttrib3dv = (PFNGLVERTEXATTRIB3DVPROC) load(userptr, "glVertexAttrib3dv");
-    glad_glVertexAttrib3f = (PFNGLVERTEXATTRIB3FPROC) load(userptr, "glVertexAttrib3f");
-    glad_glVertexAttrib3fv = (PFNGLVERTEXATTRIB3FVPROC) load(userptr, "glVertexAttrib3fv");
-    glad_glVertexAttrib3s = (PFNGLVERTEXATTRIB3SPROC) load(userptr, "glVertexAttrib3s");
-    glad_glVertexAttrib3sv = (PFNGLVERTEXATTRIB3SVPROC) load(userptr, "glVertexAttrib3sv");
-    glad_glVertexAttrib4Nbv = (PFNGLVERTEXATTRIB4NBVPROC) load(userptr, "glVertexAttrib4Nbv");
-    glad_glVertexAttrib4Niv = (PFNGLVERTEXATTRIB4NIVPROC) load(userptr, "glVertexAttrib4Niv");
-    glad_glVertexAttrib4Nsv = (PFNGLVERTEXATTRIB4NSVPROC) load(userptr, "glVertexAttrib4Nsv");
-    glad_glVertexAttrib4Nub = (PFNGLVERTEXATTRIB4NUBPROC) load(userptr, "glVertexAttrib4Nub");
-    glad_glVertexAttrib4Nubv = (PFNGLVERTEXATTRIB4NUBVPROC) load(userptr, "glVertexAttrib4Nubv");
-    glad_glVertexAttrib4Nuiv = (PFNGLVERTEXATTRIB4NUIVPROC) load(userptr, "glVertexAttrib4Nuiv");
-    glad_glVertexAttrib4Nusv = (PFNGLVERTEXATTRIB4NUSVPROC) load(userptr, "glVertexAttrib4Nusv");
-    glad_glVertexAttrib4bv = (PFNGLVERTEXATTRIB4BVPROC) load(userptr, "glVertexAttrib4bv");
-    glad_glVertexAttrib4d = (PFNGLVERTEXATTRIB4DPROC) load(userptr, "glVertexAttrib4d");
-    glad_glVertexAttrib4dv = (PFNGLVERTEXATTRIB4DVPROC) load(userptr, "glVertexAttrib4dv");
-    glad_glVertexAttrib4f = (PFNGLVERTEXATTRIB4FPROC) load(userptr, "glVertexAttrib4f");
-    glad_glVertexAttrib4fv = (PFNGLVERTEXATTRIB4FVPROC) load(userptr, "glVertexAttrib4fv");
-    glad_glVertexAttrib4iv = (PFNGLVERTEXATTRIB4IVPROC) load(userptr, "glVertexAttrib4iv");
-    glad_glVertexAttrib4s = (PFNGLVERTEXATTRIB4SPROC) load(userptr, "glVertexAttrib4s");
-    glad_glVertexAttrib4sv = (PFNGLVERTEXATTRIB4SVPROC) load(userptr, "glVertexAttrib4sv");
-    glad_glVertexAttrib4ubv = (PFNGLVERTEXATTRIB4UBVPROC) load(userptr, "glVertexAttrib4ubv");
-    glad_glVertexAttrib4uiv = (PFNGLVERTEXATTRIB4UIVPROC) load(userptr, "glVertexAttrib4uiv");
-    glad_glVertexAttrib4usv = (PFNGLVERTEXATTRIB4USVPROC) load(userptr, "glVertexAttrib4usv");
-    glad_glVertexAttribPointer = (PFNGLVERTEXATTRIBPOINTERPROC) load(userptr, "glVertexAttribPointer");
-}
-static void glad_gl_load_GL_VERSION_2_1( GLADuserptrloadfunc load, void* userptr) {
-    if(!GLAD_GL_VERSION_2_1) return;
-    glad_glUniformMatrix2x3fv = (PFNGLUNIFORMMATRIX2X3FVPROC) load(userptr, "glUniformMatrix2x3fv");
-    glad_glUniformMatrix2x4fv = (PFNGLUNIFORMMATRIX2X4FVPROC) load(userptr, "glUniformMatrix2x4fv");
-    glad_glUniformMatrix3x2fv = (PFNGLUNIFORMMATRIX3X2FVPROC) load(userptr, "glUniformMatrix3x2fv");
-    glad_glUniformMatrix3x4fv = (PFNGLUNIFORMMATRIX3X4FVPROC) load(userptr, "glUniformMatrix3x4fv");
-    glad_glUniformMatrix4x2fv = (PFNGLUNIFORMMATRIX4X2FVPROC) load(userptr, "glUniformMatrix4x2fv");
-    glad_glUniformMatrix4x3fv = (PFNGLUNIFORMMATRIX4X3FVPROC) load(userptr, "glUniformMatrix4x3fv");
-}
-static void glad_gl_load_GL_VERSION_3_0( GLADuserptrloadfunc load, void* userptr) {
-    if(!GLAD_GL_VERSION_3_0) return;
-    glad_glBeginConditionalRender = (PFNGLBEGINCONDITIONALRENDERPROC) load(userptr, "glBeginConditionalRender");
-    glad_glBeginTransformFeedback = (PFNGLBEGINTRANSFORMFEEDBACKPROC) load(userptr, "glBeginTransformFeedback");
-    glad_glBindBufferBase = (PFNGLBINDBUFFERBASEPROC) load(userptr, "glBindBufferBase");
-    glad_glBindBufferRange = (PFNGLBINDBUFFERRANGEPROC) load(userptr, "glBindBufferRange");
-    glad_glBindFragDataLocation = (PFNGLBINDFRAGDATALOCATIONPROC) load(userptr, "glBindFragDataLocation");
-    glad_glBindFramebuffer = (PFNGLBINDFRAMEBUFFERPROC) load(userptr, "glBindFramebuffer");
-    glad_glBindRenderbuffer = (PFNGLBINDRENDERBUFFERPROC) load(userptr, "glBindRenderbuffer");
-    glad_glBindVertexArray = (PFNGLBINDVERTEXARRAYPROC) load(userptr, "glBindVertexArray");
-    glad_glBlitFramebuffer = (PFNGLBLITFRAMEBUFFERPROC) load(userptr, "glBlitFramebuffer");
-    glad_glCheckFramebufferStatus = (PFNGLCHECKFRAMEBUFFERSTATUSPROC) load(userptr, "glCheckFramebufferStatus");
-    glad_glClampColor = (PFNGLCLAMPCOLORPROC) load(userptr, "glClampColor");
-    glad_glClearBufferfi = (PFNGLCLEARBUFFERFIPROC) load(userptr, "glClearBufferfi");
-    glad_glClearBufferfv = (PFNGLCLEARBUFFERFVPROC) load(userptr, "glClearBufferfv");
-    glad_glClearBufferiv = (PFNGLCLEARBUFFERIVPROC) load(userptr, "glClearBufferiv");
-    glad_glClearBufferuiv = (PFNGLCLEARBUFFERUIVPROC) load(userptr, "glClearBufferuiv");
-    glad_glColorMaski = (PFNGLCOLORMASKIPROC) load(userptr, "glColorMaski");
-    glad_glDeleteFramebuffers = (PFNGLDELETEFRAMEBUFFERSPROC) load(userptr, "glDeleteFramebuffers");
-    glad_glDeleteRenderbuffers = (PFNGLDELETERENDERBUFFERSPROC) load(userptr, "glDeleteRenderbuffers");
-    glad_glDeleteVertexArrays = (PFNGLDELETEVERTEXARRAYSPROC) load(userptr, "glDeleteVertexArrays");
-    glad_glDisablei = (PFNGLDISABLEIPROC) load(userptr, "glDisablei");
-    glad_glEnablei = (PFNGLENABLEIPROC) load(userptr, "glEnablei");
-    glad_glEndConditionalRender = (PFNGLENDCONDITIONALRENDERPROC) load(userptr, "glEndConditionalRender");
-    glad_glEndTransformFeedback = (PFNGLENDTRANSFORMFEEDBACKPROC) load(userptr, "glEndTransformFeedback");
-    glad_glFlushMappedBufferRange = (PFNGLFLUSHMAPPEDBUFFERRANGEPROC) load(userptr, "glFlushMappedBufferRange");
-    glad_glFramebufferRenderbuffer = (PFNGLFRAMEBUFFERRENDERBUFFERPROC) load(userptr, "glFramebufferRenderbuffer");
-    glad_glFramebufferTexture1D = (PFNGLFRAMEBUFFERTEXTURE1DPROC) load(userptr, "glFramebufferTexture1D");
-    glad_glFramebufferTexture2D = (PFNGLFRAMEBUFFERTEXTURE2DPROC) load(userptr, "glFramebufferTexture2D");
-    glad_glFramebufferTexture3D = (PFNGLFRAMEBUFFERTEXTURE3DPROC) load(userptr, "glFramebufferTexture3D");
-    glad_glFramebufferTextureLayer = (PFNGLFRAMEBUFFERTEXTURELAYERPROC) load(userptr, "glFramebufferTextureLayer");
-    glad_glGenFramebuffers = (PFNGLGENFRAMEBUFFERSPROC) load(userptr, "glGenFramebuffers");
-    glad_glGenRenderbuffers = (PFNGLGENRENDERBUFFERSPROC) load(userptr, "glGenRenderbuffers");
-    glad_glGenVertexArrays = (PFNGLGENVERTEXARRAYSPROC) load(userptr, "glGenVertexArrays");
-    glad_glGenerateMipmap = (PFNGLGENERATEMIPMAPPROC) load(userptr, "glGenerateMipmap");
-    glad_glGetBooleani_v = (PFNGLGETBOOLEANI_VPROC) load(userptr, "glGetBooleani_v");
-    glad_glGetFragDataLocation = (PFNGLGETFRAGDATALOCATIONPROC) load(userptr, "glGetFragDataLocation");
-    glad_glGetFramebufferAttachmentParameteriv = (PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC) load(userptr, "glGetFramebufferAttachmentParameteriv");
-    glad_glGetIntegeri_v = (PFNGLGETINTEGERI_VPROC) load(userptr, "glGetIntegeri_v");
-    glad_glGetRenderbufferParameteriv = (PFNGLGETRENDERBUFFERPARAMETERIVPROC) load(userptr, "glGetRenderbufferParameteriv");
-    glad_glGetStringi = (PFNGLGETSTRINGIPROC) load(userptr, "glGetStringi");
-    glad_glGetTexParameterIiv = (PFNGLGETTEXPARAMETERIIVPROC) load(userptr, "glGetTexParameterIiv");
-    glad_glGetTexParameterIuiv = (PFNGLGETTEXPARAMETERIUIVPROC) load(userptr, "glGetTexParameterIuiv");
-    glad_glGetTransformFeedbackVarying = (PFNGLGETTRANSFORMFEEDBACKVARYINGPROC) load(userptr, "glGetTransformFeedbackVarying");
-    glad_glGetUniformuiv = (PFNGLGETUNIFORMUIVPROC) load(userptr, "glGetUniformuiv");
-    glad_glGetVertexAttribIiv = (PFNGLGETVERTEXATTRIBIIVPROC) load(userptr, "glGetVertexAttribIiv");
-    glad_glGetVertexAttribIuiv = (PFNGLGETVERTEXATTRIBIUIVPROC) load(userptr, "glGetVertexAttribIuiv");
-    glad_glIsEnabledi = (PFNGLISENABLEDIPROC) load(userptr, "glIsEnabledi");
-    glad_glIsFramebuffer = (PFNGLISFRAMEBUFFERPROC) load(userptr, "glIsFramebuffer");
-    glad_glIsRenderbuffer = (PFNGLISRENDERBUFFERPROC) load(userptr, "glIsRenderbuffer");
-    glad_glIsVertexArray = (PFNGLISVERTEXARRAYPROC) load(userptr, "glIsVertexArray");
-    glad_glMapBufferRange = (PFNGLMAPBUFFERRANGEPROC) load(userptr, "glMapBufferRange");
-    glad_glRenderbufferStorage = (PFNGLRENDERBUFFERSTORAGEPROC) load(userptr, "glRenderbufferStorage");
-    glad_glRenderbufferStorageMultisample = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC) load(userptr, "glRenderbufferStorageMultisample");
-    glad_glTexParameterIiv = (PFNGLTEXPARAMETERIIVPROC) load(userptr, "glTexParameterIiv");
-    glad_glTexParameterIuiv = (PFNGLTEXPARAMETERIUIVPROC) load(userptr, "glTexParameterIuiv");
-    glad_glTransformFeedbackVaryings = (PFNGLTRANSFORMFEEDBACKVARYINGSPROC) load(userptr, "glTransformFeedbackVaryings");
-    glad_glUniform1ui = (PFNGLUNIFORM1UIPROC) load(userptr, "glUniform1ui");
-    glad_glUniform1uiv = (PFNGLUNIFORM1UIVPROC) load(userptr, "glUniform1uiv");
-    glad_glUniform2ui = (PFNGLUNIFORM2UIPROC) load(userptr, "glUniform2ui");
-    glad_glUniform2uiv = (PFNGLUNIFORM2UIVPROC) load(userptr, "glUniform2uiv");
-    glad_glUniform3ui = (PFNGLUNIFORM3UIPROC) load(userptr, "glUniform3ui");
-    glad_glUniform3uiv = (PFNGLUNIFORM3UIVPROC) load(userptr, "glUniform3uiv");
-    glad_glUniform4ui = (PFNGLUNIFORM4UIPROC) load(userptr, "glUniform4ui");
-    glad_glUniform4uiv = (PFNGLUNIFORM4UIVPROC) load(userptr, "glUniform4uiv");
-    glad_glVertexAttribI1i = (PFNGLVERTEXATTRIBI1IPROC) load(userptr, "glVertexAttribI1i");
-    glad_glVertexAttribI1iv = (PFNGLVERTEXATTRIBI1IVPROC) load(userptr, "glVertexAttribI1iv");
-    glad_glVertexAttribI1ui = (PFNGLVERTEXATTRIBI1UIPROC) load(userptr, "glVertexAttribI1ui");
-    glad_glVertexAttribI1uiv = (PFNGLVERTEXATTRIBI1UIVPROC) load(userptr, "glVertexAttribI1uiv");
-    glad_glVertexAttribI2i = (PFNGLVERTEXATTRIBI2IPROC) load(userptr, "glVertexAttribI2i");
-    glad_glVertexAttribI2iv = (PFNGLVERTEXATTRIBI2IVPROC) load(userptr, "glVertexAttribI2iv");
-    glad_glVertexAttribI2ui = (PFNGLVERTEXATTRIBI2UIPROC) load(userptr, "glVertexAttribI2ui");
-    glad_glVertexAttribI2uiv = (PFNGLVERTEXATTRIBI2UIVPROC) load(userptr, "glVertexAttribI2uiv");
-    glad_glVertexAttribI3i = (PFNGLVERTEXATTRIBI3IPROC) load(userptr, "glVertexAttribI3i");
-    glad_glVertexAttribI3iv = (PFNGLVERTEXATTRIBI3IVPROC) load(userptr, "glVertexAttribI3iv");
-    glad_glVertexAttribI3ui = (PFNGLVERTEXATTRIBI3UIPROC) load(userptr, "glVertexAttribI3ui");
-    glad_glVertexAttribI3uiv = (PFNGLVERTEXATTRIBI3UIVPROC) load(userptr, "glVertexAttribI3uiv");
-    glad_glVertexAttribI4bv = (PFNGLVERTEXATTRIBI4BVPROC) load(userptr, "glVertexAttribI4bv");
-    glad_glVertexAttribI4i = (PFNGLVERTEXATTRIBI4IPROC) load(userptr, "glVertexAttribI4i");
-    glad_glVertexAttribI4iv = (PFNGLVERTEXATTRIBI4IVPROC) load(userptr, "glVertexAttribI4iv");
-    glad_glVertexAttribI4sv = (PFNGLVERTEXATTRIBI4SVPROC) load(userptr, "glVertexAttribI4sv");
-    glad_glVertexAttribI4ubv = (PFNGLVERTEXATTRIBI4UBVPROC) load(userptr, "glVertexAttribI4ubv");
-    glad_glVertexAttribI4ui = (PFNGLVERTEXATTRIBI4UIPROC) load(userptr, "glVertexAttribI4ui");
-    glad_glVertexAttribI4uiv = (PFNGLVERTEXATTRIBI4UIVPROC) load(userptr, "glVertexAttribI4uiv");
-    glad_glVertexAttribI4usv = (PFNGLVERTEXATTRIBI4USVPROC) load(userptr, "glVertexAttribI4usv");
-    glad_glVertexAttribIPointer = (PFNGLVERTEXATTRIBIPOINTERPROC) load(userptr, "glVertexAttribIPointer");
-}
-static void glad_gl_load_GL_VERSION_3_1( GLADuserptrloadfunc load, void* userptr) {
-    if(!GLAD_GL_VERSION_3_1) return;
-    glad_glBindBufferBase = (PFNGLBINDBUFFERBASEPROC) load(userptr, "glBindBufferBase");
-    glad_glBindBufferRange = (PFNGLBINDBUFFERRANGEPROC) load(userptr, "glBindBufferRange");
-    glad_glCopyBufferSubData = (PFNGLCOPYBUFFERSUBDATAPROC) load(userptr, "glCopyBufferSubData");
-    glad_glDrawArraysInstanced = (PFNGLDRAWARRAYSINSTANCEDPROC) load(userptr, "glDrawArraysInstanced");
-    glad_glDrawElementsInstanced = (PFNGLDRAWELEMENTSINSTANCEDPROC) load(userptr, "glDrawElementsInstanced");
-    glad_glGetActiveUniformBlockName = (PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC) load(userptr, "glGetActiveUniformBlockName");
-    glad_glGetActiveUniformBlockiv = (PFNGLGETACTIVEUNIFORMBLOCKIVPROC) load(userptr, "glGetActiveUniformBlockiv");
-    glad_glGetActiveUniformName = (PFNGLGETACTIVEUNIFORMNAMEPROC) load(userptr, "glGetActiveUniformName");
-    glad_glGetActiveUniformsiv = (PFNGLGETACTIVEUNIFORMSIVPROC) load(userptr, "glGetActiveUniformsiv");
-    glad_glGetIntegeri_v = (PFNGLGETINTEGERI_VPROC) load(userptr, "glGetIntegeri_v");
-    glad_glGetUniformBlockIndex = (PFNGLGETUNIFORMBLOCKINDEXPROC) load(userptr, "glGetUniformBlockIndex");
-    glad_glGetUniformIndices = (PFNGLGETUNIFORMINDICESPROC) load(userptr, "glGetUniformIndices");
-    glad_glPrimitiveRestartIndex = (PFNGLPRIMITIVERESTARTINDEXPROC) load(userptr, "glPrimitiveRestartIndex");
-    glad_glTexBuffer = (PFNGLTEXBUFFERPROC) load(userptr, "glTexBuffer");
-    glad_glUniformBlockBinding = (PFNGLUNIFORMBLOCKBINDINGPROC) load(userptr, "glUniformBlockBinding");
-}
-static void glad_gl_load_GL_VERSION_3_2( GLADuserptrloadfunc load, void* userptr) {
-    if(!GLAD_GL_VERSION_3_2) return;
-    glad_glClientWaitSync = (PFNGLCLIENTWAITSYNCPROC) load(userptr, "glClientWaitSync");
-    glad_glDeleteSync = (PFNGLDELETESYNCPROC) load(userptr, "glDeleteSync");
-    glad_glDrawElementsBaseVertex = (PFNGLDRAWELEMENTSBASEVERTEXPROC) load(userptr, "glDrawElementsBaseVertex");
-    glad_glDrawElementsInstancedBaseVertex = (PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC) load(userptr, "glDrawElementsInstancedBaseVertex");
-    glad_glDrawRangeElementsBaseVertex = (PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC) load(userptr, "glDrawRangeElementsBaseVertex");
-    glad_glFenceSync = (PFNGLFENCESYNCPROC) load(userptr, "glFenceSync");
-    glad_glFramebufferTexture = (PFNGLFRAMEBUFFERTEXTUREPROC) load(userptr, "glFramebufferTexture");
-    glad_glGetBufferParameteri64v = (PFNGLGETBUFFERPARAMETERI64VPROC) load(userptr, "glGetBufferParameteri64v");
-    glad_glGetInteger64i_v = (PFNGLGETINTEGER64I_VPROC) load(userptr, "glGetInteger64i_v");
-    glad_glGetInteger64v = (PFNGLGETINTEGER64VPROC) load(userptr, "glGetInteger64v");
-    glad_glGetMultisamplefv = (PFNGLGETMULTISAMPLEFVPROC) load(userptr, "glGetMultisamplefv");
-    glad_glGetSynciv = (PFNGLGETSYNCIVPROC) load(userptr, "glGetSynciv");
-    glad_glIsSync = (PFNGLISSYNCPROC) load(userptr, "glIsSync");
-    glad_glMultiDrawElementsBaseVertex = (PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC) load(userptr, "glMultiDrawElementsBaseVertex");
-    glad_glProvokingVertex = (PFNGLPROVOKINGVERTEXPROC) load(userptr, "glProvokingVertex");
-    glad_glSampleMaski = (PFNGLSAMPLEMASKIPROC) load(userptr, "glSampleMaski");
-    glad_glTexImage2DMultisample = (PFNGLTEXIMAGE2DMULTISAMPLEPROC) load(userptr, "glTexImage2DMultisample");
-    glad_glTexImage3DMultisample = (PFNGLTEXIMAGE3DMULTISAMPLEPROC) load(userptr, "glTexImage3DMultisample");
-    glad_glWaitSync = (PFNGLWAITSYNCPROC) load(userptr, "glWaitSync");
-}
-static void glad_gl_load_GL_VERSION_3_3( GLADuserptrloadfunc load, void* userptr) {
-    if(!GLAD_GL_VERSION_3_3) return;
-    glad_glBindFragDataLocationIndexed = (PFNGLBINDFRAGDATALOCATIONINDEXEDPROC) load(userptr, "glBindFragDataLocationIndexed");
-    glad_glBindSampler = (PFNGLBINDSAMPLERPROC) load(userptr, "glBindSampler");
-    glad_glDeleteSamplers = (PFNGLDELETESAMPLERSPROC) load(userptr, "glDeleteSamplers");
-    glad_glGenSamplers = (PFNGLGENSAMPLERSPROC) load(userptr, "glGenSamplers");
-    glad_glGetFragDataIndex = (PFNGLGETFRAGDATAINDEXPROC) load(userptr, "glGetFragDataIndex");
-    glad_glGetQueryObjecti64v = (PFNGLGETQUERYOBJECTI64VPROC) load(userptr, "glGetQueryObjecti64v");
-    glad_glGetQueryObjectui64v = (PFNGLGETQUERYOBJECTUI64VPROC) load(userptr, "glGetQueryObjectui64v");
-    glad_glGetSamplerParameterIiv = (PFNGLGETSAMPLERPARAMETERIIVPROC) load(userptr, "glGetSamplerParameterIiv");
-    glad_glGetSamplerParameterIuiv = (PFNGLGETSAMPLERPARAMETERIUIVPROC) load(userptr, "glGetSamplerParameterIuiv");
-    glad_glGetSamplerParameterfv = (PFNGLGETSAMPLERPARAMETERFVPROC) load(userptr, "glGetSamplerParameterfv");
-    glad_glGetSamplerParameteriv = (PFNGLGETSAMPLERPARAMETERIVPROC) load(userptr, "glGetSamplerParameteriv");
-    glad_glIsSampler = (PFNGLISSAMPLERPROC) load(userptr, "glIsSampler");
-    glad_glQueryCounter = (PFNGLQUERYCOUNTERPROC) load(userptr, "glQueryCounter");
-    glad_glSamplerParameterIiv = (PFNGLSAMPLERPARAMETERIIVPROC) load(userptr, "glSamplerParameterIiv");
-    glad_glSamplerParameterIuiv = (PFNGLSAMPLERPARAMETERIUIVPROC) load(userptr, "glSamplerParameterIuiv");
-    glad_glSamplerParameterf = (PFNGLSAMPLERPARAMETERFPROC) load(userptr, "glSamplerParameterf");
-    glad_glSamplerParameterfv = (PFNGLSAMPLERPARAMETERFVPROC) load(userptr, "glSamplerParameterfv");
-    glad_glSamplerParameteri = (PFNGLSAMPLERPARAMETERIPROC) load(userptr, "glSamplerParameteri");
-    glad_glSamplerParameteriv = (PFNGLSAMPLERPARAMETERIVPROC) load(userptr, "glSamplerParameteriv");
-    glad_glVertexAttribDivisor = (PFNGLVERTEXATTRIBDIVISORPROC) load(userptr, "glVertexAttribDivisor");
-    glad_glVertexAttribP1ui = (PFNGLVERTEXATTRIBP1UIPROC) load(userptr, "glVertexAttribP1ui");
-    glad_glVertexAttribP1uiv = (PFNGLVERTEXATTRIBP1UIVPROC) load(userptr, "glVertexAttribP1uiv");
-    glad_glVertexAttribP2ui = (PFNGLVERTEXATTRIBP2UIPROC) load(userptr, "glVertexAttribP2ui");
-    glad_glVertexAttribP2uiv = (PFNGLVERTEXATTRIBP2UIVPROC) load(userptr, "glVertexAttribP2uiv");
-    glad_glVertexAttribP3ui = (PFNGLVERTEXATTRIBP3UIPROC) load(userptr, "glVertexAttribP3ui");
-    glad_glVertexAttribP3uiv = (PFNGLVERTEXATTRIBP3UIVPROC) load(userptr, "glVertexAttribP3uiv");
-    glad_glVertexAttribP4ui = (PFNGLVERTEXATTRIBP4UIPROC) load(userptr, "glVertexAttribP4ui");
-    glad_glVertexAttribP4uiv = (PFNGLVERTEXATTRIBP4UIVPROC) load(userptr, "glVertexAttribP4uiv");
-}
+glad_gl_load_GL_VERSION_3_1 PROC
+    ; Prologue
+    sub rsp, 28h
+    
+    ; Check if GLAD_GL_VERSION_3_1 is enabled
+    mov rax, qword ptr [GLAD_GL_VERSION_3_1]
+    test rax, rax
+    jz .end_function
+    
+    ; Load glad_glBindBufferBase
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glBindBufferBase"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glBindBufferBase], rax
+    
+    ; Load glad_glBindBufferRange
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glBindBufferRange"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glBindBufferRange], rax
+    
+    ; Load glad_glCopyBufferSubData
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glCopyBufferSubData"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glCopyBufferSubData], rax
+    
+    ; Load glad_glDrawArraysInstanced
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glDrawArraysInstanced"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glDrawArraysInstanced], rax
+    
+    ; Load glad_glDrawElementsInstanced
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glDrawElementsInstanced"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glDrawElementsInstanced], rax
+    
+    ; Load glad_glGetActiveUniformBlockName
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetActiveUniformBlockName"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetActiveUniformBlockName], rax
+    
+    ; Load glad_glGetActiveUniformBlockiv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetActiveUniformBlockiv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetActiveUniformBlockiv], rax
+    
+    ; Load glad_glGetActiveUniformName
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetActiveUniformName"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetActiveUniformName], rax
+    
+    ; Load glad_glGetActiveUniformsiv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetActiveUniformsiv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetActiveUniformsiv], rax
+    
+    ; Load glad_glGetIntegeri_v
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetIntegeri_v"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetIntegeri_v], rax
+    
+    ; Load glad_glGetUniformBlockIndex
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetUniformBlockIndex"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetUniformBlockIndex], rax
+    
+    ; Load glad_glGetUniformIndices
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetUniformIndices"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetUniformIndices], rax
+    
+    ; Load glad_glPrimitiveRestartIndex
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glPrimitiveRestartIndex"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glPrimitiveRestartIndex], rax
+    
+    ; Load glad_glTexBuffer
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glTexBuffer"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glTexBuffer], rax
+    
+    ; Load glad_glUniformBlockBinding
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glUniformBlockBinding"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glUniformBlockBinding], rax
+    
+.end_function:
+    ; Epilogue
+    add rsp, 28h
+    ret
+glad_gl_load_GL_VERSION_3_1 ENDP
 
 
+glad_gl_load_GL_VERSION_3_2 PROC
+    ; Prologue
+    sub rsp, 28h
+    
+    ; Check if GLAD_GL_VERSION_3_2 is enabled
+    mov rax, qword ptr [GLAD_GL_VERSION_3_2]
+    test rax, rax
+    jz .end_function
+    
+    ; Load glad_glClientWaitSync
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glClientWaitSync"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glClientWaitSync], rax
+    
+    ; Load glad_glDeleteSync
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glDeleteSync"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glDeleteSync], rax
+    
+    ; Load glad_glDrawElementsBaseVertex
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glDrawElementsBaseVertex"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glDrawElementsBaseVertex], rax
+    
+    ; Load glad_glDrawElementsInstancedBaseVertex
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glDrawElementsInstancedBaseVertex"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glDrawElementsInstancedBaseVertex], rax
+    
+    ; Load glad_glDrawRangeElementsBaseVertex
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glDrawRangeElementsBaseVertex"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glDrawRangeElementsBaseVertex], rax
+    
+    ; Load glad_glFenceSync
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glFenceSync"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glFenceSync], rax
+    
+    ; Load glad_glFramebufferTexture
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glFramebufferTexture"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glFramebufferTexture], rax
+    
+    ; Load glad_glGetBufferParameteri64v
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetBufferParameteri64v"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetBufferParameteri64v], rax
+    
+    ; Load glad_glGetInteger64i_v
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetInteger64i_v"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetInteger64i_v], rax
+    
+    ; Load glad_glGetInteger64v
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetInteger64v"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetInteger64v], rax
+    
+    ; Load glad_glGetMultisamplefv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetMultisamplefv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetMultisamplefv], rax
+    
+    ; Load glad_glGetSynciv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetSynciv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetSynciv], rax
+    
+    ; Load glad_glIsSync
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glIsSync"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glIsSync], rax
+    
+    ; Load glad_glMultiDrawElementsBaseVertex
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glMultiDrawElementsBaseVertex"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glMultiDrawElementsBaseVertex], rax
+    
+    ; Load glad_glProvokingVertex
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glProvokingVertex"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glProvokingVertex], rax
+    
+    ; Load glad_glSampleMaski
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glSampleMaski"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glSampleMaski], rax
+    
+    ; Load glad_glTexImage2DMultisample
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glTexImage2DMultisample"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glTexImage2DMultisample], rax
+    
+    ; Load glad_glTexImage3DMultisample
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glTexImage3DMultisample"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glTexImage3DMultisample], rax
+    
+    ; Load glad_glWaitSync
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glWaitSync"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glWaitSync], rax
+    
+.end_function:
+    ; Epilogue
+    add rsp, 28h
+    ret
+glad_gl_load_GL_VERSION_3_2 ENDP
 
+
+glad_gl_load_GL_VERSION_3_3 PROC
+    ; Prologue
+    sub rsp, 28h
+    
+    ; Check if GLAD_GL_VERSION_3_3 is enabled
+    mov rax, qword ptr [GLAD_GL_VERSION_3_3]
+    test rax, rax
+    jz .end_function
+    
+    ; Load glad_glBindFragDataLocationIndexed
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glBindFragDataLocationIndexed"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glBindFragDataLocationIndexed], rax
+    
+    ; Load glad_glBindSampler
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glBindSampler"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glBindSampler], rax
+    
+    ; Load glad_glDeleteSamplers
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glDeleteSamplers"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glDeleteSamplers], rax
+    
+    ; Load glad_glGenSamplers
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGenSamplers"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGenSamplers], rax
+    
+    ; Load glad_glGetFragDataIndex
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetFragDataIndex"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetFragDataIndex], rax
+    
+    ; Load glad_glGetQueryObjecti64v
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetQueryObjecti64v"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetQueryObjecti64v], rax
+    
+    ; Load glad_glGetQueryObjectui64v
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetQueryObjectui64v"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetQueryObjectui64v], rax
+    
+    ; Load glad_glGetSamplerParameterIiv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetSamplerParameterIiv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetSamplerParameterIiv], rax
+    
+    ; Load glad_glGetSamplerParameterIuiv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetSamplerParameterIuiv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetSamplerParameterIuiv], rax
+    
+    ; Load glad_glGetSamplerParameterfv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetSamplerParameterfv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetSamplerParameterfv], rax
+    
+    ; Load glad_glGetSamplerParameteriv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glGetSamplerParameteriv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glGetSamplerParameteriv], rax
+    
+    ; Load glad_glIsSampler
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glIsSampler"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glIsSampler], rax
+    
+    ; Load glad_glQueryCounter
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glQueryCounter"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glQueryCounter], rax
+    
+    ; Load glad_glSamplerParameterIiv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glSamplerParameterIiv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glSamplerParameterIiv], rax
+    
+    ; Load glad_glSamplerParameterIuiv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glSamplerParameterIuiv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glSamplerParameterIuiv], rax
+    
+    ; Load glad_glSamplerParameterf
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glSamplerParameterf"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glSamplerParameterf], rax
+    
+    ; Load glad_glSamplerParameterfv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glSamplerParameterfv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glSamplerParameterfv], rax
+    
+    ; Load glad_glSamplerParameteri
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glSamplerParameteri"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glSamplerParameteri], rax
+    
+    ; Load glad_glSamplerParameteriv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glSamplerParameteriv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glSamplerParameteriv], rax
+    
+    ; Load glad_glVertexAttribDivisor
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glVertexAttribDivisor"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glVertexAttribDivisor], rax
+    
+    ; Load glad_glVertexAttribP1ui
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glVertexAttribP1ui"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glVertexAttribP1ui], rax
+    
+    ; Load glad_glVertexAttribP1uiv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glVertexAttribP1uiv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glVertexAttribP1uiv], rax
+    
+    ; Load glad_glVertexAttribP2ui
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glVertexAttribP2ui"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glVertexAttribP2ui], rax
+    
+    ; Load glad_glVertexAttribP2uiv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glVertexAttribP2uiv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glVertexAttribP2uiv], rax
+    
+    ; Load glad_glVertexAttribP3ui
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glVertexAttribP3ui"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glVertexAttribP3ui], rax
+    
+    ; Load glad_glVertexAttribP3uiv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glVertexAttribP3uiv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glVertexAttribP3uiv], rax
+    
+    ; Load glad_glVertexAttribP4ui
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glVertexAttribP4ui"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glVertexAttribP4ui], rax
+    
+    ; Load glad_glVertexAttribP4uiv
+    mov rcx, qword ptr [rsp + 30h]
+    mov rdx, OFFSET "glVertexAttribP4uiv"
+    call qword ptr [rsp + 28h]
+    mov qword ptr [glad_glVertexAttribP4uiv], rax
+    
+.end_function:
+    ; Epilogue
+    add rsp, 28h
+    ret
+glad_gl_load_GL_VERSION_3_3 ENDP
+
+; Untranslated from here
 static void glad_gl_free_extensions(char **exts_i) {
     if (exts_i != NULL) {
         unsigned int index;
