@@ -947,355 +947,366 @@ GLAD_GL_VERSION_3_2 dd 0
 GL_VERSION_3_3 equ 1
 GLAD_GL_VERSION_3_3 dd 0
 
-; Start of untranslated
-typedef void (GLAD_API_PTR *PFNGLACTIVETEXTUREPROC)(GLenum texture);
-typedef void (GLAD_API_PTR *PFNGLATTACHSHADERPROC)(GLuint program, GLuint shader);
-typedef void (GLAD_API_PTR *PFNGLBEGINCONDITIONALRENDERPROC)(GLuint id, GLenum mode);
-typedef void (GLAD_API_PTR *PFNGLBEGINQUERYPROC)(GLenum target, GLuint id);
-typedef void (GLAD_API_PTR *PFNGLBEGINTRANSFORMFEEDBACKPROC)(GLenum primitiveMode);
-typedef void (GLAD_API_PTR *PFNGLBINDATTRIBLOCATIONPROC)(GLuint program, GLuint index, const GLchar * name);
-typedef void (GLAD_API_PTR *PFNGLBINDBUFFERPROC)(GLenum target, GLuint buffer);
-typedef void (GLAD_API_PTR *PFNGLBINDBUFFERBASEPROC)(GLenum target, GLuint index, GLuint buffer);
-typedef void (GLAD_API_PTR *PFNGLBINDBUFFERRANGEPROC)(GLenum target, GLuint index, GLuint buffer, GLintptr offset, GLsizeiptr size);
-typedef void (GLAD_API_PTR *PFNGLBINDFRAGDATALOCATIONPROC)(GLuint program, GLuint color, const GLchar * name);
-typedef void (GLAD_API_PTR *PFNGLBINDFRAGDATALOCATIONINDEXEDPROC)(GLuint program, GLuint colorNumber, GLuint index, const GLchar * name);
-typedef void (GLAD_API_PTR *PFNGLBINDFRAMEBUFFERPROC)(GLenum target, GLuint framebuffer);
-typedef void (GLAD_API_PTR *PFNGLBINDRENDERBUFFERPROC)(GLenum target, GLuint renderbuffer);
-typedef void (GLAD_API_PTR *PFNGLBINDSAMPLERPROC)(GLuint unit, GLuint sampler);
-typedef void (GLAD_API_PTR *PFNGLBINDTEXTUREPROC)(GLenum target, GLuint texture);
-typedef void (GLAD_API_PTR *PFNGLBINDVERTEXARRAYPROC)(GLuint array);
-typedef void (GLAD_API_PTR *PFNGLBLENDCOLORPROC)(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha);
-typedef void (GLAD_API_PTR *PFNGLBLENDEQUATIONPROC)(GLenum mode);
-typedef void (GLAD_API_PTR *PFNGLBLENDEQUATIONSEPARATEPROC)(GLenum modeRGB, GLenum modeAlpha);
-typedef void (GLAD_API_PTR *PFNGLBLENDFUNCPROC)(GLenum sfactor, GLenum dfactor);
-typedef void (GLAD_API_PTR *PFNGLBLENDFUNCSEPARATEPROC)(GLenum sfactorRGB, GLenum dfactorRGB, GLenum sfactorAlpha, GLenum dfactorAlpha);
-typedef void (GLAD_API_PTR *PFNGLBLITFRAMEBUFFERPROC)(GLint srcX0, GLint srcY0, GLint srcX1, GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter);
-typedef void (GLAD_API_PTR *PFNGLBUFFERDATAPROC)(GLenum target, GLsizeiptr size, const void * data, GLenum usage);
-typedef void (GLAD_API_PTR *PFNGLBUFFERSUBDATAPROC)(GLenum target, GLintptr offset, GLsizeiptr size, const void * data);
-typedef GLenum (GLAD_API_PTR *PFNGLCHECKFRAMEBUFFERSTATUSPROC)(GLenum target);
-typedef void (GLAD_API_PTR *PFNGLCLAMPCOLORPROC)(GLenum target, GLenum clamp);
-typedef void (GLAD_API_PTR *PFNGLCLEARPROC)(GLbitfield mask);
-typedef void (GLAD_API_PTR *PFNGLCLEARBUFFERFIPROC)(GLenum buffer, GLint drawbuffer, GLfloat depth, GLint stencil);
-typedef void (GLAD_API_PTR *PFNGLCLEARBUFFERFVPROC)(GLenum buffer, GLint drawbuffer, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLCLEARBUFFERIVPROC)(GLenum buffer, GLint drawbuffer, const GLint * value);
-typedef void (GLAD_API_PTR *PFNGLCLEARBUFFERUIVPROC)(GLenum buffer, GLint drawbuffer, const GLuint * value);
-typedef void (GLAD_API_PTR *PFNGLCLEARCOLORPROC)(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha);
-typedef void (GLAD_API_PTR *PFNGLCLEARDEPTHPROC)(GLdouble depth);
-typedef void (GLAD_API_PTR *PFNGLCLEARSTENCILPROC)(GLint s);
-typedef GLenum (GLAD_API_PTR *PFNGLCLIENTWAITSYNCPROC)(GLsync sync, GLbitfield flags, GLuint64 timeout);
-typedef void (GLAD_API_PTR *PFNGLCOLORMASKPROC)(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha);
-typedef void (GLAD_API_PTR *PFNGLCOLORMASKIPROC)(GLuint index, GLboolean r, GLboolean g, GLboolean b, GLboolean a);
-typedef void (GLAD_API_PTR *PFNGLCOMPILESHADERPROC)(GLuint shader);
-typedef void (GLAD_API_PTR *PFNGLCOMPRESSEDTEXIMAGE1DPROC)(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLint border, GLsizei imageSize, const void * data);
-typedef void (GLAD_API_PTR *PFNGLCOMPRESSEDTEXIMAGE2DPROC)(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLsizei imageSize, const void * data);
-typedef void (GLAD_API_PTR *PFNGLCOMPRESSEDTEXIMAGE3DPROC)(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLsizei imageSize, const void * data);
-typedef void (GLAD_API_PTR *PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC)(GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLsizei imageSize, const void * data);
-typedef void (GLAD_API_PTR *PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC)(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLsizei imageSize, const void * data);
-typedef void (GLAD_API_PTR *PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC)(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLsizei imageSize, const void * data);
-typedef void (GLAD_API_PTR *PFNGLCOPYBUFFERSUBDATAPROC)(GLenum readTarget, GLenum writeTarget, GLintptr readOffset, GLintptr writeOffset, GLsizeiptr size);
-typedef void (GLAD_API_PTR *PFNGLCOPYTEXIMAGE1DPROC)(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLint border);
-typedef void (GLAD_API_PTR *PFNGLCOPYTEXIMAGE2DPROC)(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border);
-typedef void (GLAD_API_PTR *PFNGLCOPYTEXSUBIMAGE1DPROC)(GLenum target, GLint level, GLint xoffset, GLint x, GLint y, GLsizei width);
-typedef void (GLAD_API_PTR *PFNGLCOPYTEXSUBIMAGE2DPROC)(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height);
-typedef void (GLAD_API_PTR *PFNGLCOPYTEXSUBIMAGE3DPROC)(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height);
-typedef GLuint (GLAD_API_PTR *PFNGLCREATEPROGRAMPROC)(void);
-typedef GLuint (GLAD_API_PTR *PFNGLCREATESHADERPROC)(GLenum type);
-typedef void (GLAD_API_PTR *PFNGLCULLFACEPROC)(GLenum mode);
-typedef void (GLAD_API_PTR *PFNGLDELETEBUFFERSPROC)(GLsizei n, const GLuint * buffers);
-typedef void (GLAD_API_PTR *PFNGLDELETEFRAMEBUFFERSPROC)(GLsizei n, const GLuint * framebuffers);
-typedef void (GLAD_API_PTR *PFNGLDELETEPROGRAMPROC)(GLuint program);
-typedef void (GLAD_API_PTR *PFNGLDELETEQUERIESPROC)(GLsizei n, const GLuint * ids);
-typedef void (GLAD_API_PTR *PFNGLDELETERENDERBUFFERSPROC)(GLsizei n, const GLuint * renderbuffers);
-typedef void (GLAD_API_PTR *PFNGLDELETESAMPLERSPROC)(GLsizei count, const GLuint * samplers);
-typedef void (GLAD_API_PTR *PFNGLDELETESHADERPROC)(GLuint shader);
-typedef void (GLAD_API_PTR *PFNGLDELETESYNCPROC)(GLsync sync);
-typedef void (GLAD_API_PTR *PFNGLDELETETEXTURESPROC)(GLsizei n, const GLuint * textures);
-typedef void (GLAD_API_PTR *PFNGLDELETEVERTEXARRAYSPROC)(GLsizei n, const GLuint * arrays);
-typedef void (GLAD_API_PTR *PFNGLDEPTHFUNCPROC)(GLenum func);
-typedef void (GLAD_API_PTR *PFNGLDEPTHMASKPROC)(GLboolean flag);
-typedef void (GLAD_API_PTR *PFNGLDEPTHRANGEPROC)(GLdouble n, GLdouble f);
-typedef void (GLAD_API_PTR *PFNGLDETACHSHADERPROC)(GLuint program, GLuint shader);
-typedef void (GLAD_API_PTR *PFNGLDISABLEPROC)(GLenum cap);
-typedef void (GLAD_API_PTR *PFNGLDISABLEVERTEXATTRIBARRAYPROC)(GLuint index);
-typedef void (GLAD_API_PTR *PFNGLDISABLEIPROC)(GLenum target, GLuint index);
-typedef void (GLAD_API_PTR *PFNGLDRAWARRAYSPROC)(GLenum mode, GLint first, GLsizei count);
-typedef void (GLAD_API_PTR *PFNGLDRAWARRAYSINSTANCEDPROC)(GLenum mode, GLint first, GLsizei count, GLsizei instancecount);
-typedef void (GLAD_API_PTR *PFNGLDRAWBUFFERPROC)(GLenum buf);
-typedef void (GLAD_API_PTR *PFNGLDRAWBUFFERSPROC)(GLsizei n, const GLenum * bufs);
-typedef void (GLAD_API_PTR *PFNGLDRAWELEMENTSPROC)(GLenum mode, GLsizei count, GLenum type, const void * indices);
-typedef void (GLAD_API_PTR *PFNGLDRAWELEMENTSBASEVERTEXPROC)(GLenum mode, GLsizei count, GLenum type, const void * indices, GLint basevertex);
-typedef void (GLAD_API_PTR *PFNGLDRAWELEMENTSINSTANCEDPROC)(GLenum mode, GLsizei count, GLenum type, const void * indices, GLsizei instancecount);
-typedef void (GLAD_API_PTR *PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC)(GLenum mode, GLsizei count, GLenum type, const void * indices, GLsizei instancecount, GLint basevertex);
-typedef void (GLAD_API_PTR *PFNGLDRAWRANGEELEMENTSPROC)(GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void * indices);
-typedef void (GLAD_API_PTR *PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC)(GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, const void * indices, GLint basevertex);
-typedef void (GLAD_API_PTR *PFNGLENABLEPROC)(GLenum cap);
-typedef void (GLAD_API_PTR *PFNGLENABLEVERTEXATTRIBARRAYPROC)(GLuint index);
-typedef void (GLAD_API_PTR *PFNGLENABLEIPROC)(GLenum target, GLuint index);
-typedef void (GLAD_API_PTR *PFNGLENDCONDITIONALRENDERPROC)(void);
-typedef void (GLAD_API_PTR *PFNGLENDQUERYPROC)(GLenum target);
-typedef void (GLAD_API_PTR *PFNGLENDTRANSFORMFEEDBACKPROC)(void);
-typedef GLsync (GLAD_API_PTR *PFNGLFENCESYNCPROC)(GLenum condition, GLbitfield flags);
-typedef void (GLAD_API_PTR *PFNGLFINISHPROC)(void);
-typedef void (GLAD_API_PTR *PFNGLFLUSHPROC)(void);
-typedef void (GLAD_API_PTR *PFNGLFLUSHMAPPEDBUFFERRANGEPROC)(GLenum target, GLintptr offset, GLsizeiptr length);
-typedef void (GLAD_API_PTR *PFNGLFRAMEBUFFERRENDERBUFFERPROC)(GLenum target, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer);
-typedef void (GLAD_API_PTR *PFNGLFRAMEBUFFERTEXTUREPROC)(GLenum target, GLenum attachment, GLuint texture, GLint level);
-typedef void (GLAD_API_PTR *PFNGLFRAMEBUFFERTEXTURE1DPROC)(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level);
-typedef void (GLAD_API_PTR *PFNGLFRAMEBUFFERTEXTURE2DPROC)(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level);
-typedef void (GLAD_API_PTR *PFNGLFRAMEBUFFERTEXTURE3DPROC)(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level, GLint zoffset);
-typedef void (GLAD_API_PTR *PFNGLFRAMEBUFFERTEXTURELAYERPROC)(GLenum target, GLenum attachment, GLuint texture, GLint level, GLint layer);
-typedef void (GLAD_API_PTR *PFNGLFRONTFACEPROC)(GLenum mode);
-typedef void (GLAD_API_PTR *PFNGLGENBUFFERSPROC)(GLsizei n, GLuint * buffers);
-typedef void (GLAD_API_PTR *PFNGLGENFRAMEBUFFERSPROC)(GLsizei n, GLuint * framebuffers);
-typedef void (GLAD_API_PTR *PFNGLGENQUERIESPROC)(GLsizei n, GLuint * ids);
-typedef void (GLAD_API_PTR *PFNGLGENRENDERBUFFERSPROC)(GLsizei n, GLuint * renderbuffers);
-typedef void (GLAD_API_PTR *PFNGLGENSAMPLERSPROC)(GLsizei count, GLuint * samplers);
-typedef void (GLAD_API_PTR *PFNGLGENTEXTURESPROC)(GLsizei n, GLuint * textures);
-typedef void (GLAD_API_PTR *PFNGLGENVERTEXARRAYSPROC)(GLsizei n, GLuint * arrays);
-typedef void (GLAD_API_PTR *PFNGLGENERATEMIPMAPPROC)(GLenum target);
-typedef void (GLAD_API_PTR *PFNGLGETACTIVEATTRIBPROC)(GLuint program, GLuint index, GLsizei bufSize, GLsizei * length, GLint * size, GLenum * type, GLchar * name);
-typedef void (GLAD_API_PTR *PFNGLGETACTIVEUNIFORMPROC)(GLuint program, GLuint index, GLsizei bufSize, GLsizei * length, GLint * size, GLenum * type, GLchar * name);
-typedef void (GLAD_API_PTR *PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC)(GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, GLsizei * length, GLchar * uniformBlockName);
-typedef void (GLAD_API_PTR *PFNGLGETACTIVEUNIFORMBLOCKIVPROC)(GLuint program, GLuint uniformBlockIndex, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETACTIVEUNIFORMNAMEPROC)(GLuint program, GLuint uniformIndex, GLsizei bufSize, GLsizei * length, GLchar * uniformName);
-typedef void (GLAD_API_PTR *PFNGLGETACTIVEUNIFORMSIVPROC)(GLuint program, GLsizei uniformCount, const GLuint * uniformIndices, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETATTACHEDSHADERSPROC)(GLuint program, GLsizei maxCount, GLsizei * count, GLuint * shaders);
-typedef GLint (GLAD_API_PTR *PFNGLGETATTRIBLOCATIONPROC)(GLuint program, const GLchar * name);
-typedef void (GLAD_API_PTR *PFNGLGETBOOLEANI_VPROC)(GLenum target, GLuint index, GLboolean * data);
-typedef void (GLAD_API_PTR *PFNGLGETBOOLEANVPROC)(GLenum pname, GLboolean * data);
-typedef void (GLAD_API_PTR *PFNGLGETBUFFERPARAMETERI64VPROC)(GLenum target, GLenum pname, GLint64 * params);
-typedef void (GLAD_API_PTR *PFNGLGETBUFFERPARAMETERIVPROC)(GLenum target, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETBUFFERPOINTERVPROC)(GLenum target, GLenum pname, void ** params);
-typedef void (GLAD_API_PTR *PFNGLGETBUFFERSUBDATAPROC)(GLenum target, GLintptr offset, GLsizeiptr size, void * data);
-typedef void (GLAD_API_PTR *PFNGLGETCOMPRESSEDTEXIMAGEPROC)(GLenum target, GLint level, void * img);
-typedef void (GLAD_API_PTR *PFNGLGETDOUBLEVPROC)(GLenum pname, GLdouble * data);
-typedef GLenum (GLAD_API_PTR *PFNGLGETERRORPROC)(void);
-typedef void (GLAD_API_PTR *PFNGLGETFLOATVPROC)(GLenum pname, GLfloat * data);
-typedef GLint (GLAD_API_PTR *PFNGLGETFRAGDATAINDEXPROC)(GLuint program, const GLchar * name);
-typedef GLint (GLAD_API_PTR *PFNGLGETFRAGDATALOCATIONPROC)(GLuint program, const GLchar * name);
-typedef void (GLAD_API_PTR *PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC)(GLenum target, GLenum attachment, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETINTEGER64I_VPROC)(GLenum target, GLuint index, GLint64 * data);
-typedef void (GLAD_API_PTR *PFNGLGETINTEGER64VPROC)(GLenum pname, GLint64 * data);
-typedef void (GLAD_API_PTR *PFNGLGETINTEGERI_VPROC)(GLenum target, GLuint index, GLint * data);
-typedef void (GLAD_API_PTR *PFNGLGETINTEGERVPROC)(GLenum pname, GLint * data);
-typedef void (GLAD_API_PTR *PFNGLGETMULTISAMPLEFVPROC)(GLenum pname, GLuint index, GLfloat * val);
-typedef void (GLAD_API_PTR *PFNGLGETPROGRAMINFOLOGPROC)(GLuint program, GLsizei bufSize, GLsizei * length, GLchar * infoLog);
-typedef void (GLAD_API_PTR *PFNGLGETPROGRAMIVPROC)(GLuint program, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETQUERYOBJECTI64VPROC)(GLuint id, GLenum pname, GLint64 * params);
-typedef void (GLAD_API_PTR *PFNGLGETQUERYOBJECTIVPROC)(GLuint id, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETQUERYOBJECTUI64VPROC)(GLuint id, GLenum pname, GLuint64 * params);
-typedef void (GLAD_API_PTR *PFNGLGETQUERYOBJECTUIVPROC)(GLuint id, GLenum pname, GLuint * params);
-typedef void (GLAD_API_PTR *PFNGLGETQUERYIVPROC)(GLenum target, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETRENDERBUFFERPARAMETERIVPROC)(GLenum target, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETSAMPLERPARAMETERIIVPROC)(GLuint sampler, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETSAMPLERPARAMETERIUIVPROC)(GLuint sampler, GLenum pname, GLuint * params);
-typedef void (GLAD_API_PTR *PFNGLGETSAMPLERPARAMETERFVPROC)(GLuint sampler, GLenum pname, GLfloat * params);
-typedef void (GLAD_API_PTR *PFNGLGETSAMPLERPARAMETERIVPROC)(GLuint sampler, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETSHADERINFOLOGPROC)(GLuint shader, GLsizei bufSize, GLsizei * length, GLchar * infoLog);
-typedef void (GLAD_API_PTR *PFNGLGETSHADERSOURCEPROC)(GLuint shader, GLsizei bufSize, GLsizei * length, GLchar * source);
-typedef void (GLAD_API_PTR *PFNGLGETSHADERIVPROC)(GLuint shader, GLenum pname, GLint * params);
-typedef const GLubyte * (GLAD_API_PTR *PFNGLGETSTRINGPROC)(GLenum name);
-typedef const GLubyte * (GLAD_API_PTR *PFNGLGETSTRINGIPROC)(GLenum name, GLuint index);
-typedef void (GLAD_API_PTR *PFNGLGETSYNCIVPROC)(GLsync sync, GLenum pname, GLsizei count, GLsizei * length, GLint * values);
-typedef void (GLAD_API_PTR *PFNGLGETTEXIMAGEPROC)(GLenum target, GLint level, GLenum format, GLenum type, void * pixels);
-typedef void (GLAD_API_PTR *PFNGLGETTEXLEVELPARAMETERFVPROC)(GLenum target, GLint level, GLenum pname, GLfloat * params);
-typedef void (GLAD_API_PTR *PFNGLGETTEXLEVELPARAMETERIVPROC)(GLenum target, GLint level, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETTEXPARAMETERIIVPROC)(GLenum target, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETTEXPARAMETERIUIVPROC)(GLenum target, GLenum pname, GLuint * params);
-typedef void (GLAD_API_PTR *PFNGLGETTEXPARAMETERFVPROC)(GLenum target, GLenum pname, GLfloat * params);
-typedef void (GLAD_API_PTR *PFNGLGETTEXPARAMETERIVPROC)(GLenum target, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETTRANSFORMFEEDBACKVARYINGPROC)(GLuint program, GLuint index, GLsizei bufSize, GLsizei * length, GLsizei * size, GLenum * type, GLchar * name);
-typedef GLuint (GLAD_API_PTR *PFNGLGETUNIFORMBLOCKINDEXPROC)(GLuint program, const GLchar * uniformBlockName);
-typedef void (GLAD_API_PTR *PFNGLGETUNIFORMINDICESPROC)(GLuint program, GLsizei uniformCount, const GLchar *const* uniformNames, GLuint * uniformIndices);
-typedef GLint (GLAD_API_PTR *PFNGLGETUNIFORMLOCATIONPROC)(GLuint program, const GLchar * name);
-typedef void (GLAD_API_PTR *PFNGLGETUNIFORMFVPROC)(GLuint program, GLint location, GLfloat * params);
-typedef void (GLAD_API_PTR *PFNGLGETUNIFORMIVPROC)(GLuint program, GLint location, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETUNIFORMUIVPROC)(GLuint program, GLint location, GLuint * params);
-typedef void (GLAD_API_PTR *PFNGLGETVERTEXATTRIBIIVPROC)(GLuint index, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLGETVERTEXATTRIBIUIVPROC)(GLuint index, GLenum pname, GLuint * params);
-typedef void (GLAD_API_PTR *PFNGLGETVERTEXATTRIBPOINTERVPROC)(GLuint index, GLenum pname, void ** pointer);
-typedef void (GLAD_API_PTR *PFNGLGETVERTEXATTRIBDVPROC)(GLuint index, GLenum pname, GLdouble * params);
-typedef void (GLAD_API_PTR *PFNGLGETVERTEXATTRIBFVPROC)(GLuint index, GLenum pname, GLfloat * params);
-typedef void (GLAD_API_PTR *PFNGLGETVERTEXATTRIBIVPROC)(GLuint index, GLenum pname, GLint * params);
-typedef void (GLAD_API_PTR *PFNGLHINTPROC)(GLenum target, GLenum mode);
-typedef GLboolean (GLAD_API_PTR *PFNGLISBUFFERPROC)(GLuint buffer);
-typedef GLboolean (GLAD_API_PTR *PFNGLISENABLEDPROC)(GLenum cap);
-typedef GLboolean (GLAD_API_PTR *PFNGLISENABLEDIPROC)(GLenum target, GLuint index);
-typedef GLboolean (GLAD_API_PTR *PFNGLISFRAMEBUFFERPROC)(GLuint framebuffer);
-typedef GLboolean (GLAD_API_PTR *PFNGLISPROGRAMPROC)(GLuint program);
-typedef GLboolean (GLAD_API_PTR *PFNGLISQUERYPROC)(GLuint id);
-typedef GLboolean (GLAD_API_PTR *PFNGLISRENDERBUFFERPROC)(GLuint renderbuffer);
-typedef GLboolean (GLAD_API_PTR *PFNGLISSAMPLERPROC)(GLuint sampler);
-typedef GLboolean (GLAD_API_PTR *PFNGLISSHADERPROC)(GLuint shader);
-typedef GLboolean (GLAD_API_PTR *PFNGLISSYNCPROC)(GLsync sync);
-typedef GLboolean (GLAD_API_PTR *PFNGLISTEXTUREPROC)(GLuint texture);
-typedef GLboolean (GLAD_API_PTR *PFNGLISVERTEXARRAYPROC)(GLuint array);
-typedef void (GLAD_API_PTR *PFNGLLINEWIDTHPROC)(GLfloat width);
-typedef void (GLAD_API_PTR *PFNGLLINKPROGRAMPROC)(GLuint program);
-typedef void (GLAD_API_PTR *PFNGLLOGICOPPROC)(GLenum opcode);
-typedef void * (GLAD_API_PTR *PFNGLMAPBUFFERPROC)(GLenum target, GLenum access);
-typedef void * (GLAD_API_PTR *PFNGLMAPBUFFERRANGEPROC)(GLenum target, GLintptr offset, GLsizeiptr length, GLbitfield access);
-typedef void (GLAD_API_PTR *PFNGLMULTIDRAWARRAYSPROC)(GLenum mode, const GLint * first, const GLsizei * count, GLsizei drawcount);
-typedef void (GLAD_API_PTR *PFNGLMULTIDRAWELEMENTSPROC)(GLenum mode, const GLsizei * count, GLenum type, const void *const* indices, GLsizei drawcount);
-typedef void (GLAD_API_PTR *PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC)(GLenum mode, const GLsizei * count, GLenum type, const void *const* indices, GLsizei drawcount, const GLint * basevertex);
-typedef void (GLAD_API_PTR *PFNGLPIXELSTOREFPROC)(GLenum pname, GLfloat param);
-typedef void (GLAD_API_PTR *PFNGLPIXELSTOREIPROC)(GLenum pname, GLint param);
-typedef void (GLAD_API_PTR *PFNGLPOINTPARAMETERFPROC)(GLenum pname, GLfloat param);
-typedef void (GLAD_API_PTR *PFNGLPOINTPARAMETERFVPROC)(GLenum pname, const GLfloat * params);
-typedef void (GLAD_API_PTR *PFNGLPOINTPARAMETERIPROC)(GLenum pname, GLint param);
-typedef void (GLAD_API_PTR *PFNGLPOINTPARAMETERIVPROC)(GLenum pname, const GLint * params);
-typedef void (GLAD_API_PTR *PFNGLPOINTSIZEPROC)(GLfloat size);
-typedef void (GLAD_API_PTR *PFNGLPOLYGONMODEPROC)(GLenum face, GLenum mode);
-typedef void (GLAD_API_PTR *PFNGLPOLYGONOFFSETPROC)(GLfloat factor, GLfloat units);
-typedef void (GLAD_API_PTR *PFNGLPRIMITIVERESTARTINDEXPROC)(GLuint index);
-typedef void (GLAD_API_PTR *PFNGLPROVOKINGVERTEXPROC)(GLenum mode);
-typedef void (GLAD_API_PTR *PFNGLQUERYCOUNTERPROC)(GLuint id, GLenum target);
-typedef void (GLAD_API_PTR *PFNGLREADBUFFERPROC)(GLenum src);
-typedef void (GLAD_API_PTR *PFNGLREADPIXELSPROC)(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, void * pixels);
-typedef void (GLAD_API_PTR *PFNGLRENDERBUFFERSTORAGEPROC)(GLenum target, GLenum internalformat, GLsizei width, GLsizei height);
-typedef void (GLAD_API_PTR *PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC)(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height);
-typedef void (GLAD_API_PTR *PFNGLSAMPLECOVERAGEPROC)(GLfloat value, GLboolean invert);
-typedef void (GLAD_API_PTR *PFNGLSAMPLEMASKIPROC)(GLuint maskNumber, GLbitfield mask);
-typedef void (GLAD_API_PTR *PFNGLSAMPLERPARAMETERIIVPROC)(GLuint sampler, GLenum pname, const GLint * param);
-typedef void (GLAD_API_PTR *PFNGLSAMPLERPARAMETERIUIVPROC)(GLuint sampler, GLenum pname, const GLuint * param);
-typedef void (GLAD_API_PTR *PFNGLSAMPLERPARAMETERFPROC)(GLuint sampler, GLenum pname, GLfloat param);
-typedef void (GLAD_API_PTR *PFNGLSAMPLERPARAMETERFVPROC)(GLuint sampler, GLenum pname, const GLfloat * param);
-typedef void (GLAD_API_PTR *PFNGLSAMPLERPARAMETERIPROC)(GLuint sampler, GLenum pname, GLint param);
-typedef void (GLAD_API_PTR *PFNGLSAMPLERPARAMETERIVPROC)(GLuint sampler, GLenum pname, const GLint * param);
-typedef void (GLAD_API_PTR *PFNGLSCISSORPROC)(GLint x, GLint y, GLsizei width, GLsizei height);
-typedef void (GLAD_API_PTR *PFNGLSHADERSOURCEPROC)(GLuint shader, GLsizei count, const GLchar *const* string, const GLint * length);
-typedef void (GLAD_API_PTR *PFNGLSTENCILFUNCPROC)(GLenum func, GLint ref, GLuint mask);
-typedef void (GLAD_API_PTR *PFNGLSTENCILFUNCSEPARATEPROC)(GLenum face, GLenum func, GLint ref, GLuint mask);
-typedef void (GLAD_API_PTR *PFNGLSTENCILMASKPROC)(GLuint mask);
-typedef void (GLAD_API_PTR *PFNGLSTENCILMASKSEPARATEPROC)(GLenum face, GLuint mask);
-typedef void (GLAD_API_PTR *PFNGLSTENCILOPPROC)(GLenum fail, GLenum zfail, GLenum zpass);
-typedef void (GLAD_API_PTR *PFNGLSTENCILOPSEPARATEPROC)(GLenum face, GLenum sfail, GLenum dpfail, GLenum dppass);
-typedef void (GLAD_API_PTR *PFNGLTEXBUFFERPROC)(GLenum target, GLenum internalformat, GLuint buffer);
-typedef void (GLAD_API_PTR *PFNGLTEXIMAGE1DPROC)(GLenum target, GLint level, GLint internalformat, GLsizei width, GLint border, GLenum format, GLenum type, const void * pixels);
-typedef void (GLAD_API_PTR *PFNGLTEXIMAGE2DPROC)(GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, const void * pixels);
-typedef void (GLAD_API_PTR *PFNGLTEXIMAGE2DMULTISAMPLEPROC)(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLboolean fixedsamplelocations);
-typedef void (GLAD_API_PTR *PFNGLTEXIMAGE3DPROC)(GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, const void * pixels);
-typedef void (GLAD_API_PTR *PFNGLTEXIMAGE3DMULTISAMPLEPROC)(GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLboolean fixedsamplelocations);
-typedef void (GLAD_API_PTR *PFNGLTEXPARAMETERIIVPROC)(GLenum target, GLenum pname, const GLint * params);
-typedef void (GLAD_API_PTR *PFNGLTEXPARAMETERIUIVPROC)(GLenum target, GLenum pname, const GLuint * params);
-typedef void (GLAD_API_PTR *PFNGLTEXPARAMETERFPROC)(GLenum target, GLenum pname, GLfloat param);
-typedef void (GLAD_API_PTR *PFNGLTEXPARAMETERFVPROC)(GLenum target, GLenum pname, const GLfloat * params);
-typedef void (GLAD_API_PTR *PFNGLTEXPARAMETERIPROC)(GLenum target, GLenum pname, GLint param);
-typedef void (GLAD_API_PTR *PFNGLTEXPARAMETERIVPROC)(GLenum target, GLenum pname, const GLint * params);
-typedef void (GLAD_API_PTR *PFNGLTEXSUBIMAGE1DPROC)(GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLenum type, const void * pixels);
-typedef void (GLAD_API_PTR *PFNGLTEXSUBIMAGE2DPROC)(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, const void * pixels);
-typedef void (GLAD_API_PTR *PFNGLTEXSUBIMAGE3DPROC)(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void * pixels);
-typedef void (GLAD_API_PTR *PFNGLTRANSFORMFEEDBACKVARYINGSPROC)(GLuint program, GLsizei count, const GLchar *const* varyings, GLenum bufferMode);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM1FPROC)(GLint location, GLfloat v0);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM1FVPROC)(GLint location, GLsizei count, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM1IPROC)(GLint location, GLint v0);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM1IVPROC)(GLint location, GLsizei count, const GLint * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM1UIPROC)(GLint location, GLuint v0);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM1UIVPROC)(GLint location, GLsizei count, const GLuint * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM2FPROC)(GLint location, GLfloat v0, GLfloat v1);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM2FVPROC)(GLint location, GLsizei count, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM2IPROC)(GLint location, GLint v0, GLint v1);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM2IVPROC)(GLint location, GLsizei count, const GLint * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM2UIPROC)(GLint location, GLuint v0, GLuint v1);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM2UIVPROC)(GLint location, GLsizei count, const GLuint * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM3FPROC)(GLint location, GLfloat v0, GLfloat v1, GLfloat v2);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM3FVPROC)(GLint location, GLsizei count, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM3IPROC)(GLint location, GLint v0, GLint v1, GLint v2);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM3IVPROC)(GLint location, GLsizei count, const GLint * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM3UIPROC)(GLint location, GLuint v0, GLuint v1, GLuint v2);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM3UIVPROC)(GLint location, GLsizei count, const GLuint * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM4FPROC)(GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM4FVPROC)(GLint location, GLsizei count, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM4IPROC)(GLint location, GLint v0, GLint v1, GLint v2, GLint v3);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM4IVPROC)(GLint location, GLsizei count, const GLint * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM4UIPROC)(GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3);
-typedef void (GLAD_API_PTR *PFNGLUNIFORM4UIVPROC)(GLint location, GLsizei count, const GLuint * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORMBLOCKBINDINGPROC)(GLuint program, GLuint uniformBlockIndex, GLuint uniformBlockBinding);
-typedef void (GLAD_API_PTR *PFNGLUNIFORMMATRIX2FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORMMATRIX2X3FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORMMATRIX2X4FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORMMATRIX3FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORMMATRIX3X2FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORMMATRIX3X4FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORMMATRIX4FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORMMATRIX4X2FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat * value);
-typedef void (GLAD_API_PTR *PFNGLUNIFORMMATRIX4X3FVPROC)(GLint location, GLsizei count, GLboolean transpose, const GLfloat * value);
-typedef GLboolean (GLAD_API_PTR *PFNGLUNMAPBUFFERPROC)(GLenum target);
-typedef void (GLAD_API_PTR *PFNGLUSEPROGRAMPROC)(GLuint program);
-typedef void (GLAD_API_PTR *PFNGLVALIDATEPROGRAMPROC)(GLuint program);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB1DPROC)(GLuint index, GLdouble x);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB1DVPROC)(GLuint index, const GLdouble * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB1FPROC)(GLuint index, GLfloat x);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB1FVPROC)(GLuint index, const GLfloat * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB1SPROC)(GLuint index, GLshort x);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB1SVPROC)(GLuint index, const GLshort * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB2DPROC)(GLuint index, GLdouble x, GLdouble y);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB2DVPROC)(GLuint index, const GLdouble * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB2FPROC)(GLuint index, GLfloat x, GLfloat y);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB2FVPROC)(GLuint index, const GLfloat * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB2SPROC)(GLuint index, GLshort x, GLshort y);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB2SVPROC)(GLuint index, const GLshort * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB3DPROC)(GLuint index, GLdouble x, GLdouble y, GLdouble z);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB3DVPROC)(GLuint index, const GLdouble * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB3FPROC)(GLuint index, GLfloat x, GLfloat y, GLfloat z);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB3FVPROC)(GLuint index, const GLfloat * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB3SPROC)(GLuint index, GLshort x, GLshort y, GLshort z);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB3SVPROC)(GLuint index, const GLshort * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4NBVPROC)(GLuint index, const GLbyte * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4NIVPROC)(GLuint index, const GLint * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4NSVPROC)(GLuint index, const GLshort * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4NUBPROC)(GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4NUBVPROC)(GLuint index, const GLubyte * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4NUIVPROC)(GLuint index, const GLuint * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4NUSVPROC)(GLuint index, const GLushort * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4BVPROC)(GLuint index, const GLbyte * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4DPROC)(GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4DVPROC)(GLuint index, const GLdouble * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4FPROC)(GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4FVPROC)(GLuint index, const GLfloat * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4IVPROC)(GLuint index, const GLint * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4SPROC)(GLuint index, GLshort x, GLshort y, GLshort z, GLshort w);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4SVPROC)(GLuint index, const GLshort * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4UBVPROC)(GLuint index, const GLubyte * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4UIVPROC)(GLuint index, const GLuint * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIB4USVPROC)(GLuint index, const GLushort * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBDIVISORPROC)(GLuint index, GLuint divisor);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI1IPROC)(GLuint index, GLint x);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI1IVPROC)(GLuint index, const GLint * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI1UIPROC)(GLuint index, GLuint x);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI1UIVPROC)(GLuint index, const GLuint * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI2IPROC)(GLuint index, GLint x, GLint y);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI2IVPROC)(GLuint index, const GLint * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI2UIPROC)(GLuint index, GLuint x, GLuint y);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI2UIVPROC)(GLuint index, const GLuint * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI3IPROC)(GLuint index, GLint x, GLint y, GLint z);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI3IVPROC)(GLuint index, const GLint * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI3UIPROC)(GLuint index, GLuint x, GLuint y, GLuint z);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI3UIVPROC)(GLuint index, const GLuint * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI4BVPROC)(GLuint index, const GLbyte * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI4IPROC)(GLuint index, GLint x, GLint y, GLint z, GLint w);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI4IVPROC)(GLuint index, const GLint * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI4SVPROC)(GLuint index, const GLshort * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI4UBVPROC)(GLuint index, const GLubyte * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI4UIPROC)(GLuint index, GLuint x, GLuint y, GLuint z, GLuint w);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI4UIVPROC)(GLuint index, const GLuint * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBI4USVPROC)(GLuint index, const GLushort * v);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBIPOINTERPROC)(GLuint index, GLint size, GLenum type, GLsizei stride, const void * pointer);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBP1UIPROC)(GLuint index, GLenum type, GLboolean normalized, GLuint value);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBP1UIVPROC)(GLuint index, GLenum type, GLboolean normalized, const GLuint * value);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBP2UIPROC)(GLuint index, GLenum type, GLboolean normalized, GLuint value);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBP2UIVPROC)(GLuint index, GLenum type, GLboolean normalized, const GLuint * value);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBP3UIPROC)(GLuint index, GLenum type, GLboolean normalized, GLuint value);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBP3UIVPROC)(GLuint index, GLenum type, GLboolean normalized, const GLuint * value);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBP4UIPROC)(GLuint index, GLenum type, GLboolean normalized, GLuint value);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBP4UIVPROC)(GLuint index, GLenum type, GLboolean normalized, const GLuint * value);
-typedef void (GLAD_API_PTR *PFNGLVERTEXATTRIBPOINTERPROC)(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const void * pointer);
-typedef void (GLAD_API_PTR *PFNGLVIEWPORTPROC)(GLint x, GLint y, GLsizei width, GLsizei height);
-typedef void (GLAD_API_PTR *PFNGLWAITSYNCPROC)(GLsync sync, GLbitfield flags, GLuint64 timeout);
-; End of untranslated
-GLAD_API_CALL PROC PFNGLACTIVETEXTUREPROC
-    jmp glad_glActiveTexture
-GLAD_API_CALL ENDP
+; PFNGLACTIVETEXTUREPROC PROTO :QWORD
+PFNGLATTACHSHADERPROC PROTO :QWORD, :QWORD
+PFNGLBEGINCONDITIONALRENDERPROC PROTO :QWORD, :QWORD
+PFNGLBEGINQUERYPROC PROTO :QWORD, :QWORD
+PFNGLBEGINTRANSFORMFEEDBACKPROC PROTO :QWORD
+PFNGLBINDATTRIBLOCATIONPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLBINDBUFFERPROC PROTO :QWORD, :QWORD
+PFNGLBINDBUFFERBASEPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLBINDBUFFERRANGEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLBINDFRAGDATALOCATIONPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLBINDFRAGDATALOCATIONINDEXEDPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLBINDFRAMEBUFFERPROC PROTO :QWORD, :QWORD
+PFNGLBINDRENDERBUFFERPROC PROTO :QWORD, :QWORD
+PFNGLBINDSAMPLERPROC PROTO :QWORD, :QWORD
+PFNGLBINDTEXTUREPROC PROTO :QWORD, :QWORD
+PFNGLBINDVERTEXARRAYPROC PROTO :QWORD
+PFNGLBLENDCOLORPROC PROTO :REAL4, :REAL4, :REAL4, :REAL4
+PFNGLBLENDEQUATIONPROC PROTO :QWORD
+PFNGLBLENDEQUATIONSEPARATEPROC PROTO :QWORD, :QWORD
+PFNGLBLENDFUNCPROC PROTO :QWORD, :QWORD
+PFNGLBLENDFUNCSEPARATEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLBLITFRAMEBUFFERPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLBUFFERDATAPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLBUFFERSUBDATAPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCHECKFRAMEBUFFERSTATUSPROC PROTO :QWORD
+PFNGLCLAMPCOLORPROC PROTO :QWORD, :QWORD
+PFNGLCLEARPROC PROTO :QWORD
+PFNGLCLEARBUFFERFIPROC PROTO :QWORD, :QWORD, :REAL4, :QWORD
+PFNGLCLEARBUFFERFVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLCLEARBUFFERIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLCLEARBUFFERUIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLCLEARCOLORPROC PROTO :REAL4, :REAL4, :REAL4, :REAL4
+PFNGLCLEARDEPTHPROC PROTO :REAL8
+PFNGLCLEARSTENCILPROC PROTO :QWORD
+PFNGLCLIENTWAITSYNCPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLCOLORMASKPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOLORMASKIPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOMPILESHADERPROC PROTO :QWORD
+PFNGLCOMPRESSEDTEXIMAGE1DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOMPRESSEDTEXIMAGE2DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOMPRESSEDTEXIMAGE3DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOPYBUFFERSUBDATAPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOPYTEXIMAGE1DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOPYTEXIMAGE2DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOPYTEXSUBIMAGE1DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOPYTEXSUBIMAGE2DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCOPYTEXSUBIMAGE3DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLCREATEPROGRAMPROC PROTO
+PFNGLCREATESHADERPROC PROTO :QWORD
+PFNGLCULLFACEPROC PROTO :QWORD
+PFNGLDELETEBUFFERSPROC PROTO :QWORD, :QWORD
+PFNGLDELETEFRAMEBUFFERSPROC PROTO :QWORD, :QWORD
+PFNGLDELETEPROGRAMPROC PROTO :QWORD
+PFNGLDELETEQUERIESPROC PROTO :QWORD, :QWORD
+PFNGLDELETERENDERBUFFERSPROC PROTO :QWORD, :QWORD
+PFNGLDELETESAMPLERSPROC PROTO :QWORD, :QWORD
+PFNGLDELETESHADERPROC PROTO :QWORD
+PFNGLDELETESYNCPROC PROTO :QWORD
+PFNGLDELETETEXTURESPROC PROTO :QWORD, :QWORD
+PFNGLDELETEVERTEXARRAYSPROC PROTO :QWORD, :QWORD
+PFNGLDEPTHFUNCPROC PROTO :QWORD
+PFNGLDEPTHMASKPROC PROTO :QWORD
+PFNGLDEPTHRANGEPROC PROTO :QWORD, :QWORD
+PFNGLDETACHSHADERPROC PROTO :QWORD, :QWORD
+PFNGLDISABLEPROC PROTO :QWORD
+PFNGLDISABLEVERTEXATTRIBARRAYPROC PROTO :QWORD
+PFNGLDISABLEIPROC PROTO :QWORD, :QWORD
+PFNGLDRAWARRAYSPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLDRAWARRAYSINSTANCEDPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLDRAWBUFFERPROC PROTO :QWORD
+PFNGLDRAWBUFFERSPROC PROTO :QWORD, :QWORD
+PFNGLDRAWELEMENTSPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLDRAWELEMENTSBASEVERTEXPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLDRAWELEMENTSINSTANCEDPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLDRAWRANGEELEMENTSPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLENABLEPROC PROTO :QWORD
+PFNGLENABLEVERTEXATTRIBARRAYPROC PROTO :QWORD
+PFNGLENABLEIPROC PROTO :QWORD, :QWORD
+PFNGLENDCONDITIONALRENDERPROC PROTO
+PFNGLENDQUERYPROC PROTO :QWORD
+PFNGLENDTRANSFORMFEEDBACKPROC PROTO
+PFNGLFENCESYNCPROC PROTO :QWORD, :QWORD
+PFNGLFINISHPROC PROTO
+PFNGLFLUSHPROC PROTO
+PFNGLFLUSHMAPPEDBUFFERRANGEPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLFRAMEBUFFERRENDERBUFFERPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLFRAMEBUFFERTEXTUREPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLFRAMEBUFFERTEXTURE1DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLFRAMEBUFFERTEXTURE2DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLFRAMEBUFFERTEXTURE3DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLFRAMEBUFFERTEXTURELAYERPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLFRONTFACEPROC PROTO :QWORD
+PFNGLGENBUFFERSPROC PROTO :QWORD, :QWORD
+PFNGLGENFRAMEBUFFERSPROC PROTO :QWORD, :QWORD
+PFNGLGENQUERIESPROC PROTO :QWORD, :QWORD
+PFNGLGENRENDERBUFFERSPROC PROTO :QWORD, :QWORD
+PFNGLGENSAMPLERSPROC PROTO :QWORD, :QWORD
+PFNGLGENTEXTURESPROC PROTO :QWORD, :QWORD
+PFNGLGENVERTEXARRAYSPROC PROTO :QWORD, :QWORD
+PFNGLGENERATEMIPMAPPROC PROTO :QWORD
+PFNGLGETACTIVEATTRIBPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETACTIVEUNIFORMPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETACTIVEUNIFORMBLOCKIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETACTIVEUNIFORMNAMEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETACTIVEUNIFORMSIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETATTACHEDSHADERSPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETATTRIBLOCATIONPROC PROTO :QWORD, :QWORD
+PFNGLGETBOOLEANI_VPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETBOOLEANVPROC PROTO :QWORD, :QWORD
+PFNGLGETBUFFERPARAMETERI64VPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETBUFFERPARAMETERIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETBUFFERPOINTERVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETBUFFERSUBDATAPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETCOMPRESSEDTEXIMAGEPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETDOUBLEVPROC PROTO :QWORD, :QWORD
+PFNGLGETERRORPROC PROTO :QWORD
+PFNGLGETFLOATVPROC PROTO :QWORD, :QWORD
+PFNGLGETFRAGDATAINDEXPROC PROTO :QWORD, :QWORD
+PFNGLGETFRAGDATALOCATIONPROC PROTO :QWORD, :QWORD
+PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETINTEGER64I_VPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETINTEGER64VPROC PROTO :QWORD, :QWORD
+PFNGLGETINTEGERI_VPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETINTEGERVPROC PROTO :QWORD, :QWORD
+PFNGLGETMULTISAMPLEFVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETPROGRAMINFOLOGPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETPROGRAMIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETQUERYOBJECTI64VPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETQUERYOBJECTIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETQUERYOBJECTUI64VPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETQUERYOBJECTUIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETQUERYIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETRENDERBUFFERPARAMETERIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETSAMPLERPARAMETERIIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETSAMPLERPARAMETERIUIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETSAMPLERPARAMETERFVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETSAMPLERPARAMETERIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETSHADERINFOLOGPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETSHADERSOURCEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETSHADERIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETSTRINGPROC PROTO :QWORD
+PFNGLGETSTRINGIPROC PROTO :QWORD, :QWORD
+PFNGLGETSYNCIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETTEXIMAGEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETTEXLEVELPARAMETERFVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETTEXLEVELPARAMETERIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETTEXPARAMETERIIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETTEXPARAMETERIUIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETTEXPARAMETERFVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETTEXPARAMETERIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETTRANSFORMFEEDBACKVARYINGPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETUNIFORMBLOCKINDEXPROC PROTO :QWORD, :QWORD
+PFNGLGETUNIFORMINDICESPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLGETUNIFORMLOCATIONPROC PROTO :QWORD, :QWORD
+PFNGLGETUNIFORMFVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETUNIFORMIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETUNIFORMUIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETVERTEXATTRIBIIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETVERTEXATTRIBIUIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETVERTEXATTRIBPOINTERVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETVERTEXATTRIBDVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETVERTEXATTRIBFVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLGETVERTEXATTRIBIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLHINTPROC PROTO :QWORD, :QWORD
+PFNGLISBUFFERPROC PROTO :QWORD
+PFNGLISENABLEDPROC PROTO :QWORD
+PFNGLISENABLEDIPROC PROTO :QWORD, :QWORD
+PFNGLISFRAMEBUFFERPROC PROTO :QWORD
+PFNGLISPROGRAMPROC PROTO :QWORD
+PFNGLISQUERYPROC PROTO :QWORD
+PFNGLISRENDERBUFFERPROC PROTO :QWORD
+PFNGLISSAMPLERPROC PROTO :QWORD
+PFNGLISSHADERPROC PROTO :QWORD
+PFNGLISSYNCPROC PROTO :QWORD
+PFNGLISTEXTUREPROC PROTO :QWORD
+PFNGLISVERTEXARRAYPROC PROTO :QWORD
+PFNGLLINEWIDTHPROC PROTO :QWORD
+PFNGLLINKPROGRAMPROC PROTO :QWORD
+PFNGLLOGICOPPROC PROTO :QWORD
+PFNGLMAPBUFFERPROC PROTO :QWORD, :QWORD
+PFNGLMAPBUFFERRANGEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLMULTIDRAWARRAYSPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLMULTIDRAWELEMENTSPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLPIXELSTOREFPROC PROTO :QWORD, :QWORD
+PFNGLPIXELSTOREIPROC PROTO :QWORD, :QWORD
+PFNGLPOINTPARAMETERFPROC PROTO :QWORD, :QWORD
+PFNGLPOINTPARAMETERFVPROC PROTO :QWORD, :QWORD
+PFNGLPOINTPARAMETERIPROC PROTO :QWORD, :QWORD
+PFNGLPOINTPARAMETERIVPROC PROTO :QWORD, :QWORD
+PFNGLPOINTSIZEPROC PROTO :QWORD
+PFNGLPOLYGONMODEPROC PROTO :QWORD, :QWORD
+PFNGLPOLYGONOFFSETPROC PROTO :QWORD, :QWORD
+PFNGLPRIMITIVERESTARTINDEXPROC PROTO :QWORD
+PFNGLPROVOKINGVERTEXPROC PROTO :QWORD
+PFNGLQUERYCOUNTERPROC PROTO :QWORD, :QWORD
+PFNGLREADBUFFERPROC PROTO :QWORD
+PFNGLREADPIXELSPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLRENDERBUFFERSTORAGEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLSAMPLECOVERAGEPROC PROTO :QWORD, :QWORD
+PFNGLSAMPLEMASKIPROC PROTO :QWORD, :QWORD
+PFNGLSAMPLERPARAMETERIIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLSAMPLERPARAMETERIUIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLSAMPLERPARAMETERFPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLSAMPLERPARAMETERFVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLSAMPLERPARAMETERIPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLSAMPLERPARAMETERIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLSCISSORPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLSHADERSOURCEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLSTENCILFUNCPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLSTENCILFUNCSEPARATEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLSTENCILMASKPROC PROTO :QWORD
+PFNGLSTENCILMASKSEPARATEPROC PROTO :QWORD, :QWORD
+PFNGLSTENCILOPPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLSTENCILOPSEPARATEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLTEXBUFFERPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLTEXIMAGE1DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLTEXIMAGE2DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLTEXIMAGE2DMULTISAMPLEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLTEXIMAGE3DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLTEXIMAGE3DMULTISAMPLEPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLTEXPARAMETERIIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLTEXPARAMETERIUIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLTEXPARAMETERFPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLTEXPARAMETERFVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLTEXPARAMETERIPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLTEXPARAMETERIVPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLTEXSUBIMAGE1DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLTEXSUBIMAGE2DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLTEXSUBIMAGE3DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLTRANSFORMFEEDBACKVARYINGSPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM1FPROC PROTO :QWORD, :QWORD
+PFNGLUNIFORM1FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM1IPROC PROTO :QWORD, :QWORD
+PFNGLUNIFORM1IVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM1UIPROC PROTO :QWORD, :QWORD
+PFNGLUNIFORM1UIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM2FPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM2FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM2IPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM2IVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM2UIPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM2UIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM3FPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM3FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM3IPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM3IVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM3UIPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM3UIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM4FPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM4FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM4IPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM4IVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM4UIPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORM4UIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORMBLOCKBINDINGPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLUNIFORMMATRIX2FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORMMATRIX2X3FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORMMATRIX2X4FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORMMATRIX3FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORMMATRIX3X2FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORMMATRIX3X4FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORMMATRIX4FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORMMATRIX4X2FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNIFORMMATRIX4X3FVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLUNMAPBUFFERPROC PROTO :QWORD
+PFNGLUSEPROGRAMPROC PROTO :QWORD
+PFNGLVALIDATEPROGRAMPROC PROTO :QWORD
+PFNGLVERTEXATTRIB1DPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB1DVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB1FPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB1FVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB1SPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB1SVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB2DPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIB2DVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB2FPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIB2FVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB2SPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIB2SVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB3DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIB3DVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB3FPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIB3FVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB3SPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIB3SVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4NBVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4NIVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4NSVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4NUBPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIB4NUBVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4NUIVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4NUSVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4BVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4DPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIB4DVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4FPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIB4FVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4IVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4SPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIB4SVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4UBVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4UIVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIB4USVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBDIVISORPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI1IPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI1IVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI1UIPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI1UIVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI2IPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBI2IVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI2UIPROC PROTO :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBI2UIVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI3IPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBI3IVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI3UIPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBI3UIVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI4BVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI4IPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBI4IVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI4SVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI4UBVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI4UIPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBI4UIVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBI4USVPROC PROTO :QWORD, :QWORD
+PFNGLVERTEXATTRIBIPOINTERPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBP1UIPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBP1UIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBP2UIPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBP2UIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBP3UIPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBP3UIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBP4UIPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBP4UIVPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVERTEXATTRIBPOINTERPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLVIEWPORTPROC PROTO :QWORD, :QWORD, :QWORD, :QWORD
+PFNGLWAITSYNCPROC PROTO :QWORD, :QWORD, :QWORD
+
+; Define the function pointer type using typedef
+PFNGLACTIVETEXTUREPROC PROTO :QWORD
+
+; Declare the function pointer variable
+glad_glActiveTexture PFNGLACTIVETEXTUREPROC 0
+
+; Define an alias for the function pointer (optional but recommended)
+glActiveTexture EQU glad_glActiveTexture
+
+
+
+
+;GLAD_API_CALL PROC PFNGLACTIVETEXTUREPROC
+;    jmp glad_glActiveTexture
+;GLAD_API_CALL ENDP
 
 glActiveTexture EQU glad_glActiveTexture
 
@@ -2835,7 +2846,7 @@ EXTERNDEF gladLoadGLUserPtr :PROC
 EXTERNDEF GLADuserptrloadfunc :QWORD
 EXTERNDEF GLAD_API_CALL :DWORD
 
-PUBLIC gladLoadGLUserPtr
+gladLoadGLUserPtr
 
 gladLoadGLUserPtr PROC
     ; Parameters:
@@ -4391,7 +4402,6 @@ mov qword ptr [glad_glVertexAttribPointer], rax
     ret
 glad_gl_load_GL_VERSION_2_0 ENDP
 
-; The rest, untranslated past this comment
 ; void glad_gl_load_GL_VERSION_2_1(GLADuserptrloadfunc load, void* userptr)
 glad_gl_load_GL_VERSION_2_1 PROC
     ; Prologue
@@ -5345,176 +5355,239 @@ glad_gl_load_GL_VERSION_3_3 PROC
     ret
 glad_gl_load_GL_VERSION_3_3 ENDP
 
-; Untranslated from here
-static void glad_gl_free_extensions(char **exts_i) {
-    if (exts_i != NULL) {
-        unsigned int index;
-        for(index = 0; exts_i[index]; index++) {
-            free((void *) (exts_i[index]));
-        }
-        free((void *)exts_i);
-        exts_i = NULL;
-    }
-}
-static int glad_gl_get_extensions( const char **out_exts, char ***out_exts_i) {
+
+glad_gl_free_extensions PROC
+    ; Prologue
+    sub rsp, 28h
+    
+    ; Check if exts_i is NULL
+    cmp rcx, 0
+    je .end_function
+    
+    ; Initialize index to 0
+    xor rax, rax
+    
+.loop:
+    ; Load the pointer from exts_i[index]
+    mov rdx, qword ptr [rcx + rax*8]
+    
+    ; Check if the pointer is NULL
+    test rdx, rdx
+    je .free_exts_i
+    
+    ; Free the memory at the pointer
+    mov rcx, rdx
+    call free
+    
+    ; Increment the index
+    inc rax
+    
+    ; Repeat the loop
+    jmp .loop
+    
+.free_exts_i:
+    ; Free the memory at exts_i
+    mov rcx, rcx
+    call free
+    
+    ; Set exts_i to NULL
+    mov rcx, qword ptr [rsp + 30h]
+    mov qword ptr [rcx], 0
+    
+.end_function:
+    ; Epilogue
+    add rsp, 28h
+    ret
+glad_gl_free_extensions ENDP
+
+glad_gl_get_extensions PROC
+    ; Prologue
+    sub rsp, 38h
+    mov [rsp+28h], rcx   ; Save out_exts
+    mov [rsp+30h], rdx   ; Save out_exts_i
+
 #if defined(GL_ES_VERSION_3_0) || defined(GL_VERSION_3_0)
-    if (glad_glGetStringi != NULL && glad_glGetIntegerv != NULL) {
-        unsigned int index = 0;
-        unsigned int num_exts_i = 0;
-        char **exts_i = NULL;
-        glad_glGetIntegerv(GL_NUM_EXTENSIONS, (int*) &num_exts_i);
-        exts_i = (char **) malloc((num_exts_i + 1) * (sizeof *exts_i));
-        if (exts_i == NULL) {
-            return 0;
-        }
-        for(index = 0; index < num_exts_i; index++) {
-            const char *gl_str_tmp = (const char*) glad_glGetStringi(GL_EXTENSIONS, index);
-            size_t len = strlen(gl_str_tmp) + 1;
+    ; Check if glad_glGetStringi and glad_glGetIntegerv are not NULL
+    cmp qword ptr [glad_glGetStringi], 0
+    je .return_zero
+    cmp qword ptr [glad_glGetIntegerv], 0
+    je .return_zero
+    
+    ; Initialize index and num_exts_i
+    xor r8d, r8d         ; index = 0
+    xor r9d, r9d         ; num_exts_i = 0
 
-            char *local_str = (char*) malloc(len * sizeof(char));
-            if(local_str == NULL) {
-                exts_i[index] = NULL;
-                glad_gl_free_extensions(exts_i);
-                return 0;
-            }
+    ; Call glad_glGetIntegerv(GL_NUM_EXTENSIONS, &num_exts_i)
+    mov ecx, GL_NUM_EXTENSIONS
+    lea rdx, r9
+    call qword ptr [glad_glGetIntegerv]
 
-            memcpy(local_str, gl_str_tmp, len * sizeof(char));
-            exts_i[index] = local_str;
-        }
-        exts_i[index] = NULL;
+    ; Allocate memory for exts_i
+    mov r8, r9
+    add r8, 1
+    mov rax, r8
+    shl rax, 3           ; sizeof(char*)
+    call malloc
+    mov [rsp+20h], rax   ; Save exts_i
+    cmp rax, 0
+    je .return_zero
 
-        *out_exts_i = exts_i;
+    ; Loop through extensions
+.loop:
+    cmp r8d, r9d
+    jge .end_loop
 
-        return 1;
-    }
+    ; Call glad_glGetStringi(GL_EXTENSIONS, index)
+    mov ecx, GL_EXTENSIONS
+    mov edx, r8d
+    call qword ptr [glad_glGetStringi]
+    mov r10, rax         ; gl_str_tmp = rax
+
+    ; Get length of gl_str_tmp
+    call strlen
+    inc rax
+    mov r11, rax         ; len = rax
+
+    ; Allocate memory for local_str
+    mov rcx, r11
+    call malloc
+    cmp rax, 0
+    je .free_and_return_zero
+    mov r12, rax         ; local_str = rax
+
+    ; Copy gl_str_tmp to local_str
+    mov rcx, r12
+    mov rdx, r10
+    mov r8, r11
+    call memcpy
+
+    ; Store local_str in exts_i[index]
+    mov rax, [rsp+20h]
+    mov [rax + r8*8], r12
+
+    ; Increment index and repeat loop
+    inc r8d
+    jmp .loop
+
+.end_loop:
+    ; Null-terminate exts_i
+    mov rax, [rsp+20h]
+    mov qword ptr [rax + r8*8], 0
+
+    ; Set *out_exts_i = exts_i
+    mov rax, [rsp+30h]
+    mov rdx, [rsp+20h]
+    mov [rax], rdx
+
+    ; Return 1
+    mov eax, 1
+    jmp .epilogue
+
+.free_and_return_zero:
+    mov rcx, [rsp+20h]
+    call glad_gl_free_extensions
+
+.return_zero:
+    xor eax, eax
+
+.epilogue:
+    add rsp, 38h
+    ret
 #else
-    GLAD_UNUSED(out_exts_i);
+    ; GLAD_UNUSED(out_exts_i);
+    ; Since this is an unused parameter, we just move it to a register to avoid warnings
+    mov rax, [rsp+30h]
+    mov rax, rax
+    xor eax, eax
+    add rsp, 38h
+    ret
 #endif
-    if (glad_glGetString == NULL) {
-        return 0;
-    }
-    *out_exts = (const char *)glad_glGetString(GL_EXTENSIONS);
-    return 1;
-}
-static int glad_gl_has_extension(const char *exts, char **exts_i, const char *ext) {
-    if(exts_i) {
-        unsigned int index;
-        for(index = 0; exts_i[index]; index++) {
-            const char *e = exts_i[index];
-            if(strcmp(e, ext) == 0) {
-                return 1;
-            }
-        }
-    } else {
-        const char *extensions;
-        const char *loc;
-        const char *terminator;
-        extensions = exts;
-        if(extensions == NULL || ext == NULL) {
-            return 0;
-        }
-        while(1) {
-            loc = strstr(extensions, ext);
-            if(loc == NULL) {
-                return 0;
-            }
-            terminator = loc + strlen(ext);
-            if((loc == extensions || *(loc - 1) == ' ') &&
-                (*terminator == ' ' || *terminator == '\0')) {
-                return 1;
-            }
-            extensions = terminator;
-        }
-    }
-    return 0;
-}
+glad_gl_get_extensions ENDP
 
-static GLADapiproc glad_gl_get_proc_from_userptr(void *userptr, const char* name) {
-    return (GLAD_GNUC_EXTENSION (GLADapiproc (*)(const char *name)) userptr)(name);
-}
+glad_gl_has_extension PROC
+    ; Prologue
+    sub rsp, 28h
+    mov [rsp+20h], rcx   ; Save exts
+    mov [rsp+28h], rdx   ; Save exts_i
+    mov [rsp+30h], r8    ; Save ext
 
-static int glad_gl_find_extensions_gl(void) {
-    const char *exts = NULL;
-    char **exts_i = NULL;
-    if (!glad_gl_get_extensions(&exts, &exts_i)) return 0;
+    ; Check if exts_i is not NULL
+    cmp qword ptr [rsp+28h], 0
+    jne .check_extensions_i
 
-    GLAD_UNUSED(glad_gl_has_extension);
+    ; Handle the case where exts_i is NULL
+    mov rax, [rsp+20h]
+    cmp rax, 0
+    je .return_zero
 
-    glad_gl_free_extensions(exts_i);
+    mov rcx, [rsp+30h]
+    cmp rcx, 0
+    je .return_zero
 
-    return 1;
-}
+    ; Loop through extensions string
+.loop_extensions:
+    mov rcx, [rsp+20h]  ; extensions
+    mov rdx, [rsp+30h]  ; ext
+    call strstr
+    cmp rax, 0
+    je .return_zero
+    mov rdx, rax        ; loc = rax
+    mov r8, [rsp+30h]
+    call strlen
+    add rdx, rax        ; terminator = loc + strlen(ext)
+    mov rcx, rdx
+    sub rcx, [rsp+20h]  ; loc - extensions
+    jz .match
+    mov al, byte ptr [rdx]
+    cmp al, 20h
+    je .match
+    cmp al, 0
+    je .match
+    mov rcx, rdx
+    jmp .loop_extensions
 
-static int glad_gl_find_core_gl(void) {
-    int i;
-    const char* version;
-    const char* prefixes[] = {
-        "OpenGL ES-CM ",
-        "OpenGL ES-CL ",
-        "OpenGL ES ",
-        "OpenGL SC ",
-        NULL
-    };
-    int major = 0;
-    int minor = 0;
-    version = (const char*) glad_glGetString(GL_VERSION);
-    if (!version) return 0;
-    for (i = 0;  prefixes[i];  i++) {
-        const size_t length = strlen(prefixes[i]);
-        if (strncmp(version, prefixes[i], length) == 0) {
-            version += length;
-            break;
-        }
-    }
+.match:
+    mov eax, 1
+    jmp .epilogue
 
-    GLAD_IMPL_UTIL_SSCANF(version, "%d.%d", &major, &minor);
+.check_extensions_i:
+    ; Loop through exts_i
+    xor r8d, r8d         ; index = 0
+.loop_extensions_i:
+    mov rax, [rsp+28h]
+    mov rax, [rax + r8*8]
+    cmp rax, 0
+    je .return_zero
+    mov rcx, rax
+    mov rdx, [rsp+30h]
+    call strcmp
+    test eax, eax
+    jz .found
+    inc r8d
+    jmp .loop_extensions_i
 
-    GLAD_GL_VERSION_1_0 = (major == 1 && minor >= 0) || major > 1;
-    GLAD_GL_VERSION_1_1 = (major == 1 && minor >= 1) || major > 1;
-    GLAD_GL_VERSION_1_2 = (major == 1 && minor >= 2) || major > 1;
-    GLAD_GL_VERSION_1_3 = (major == 1 && minor >= 3) || major > 1;
-    GLAD_GL_VERSION_1_4 = (major == 1 && minor >= 4) || major > 1;
-    GLAD_GL_VERSION_1_5 = (major == 1 && minor >= 5) || major > 1;
-    GLAD_GL_VERSION_2_0 = (major == 2 && minor >= 0) || major > 2;
-    GLAD_GL_VERSION_2_1 = (major == 2 && minor >= 1) || major > 2;
-    GLAD_GL_VERSION_3_0 = (major == 3 && minor >= 0) || major > 3;
-    GLAD_GL_VERSION_3_1 = (major == 3 && minor >= 1) || major > 3;
-    GLAD_GL_VERSION_3_2 = (major == 3 && minor >= 2) || major > 3;
-    GLAD_GL_VERSION_3_3 = (major == 3 && minor >= 3) || major > 3;
+.found:
+    mov eax, 1
+    jmp .epilogue
 
-    return GLAD_MAKE_VERSION(major, minor);
-}
+.return_zero:
+    xor eax, eax
 
-int gladLoadGLUserPtr( GLADuserptrloadfunc load, void *userptr) {
-    int version;
+.epilogue:
+    add rsp, 28h
+    ret
+glad_gl_has_extension ENDP
 
-    glad_glGetString = (PFNGLGETSTRINGPROC) load(userptr, "glGetString");
-    if(glad_glGetString == NULL) return 0;
-    version = glad_gl_find_core_gl();
+    ; Check if glad_glGetString is NULL
+    cmp qword ptr [glad_glGetString], 0
+    je .return_zero
+    ; Set *out_exts = (const char *)glad_glGetString(GL_EXTENSIONS)
+    mov ecx, GL_EXTENSIONS
+    call qword ptr [glad_glGetString]
+    mov rdx, [rsp+28h]
+    mov [rdx], rax
+    ; Return 1
+    mov eax, 1
+    jmp .epilogue
 
-    glad_gl_load_GL_VERSION_1_0(load, userptr);
-    glad_gl_load_GL_VERSION_1_1(load, userptr);
-    glad_gl_load_GL_VERSION_1_2(load, userptr);
-    glad_gl_load_GL_VERSION_1_3(load, userptr);
-    glad_gl_load_GL_VERSION_1_4(load, userptr);
-    glad_gl_load_GL_VERSION_1_5(load, userptr);
-    glad_gl_load_GL_VERSION_2_0(load, userptr);
-    glad_gl_load_GL_VERSION_2_1(load, userptr);
-    glad_gl_load_GL_VERSION_3_0(load, userptr);
-    glad_gl_load_GL_VERSION_3_1(load, userptr);
-    glad_gl_load_GL_VERSION_3_2(load, userptr);
-    glad_gl_load_GL_VERSION_3_3(load, userptr);
-
-    if (!glad_gl_find_extensions_gl()) return 0;
-
-
-
-    return version;
-}
-
-
-int gladLoadGL( GLADloadfunc load) {
-    return gladLoadGLUserPtr( glad_gl_get_proc_from_userptr, GLAD_GNUC_EXTENSION (void*) load);
-}
-
-; End of untranslated
+END
