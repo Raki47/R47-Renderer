@@ -1,0 +1,1536 @@
+directly after the code from first spare code file:
+GLAD_API_CALL PROC PFNGLACTIVETEXTUREPROC
+    jmp glad_glActiveTexture
+GLAD_API_CALL ENDP
+
+glActiveTexture EQU glad_glActiveTexture
+
+;GLAD_API_CALL PROC PFNGLATTACHSHADERPROC
+;    jmp glad_glAttachShader
+;GLAD_API_CALL ENDP
+
+;glAttachShader EQU glad_glAttachShader
+
+GLAD_API_CALL PROC PFNGLBEGINCONDITIONALRENDERPROC
+    jmp glad_glBeginConditionalRender
+GLAD_API_CALL ENDP
+
+glBeginConditionalRender EQU glad_glBeginConditionalRender
+
+GLAD_API_CALL PROC PFNGLBEGINQUERYPROC
+    jmp glad_glBeginQuery
+GLAD_API_CALL ENDP
+
+glBeginQuery EQU glad_glBeginQuery
+
+GLAD_API_CALL PROC PFNGLBEGINTRANSFORMFEEDBACKPROC
+    jmp glad_glBeginTransformFeedback
+GLAD_API_CALL ENDP
+
+glBeginTransformFeedback EQU glad_glBeginTransformFeedback
+
+GLAD_API_CALL PROC PFNGLBINDATTRIBLOCATIONPROC
+    jmp glad_glBindAttribLocation
+GLAD_API_CALL ENDP
+
+glBindAttribLocation EQU glad_glBindAttribLocation
+
+GLAD_API_CALL PROC PFNGLBINDBUFFERPROC
+    jmp glad_glBindBuffer
+GLAD_API_CALL ENDP
+
+glBindBuffer EQU glad_glBindBuffer
+
+GLAD_API_CALL PROC PFNGLBINDBUFFERBASEPROC
+    jmp glad_glBindBufferBase
+GLAD_API_CALL ENDP
+
+glBindBufferBase EQU glad_glBindBufferBase
+
+GLAD_API_CALL PROC PFNGLBINDBUFFERRANGEPROC
+    jmp glad_glBindBufferRange
+GLAD_API_CALL ENDP
+
+glBindBufferRange EQU glad_glBindBufferRange
+
+GLAD_API_CALL PROC PFNGLBINDFRAGDATALOCATIONPROC
+    jmp glad_glBindFragDataLocation
+GLAD_API_CALL ENDP
+
+glBindFragDataLocation EQU glad_glBindFragDataLocation
+
+GLAD_API_CALL PROC PFNGLBINDFRAGDATALOCATIONINDEXEDPROC
+    jmp glad_glBindFragDataLocationIndexed
+GLAD_API_CALL ENDP
+
+glBindFragDataLocationIndexed EQU glad_glBindFragDataLocationIndexed
+
+GLAD_API_CALL PROC PFNGLBINDFRAMEBUFFERPROC
+    jmp glad_glBindFramebuffer
+GLAD_API_CALL ENDP
+
+glBindFramebuffer EQU glad_glBindFramebuffer
+
+GLAD_API_CALL PROC PFNGLBINDRENDERBUFFERPROC
+    jmp glad_glBindRenderbuffer
+GLAD_API_CALL ENDP
+
+glBindRenderbuffer EQU glad_glBindRenderbuffer
+
+GLAD_API_CALL PROC PFNGLBINDSAMPLERPROC
+    jmp glad_glBindSampler
+GLAD_API_CALL ENDP
+
+glBindSampler EQU glad_glBindSampler
+
+GLAD_API_CALL PROC PFNGLBINDTEXTUREPROC
+    jmp glad_glBindTexture
+GLAD_API_CALL ENDP
+
+glBindTexture EQU glad_glBindTexture
+
+GLAD_API_CALL PROC PFNGLBINDVERTEXARRAYPROC
+    jmp glad_glBindVertexArray
+GLAD_API_CALL ENDP
+
+glBindVertexArray EQU glad_glBindVertexArray
+
+GLAD_API_CALL PROC PFNGLBLENDCOLORPROC
+    jmp glad_glBlendColor
+GLAD_API_CALL ENDP
+
+glBlendColor EQU glad_glBlendColor
+
+GLAD_API_CALL PROC PFNGLBLENDEQUATIONPROC
+    jmp glad_glBlendEquation
+GLAD_API_CALL ENDP
+
+glBlendEquation EQU glad_glBlendEquation
+
+GLAD_API_CALL PROC PFNGLBLENDEQUATIONSEPARATEPROC
+    jmp glad_glBlendEquationSeparate
+GLAD_API_CALL ENDP
+
+glBlendEquationSeparate EQU glad_glBlendEquationSeparate
+
+GLAD_API_CALL PROC PFNGLBLENDFUNCPROC
+    jmp glad_glBlendFunc
+GLAD_API_CALL ENDP
+
+glBlendFunc EQU glad_glBlendFunc
+
+GLAD_API_CALL PROC PFNGLBLENDFUNCSEPARATEPROC
+    jmp glad_glBlendFuncSeparate
+GLAD_API_CALL ENDP
+
+glBlendFuncSeparate EQU glad_glBlendFuncSeparate
+
+GLAD_API_CALL PROC PFNGLBLITFRAMEBUFFERPROC
+    jmp glad_glBlitFramebuffer
+GLAD_API_CALL ENDP
+
+glBlitFramebuffer EQU glad_glBlitFramebuffer
+
+GLAD_API_CALL PROC PFNGLBUFFERDATAPROC
+    jmp glad_glBufferData
+GLAD_API_CALL ENDP
+
+glBufferData EQU glad_glBufferData
+
+GLAD_API_CALL PROC PFNGLBUFFERSUBDATAPROC
+    jmp glad_glBufferSubData
+GLAD_API_CALL ENDP
+
+glBufferSubData EQU glad_glBufferSubData
+
+GLAD_API_CALL PROC PFNGLCHECKFRAMEBUFFERSTATUSPROC
+    jmp glad_glCheckFramebufferStatus
+GLAD_API_CALL ENDP
+
+glCheckFramebufferStatus EQU glad_glCheckFramebufferStatus
+
+GLAD_API_CALL PROC PFNGLCLAMPCOLORPROC
+    jmp glad_glClampColor
+GLAD_API_CALL ENDP
+
+glClampColor EQU glad_glClampColor
+
+GLAD_API_CALL PROC PFNGLCLEARPROC
+    jmp glad_glClear
+GLAD_API_CALL ENDP
+
+glClear EQU glad_glClear
+
+GLAD_API_CALL PROC PFNGLCLEARBUFFERFIPROC
+    jmp glad_glClearBufferfi
+GLAD_API_CALL ENDP
+
+glClearBufferfi EQU glad_glClearBufferfi
+
+GLAD_API_CALL PROC PFNGLCLEARBUFFERFVPROC
+    jmp glad_glClearBufferfv
+GLAD_API_CALL ENDP
+
+glClearBufferfv EQU glad
+
+GLAD_API_CALL PROC PFNGLDELETEFRAMEBUFFERSPROC
+    jmp glad_glDeleteFramebuffers
+GLAD_API_CALL ENDP
+
+glDeleteFramebuffers EQU glad_glDeleteFramebuffers
+
+GLAD_API_CALL PROC PFNGLDELETEPROGRAMPROC
+    jmp glad_glDeleteProgram
+GLAD_API_CALL ENDP
+
+glDeleteProgram EQU glad_glDeleteProgram
+
+GLAD_API_CALL PROC PFNGLDELETEQUERIESPROC
+    jmp glad_glDeleteQueries
+GLAD_API_CALL ENDP
+
+glDeleteQueries EQU glad_glDeleteQueries
+
+GLAD_API_CALL PROC PFNGLDELETERENDERBUFFERSPROC
+    jmp glad_glDeleteRenderbuffers
+GLAD_API_CALL ENDP
+
+glDeleteRenderbuffers EQU glad_glDeleteRenderbuffers
+
+GLAD_API_CALL PROC PFNGLDELETESAMPLERSPROC
+    jmp glad_glDeleteSamplers
+GLAD_API_CALL ENDP
+
+glDeleteSamplers EQU glad_glDeleteSamplers
+
+GLAD_API_CALL PROC PFNGLDELETESHADERPROC
+    jmp glad_glDeleteShader
+GLAD_API_CALL ENDP
+
+glDeleteShader EQU glad_glDeleteShader
+
+GLAD_API_CALL PROC PFNGLDELETESYNCPROC
+    jmp glad_glDeleteSync
+GLAD_API_CALL ENDP
+
+glDeleteSync EQU glad_glDeleteSync
+
+GLAD_API_CALL PROC PFNGLDELETETEXTURESPROC
+    jmp glad_glDeleteTextures
+GLAD_API_CALL ENDP
+
+glDeleteTextures EQU glad_glDeleteTextures
+
+GLAD_API_CALL PROC PFNGLDELETEVERTEXARRAYSPROC
+    jmp glad_glDeleteVertexArrays
+GLAD_API_CALL ENDP
+
+glDeleteVertexArrays EQU glad_glDeleteVertexArrays
+
+GLAD_API_CALL PROC PFNGLDEPTHFUNCPROC
+    jmp glad_glDepthFunc
+GLAD_API_CALL ENDP
+
+glDepthFunc EQU glad_glDepthFunc
+
+GLAD_API_CALL PROC PFNGLDEPTHMASKPROC
+    jmp glad_glDepthMask
+GLAD_API_CALL ENDP
+
+glDepthMask EQU glad_glDepthMask
+
+GLAD_API_CALL PROC PFNGLDEPTHRANGEPROC
+    jmp glad_glDepthRange
+GLAD_API_CALL ENDP
+
+glDepthRange EQU glad_glDepthRange
+
+GLAD_API_CALL PROC PFNGLDETACHSHADERPROC
+    jmp glad_glDetachShader
+GLAD_API_CALL ENDP
+
+glDetachShader EQU glad_glDetachShader
+
+GLAD_API_CALL PROC PFNGLDISABLEPROC
+    jmp glad_glDisable
+GLAD_API_CALL ENDP
+
+glDisable EQU glad_glDisable
+
+GLAD_API_CALL PROC PFNGLDISABLEVERTEXATTRIBARRAYPROC
+    jmp glad_glDisableVertexAttribArray
+GLAD_API_CALL ENDP
+
+glDisableVertexAttribArray EQU glad_glDisableVertexAttribArray
+
+GLAD_API_CALL PROC PFNGLDISABLEIPROC
+    jmp glad_glDisablei
+GLAD_API_CALL ENDP
+
+glDisablei EQU glad_glDisablei
+
+GLAD_API_CALL PROC PFNGLDRAWARRAYSPROC
+    jmp glad_glDrawArrays
+GLAD_API_CALL ENDP
+
+glDrawArrays EQU glad_glDrawArrays
+
+GLAD_API_CALL PROC PFNGLDRAWARRAYSINSTANCEDPROC
+    jmp glad_glDrawArraysInstanced
+GLAD_API_CALL ENDP
+
+glDrawArraysInstanced EQU glad_glDrawArraysInstanced
+
+GLAD_API_CALL PROC PFNGLDRAWBUFFERPROC
+    jmp glad_glDrawBuffer
+GLAD_API_CALL ENDP
+
+glDrawBuffer EQU glad_glDrawBuffer
+
+GLAD_API_CALL PROC PFNGLDRAWBUFFERSPROC
+    jmp glad_glDrawBuffers
+GLAD_API_CALL ENDP
+
+glDrawBuffers EQU glad_glDrawBuffers
+
+GLAD_API_CALL PROC PFNGLDRAWELEMENTSPROC
+    jmp glad_glDrawElements
+GLAD_API_CALL ENDP
+
+glDrawElements EQU glad_glDrawElements
+
+GLAD_API_CALL PROC PFNGLDRAWELEMENTSBASEVERTEXPROC
+    jmp glad_glDrawElementsBaseVertex
+GLAD_API_CALL ENDP
+
+glDrawElementsBaseVertex EQU glad_glDrawElementsBaseVertex
+
+GLAD_API_CALL PROC PFNGLDRAWELEMENTSINSTANCEDPROC
+    jmp glad_glDrawElementsInstanced
+GLAD_API_CALL ENDP
+
+glDrawElementsInstanced EQU glad_glDrawElementsInstanced
+
+GLAD_API_CALL PROC PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC
+    jmp glad_glDrawElementsInstancedBaseVertex
+GLAD_API_CALL ENDP
+
+glDrawElementsInstancedBaseVertex EQU glad_glDrawElementsInstancedBaseVertex
+
+GLAD_API_CALL PROC PFNGLDRAWRANGEELEMENTSPROC
+    jmp glad_glDrawRangeElements
+GLAD_API_CALL ENDP
+
+glDrawRangeElements EQU glad_glDrawRangeElements
+
+GLAD_API_CALL PROC PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC
+    jmp glad_glDrawRangeElementsBaseVertex
+GLAD_API_CALL ENDP
+
+glDrawRangeElementsBaseVertex EQU glad_glDrawRangeElementsBaseVertex
+
+GLAD_API_CALL PROC PFNGLENABLEPROC
+    jmp glad_glEnable
+GLAD_API_CALL ENDP
+
+glEnable EQU glad_glEnable
+
+GLAD_API_CALL PROC PFNGLENABLEVERTEXATTRIBARRAYPROC
+    jmp glad_glEnableVertexAttribArray
+GLAD_API_CALL ENDP
+
+glEnableVertexAttribArray EQU glad_glEnableVertexAttribArray
+
+GLAD_API_CALL PROC PFNGLENABLEIPROC
+    jmp glad_glEnablei
+GLAD_API_CALL ENDP
+
+glEnablei EQU glad_glEnablei
+
+GLAD_API_CALL PROC PFNGLENDCONDITIONALRENDERPROC
+    jmp glad_glEndConditionalRender
+GLAD_API_CALL ENDP
+
+glEndConditionalRender EQU glad_glEndConditionalRender
+
+GLAD_API_CALL PROC PFNGLENDQUERYPROC
+    jmp glad_glEndQuery
+GLAD_API_CALL ENDP
+
+glEndQuery EQU glad_glEndQuery
+
+GLAD_API_CALL PROC PFNGLENDTRANSFORMFEEDBACKPROC
+    jmp glad_glEndTransformFeedback
+GLAD_API_CALL ENDP
+
+glEndTransformFeedback EQU glad_glEndTransformFeedback
+
+GLAD_API_CALL PROC PFNGLFENCESYNCPROC
+    jmp glad_glFenceSync
+GLAD_API_CALL ENDP
+
+glFenceSync EQU glad_glFenceSync
+
+GLAD_API_CALL PROC PFNGLFINISHPROC
+    jmp glad_glFinish
+GLAD_API_CALL ENDP
+
+glFinish EQU glad_glFinish
+
+GLAD_API_CALL PROC PFNGLFLUSHPROC
+    jmp glad_glFlush
+GLAD_API_CALL ENDP
+
+glFlush EQU glad_glFlush
+
+GLAD_API_CALL PROC PFNGLFLUSHMAPPEDBUFFERRANGEPROC
+    jmp glad_glFlushMappedBufferRange
+GLAD_API_CALL ENDP
+
+glFlushMappedBufferRange EQU glad_glFlushMappedBufferRange
+
+GLAD_API_CALL PROC PFNGLFRAMEBUFFERRENDERBUFFERPROC
+    jmp glad_glFramebufferRenderbuffer
+GLAD_API_CALL ENDP
+
+glFramebufferRenderbuffer EQU glad_glFramebufferRenderbuffer
+
+GLAD_API_CALL PROC PFNGLFRAMEBUFFERTEXTUREPROC
+    jmp glad_glFramebufferTexture
+GLAD_API_CALL ENDP PFNGLFRAMEBUFFERTEXTUREPROC
+
+glFramebufferTexture EQU glad_glFramebuffer
+
+GLAD_API_CALL PROC  PFNGLFRAMEBUFFERTEXTUREPROC
+	jmp glad_glFramebuffer
+GLAD_API_CALL ENDP
+
+glGetTexParameteriv equ glad_glGetTexParameteriv
+
+GLAD_API_CALL PROC glad_glGetTransformFeedbackVarying
+    jmp glad_glGetTransformFeedbackVarying
+GLAD_API_CALL ENDP
+
+glGetTransformFeedbackVarying equ glad_glGetTransformFeedbackVarying
+
+GLAD_API_CALL PROC glad_glGetUniformBlockIndex
+    jmp glad_glGetUniformBlockIndex
+GLAD_API_CALL ENDP
+
+glGetUniformBlockIndex equ glad_glGetUniformBlockIndex
+
+GLAD_API_CALL PROC glad_glGetUniformIndices
+    jmp glad_glGetUniformIndices
+GLAD_API_CALL ENDP
+
+glGetUniformIndices equ glad_glGetUniformIndices
+
+GLAD_API_CALL PROC glad_glGetUniformLocation
+    jmp glad_glGetUniformLocation
+GLAD_API_CALL ENDP
+
+glGetUniformLocation equ glad_glGetUniformLocation
+
+GLAD_API_CALL PROC glad_glGetUniformfv
+    jmp glad_glGetUniformfv
+GLAD_API_CALL ENDP
+
+glGetUniformfv equ glad_glGetUniformfv
+
+GLAD_API_CALL PROC glad_glGetUniformiv
+    jmp glad_glGetUniformiv
+GLAD_API_CALL ENDP
+
+glGetUniformiv equ glad_glGetUniformiv
+
+GLAD_API_CALL PROC glad_glGetUniformuiv
+    jmp glad_glGetUniformuiv
+GLAD_API_CALL ENDP
+
+glGetUniformuiv equ glad_glGetUniformuiv
+
+GLAD_API_CALL PROC glad_glGetVertexAttribIiv
+    jmp glad_glGetVertexAttribIiv
+GLAD_API_CALL ENDP
+
+glGetVertexAttribIiv equ glad_glGetVertexAttribIiv
+
+GLAD_API_CALL PROC glad_glGetVertexAttribIuiv
+    jmp glad_glGetVertexAttribIuiv
+GLAD_API_CALL ENDP
+
+glGetVertexAttribIuiv equ glad_glGetVertexAttribIuiv
+
+GLAD_API_CALL PROC glad_glGetVertexAttribPointerv
+    jmp glad_glGetVertexAttribPointerv
+GLAD_API_CALL ENDP
+
+glGetVertexAttribPointerv equ glad_glGetVertexAttribPointerv
+
+GLAD_API_CALL PROC glad_glGetVertexAttribdv
+    jmp glad_glGetVertexAttribdv
+GLAD_API_CALL ENDP
+
+glGetVertexAttribdv equ glad_glGetVertexAttribdv
+
+GLAD_API_CALL PROC glad_glGetVertexAttribfv
+    jmp glad_glGetVertexAttribfv
+GLAD_API_CALL ENDP
+
+glGetVertexAttribfv equ glad_glGetVertexAttribfv
+
+GLAD_API_CALL PROC glad_glGetVertexAttribiv
+    jmp glad_glGetVertexAttribiv
+GLAD_API_CALL ENDP
+
+glGetVertexAttribiv equ glad_glGetVertexAttribiv
+
+GLAD_API_CALL PROC glad_glHint
+    jmp glad_glHint
+GLAD_API_CALL ENDP
+
+glHint equ glad_glHint
+
+GLAD_API_CALL PROC glad_glIsBuffer
+    jmp glad_glIsBuffer
+GLAD_API_CALL ENDP
+
+glIsBuffer equ glad_glIsBuffer
+
+GLAD_API_CALL PROC glad_glIsEnabled
+    jmp glad_glIsEnabled
+GLAD_API_CALL ENDP
+
+glIsEnabled equ glad_glIsEnabled
+
+GLAD_API_CALL PROC glad_glIsEnabledi
+    jmp glad_glIsEnabledi
+GLAD_API_CALL ENDP
+
+glIsEnabledi equ glad_glIsEnabledi
+
+GLAD_API_CALL PROC glad_glIsFramebuffer
+    jmp glad_glIsFramebuffer
+GLAD_API_CALL ENDP
+
+glIsFramebuffer equ glad_glIsFramebuffer
+
+GLAD_API_CALL PROC glad_glIsProgram
+    jmp glad_glIsProgram
+GLAD_API_CALL ENDP
+
+glIsProgram equ glad_glIsProgram
+
+GLAD_API_CALL PROC glad_glIsQuery
+    jmp glad_glIsQuery
+GLAD_API_CALL ENDP
+
+glIsQuery equ glad_glIsQuery
+
+GLAD_API_CALL PROC glad_glIsRenderbuffer
+    jmp glad_glIsRenderbuffer
+GLAD_API_CALL ENDP
+
+glIsRenderbuffer equ glad_glIsRenderbuffer
+
+GLAD_API_CALL PROC glad_glIsSampler
+    jmp glad_glIsSampler
+GLAD_API_CALL ENDP
+
+glIsSampler equ glad_glIsSampler
+
+GLAD_API_CALL PROC glad_glIsShader
+    jmp glad_glIsShader
+GLAD_API_CALL ENDP
+
+glIsShader equ glad_glIsShader
+
+GLAD_API_CALL PROC glad_glIsSync
+    jmp glad_glIsSync
+GLAD_API_CALL ENDP
+
+glIsSync equ glad_glIsSync
+
+GLAD_API_CALL PROC glad_glIsTexture
+    jmp glad_glIsTexture
+GLAD_API_CALL ENDP
+
+glIsTexture equ glad_glIsTexture
+
+GLAD_API_CALL PROC glad_glIsVertexArray
+    jmp glad_glIsVertexArray
+GLAD_API_CALL ENDP
+
+glIsVertexArray equ glad_glIsVertexArray
+
+GLAD_API_CALL PROC glad_glLineWidth
+    jmp glad_glLineWidth
+GLAD_API_CALL ENDP
+
+glLineWidth equ glad_glLineWidth
+
+GLAD_API_CALL PROC glad_glLinkProgram
+    jmp glad_glLinkProgram
+GLAD_API_CALL ENDP
+
+glLinkProgram equ glad_glLinkProgram
+
+GLAD_API_CALL PROC glad_glLogicOp
+    jmp glad_glLogicOp
+GLAD_API_CALL ENDP
+
+glLogicOp equ glad_glLogicOp
+
+GLAD_API_CALL PROC glad_glMapBuffer
+    jmp glad_glMapBuffer
+GLAD_API_CALL ENDP
+
+glMapBuffer equ glad_glMapBuffer
+
+GLAD_API_CALL PROC glad_glMapBufferRange
+    jmp glad_glMapBufferRange
+GLAD_API_CALL ENDP
+
+glMapBufferRange equ glad_glMapBufferRange
+
+GLAD_API_CALL PROC glad_glMultiDrawArrays
+    jmp glad_glMultiDrawArrays
+GLAD_API_CALL ENDP
+
+glMultiDrawArrays equ glad_glMultiDrawArrays
+
+GLAD_API_CALL PROC glad_glMultiDrawElements
+    jmp glad_glMultiDrawElements
+GLAD_API_CALL ENDP
+
+glMultiDrawElements equ glad_glMultiDrawElements
+
+GLAD_API_CALL PROC glad_glMultiDrawElementsBaseVertex
+    jmp glad_glMultiDrawElementsBaseVertex
+GLAD_API_CALL ENDP
+
+glMultiDrawElementsBaseVertex equ glad_glMultiDrawElementsBaseVertex
+
+GLAD_API_CALL PROC glad_glPixelStoref
+    jmp glad_glPixelStoref
+GLAD_API_CALL ENDP
+
+glPixelStoref equ glad_glPixelStoref
+
+GLAD_API_CALL PROC glad_glPixelStorei
+    jmp glad_glPixelStorei
+GLAD_API_CALL ENDP
+
+glPixelStorei equ glad_glPixelStorei
+
+GLAD_API_CALL PROC glad_glPointParameterf
+    jmp glad_glPointParameterf
+GLAD_API_CALL ENDP
+
+glPointParameterf equ glad_glPointParameterf
+
+GLAD_API_CALL PROC glad_glPointParameterfv
+    jmp glad_glPointParameterfv
+GLAD_API_CALL ENDP
+
+glPointParameterfv equ glad_glPointParameterfv
+
+GLAD_API_CALL PROC glad_glPointParameteri
+    jmp glad_glPointParameteri
+GLAD_API_CALL ENDP
+
+glPointParameteri equ glad_glPointParameteri
+
+GLAD_API_CALL PROC glad_glPointParameteriv
+    jmp glad_glPointParameteriv
+GLAD_API_CALL ENDP
+
+glPointParameteriv equ glad_glPointParameteriv
+
+GLAD_API_CALL PROC glad_glPointSize
+    jmp glad_glPointSize
+GLAD_API_CALL ENDP
+
+glPointSize equ glad_glPointSize
+
+GLAD_API_CALL PROC glad_glPolygonMode
+    jmp glad_glPolygonMode
+GLAD_API_CALL ENDP
+
+glPolygonMode equ glad_glPolygonMode
+
+GLAD_API_CALL PROC glad_glPolygonOffset
+    jmp glad_glPolygonOffset
+GLAD_API_CALL ENDP
+
+glPolygonOffset equ glad_glPolygonOffset
+
+GLAD_API_CALL PROC glad_glPrimitiveRestartIndex
+    jmp glad_glPrimitiveRestartIndex
+GLAD_API_CALL ENDP
+
+glPrimitiveRestartIndex equ glad_glPrimitiveRestartIndex
+
+GLAD_API_CALL PROC glad_glProvokingVertex
+    jmp glad_glProvokingVertex
+GLAD_API_CALL ENDP
+
+glProvokingVertex equ glad_glProvokingVertex
+
+GLAD_API_CALL PROC glad_glQueryCounter
+    jmp glad_glQueryCounter
+GLAD_API_CALL ENDP
+
+glQueryCounter equ glad_glQueryCounter
+
+GLAD_API_CALL PROC glad_glReadBuffer
+    jmp glad_glReadBuffer
+GLAD_API_CALL ENDP
+
+glReadBuffer equ glad_glReadBuffer
+
+GLAD_API_CALL PROC glad_glReadPixels
+    jmp glad_glReadPixels
+GLAD_API_CALL ENDP
+
+glReadPixels equ glad_glReadPixels
+
+GLAD_API_CALL PROC glad_glRenderbufferStorage
+    jmp glad_glRenderbufferStorage
+GLAD_API_CALL ENDP
+
+glRenderbufferStorage equ glad_glRenderbufferStorage
+
+GLAD_API_CALL PROC glad_glRenderbufferStorageMultisample
+    jmp glad_glRenderbufferStorageMultisample
+GLAD_API_CALL ENDP
+
+glRenderbufferStorageMultisample equ glad_glRenderbufferStorageMultisample
+
+GLAD_API_CALL PROC glad_glSampleCoverage
+    jmp glad_glSampleCoverage
+GLAD_API_CALL ENDP
+
+glSampleCoverage equ glad_glSampleCoverage
+
+GLAD_API_CALL PROC glad_glSampleMaski
+    jmp glad_glSampleMaski
+GLAD_API_CALL ENDP
+
+glSampleMaski equ glad_glSampleMaski
+
+GLAD_API_CALL PROC glad_glSamplerParameterIiv
+    jmp glad_glSamplerParameterIiv
+GLAD_API_CALL ENDP
+
+glSamplerParameterIiv equ glad_glSamplerParameterIiv
+
+GLAD_API_CALL PROC glad_glSamplerParameterIuiv
+    jmp glad_glSamplerParameterIuiv
+GLAD_API_CALL ENDP
+
+glSamplerParameterIuiv equ glad_glSamplerParameterIuiv
+
+GLAD_API_CALL PROC glad_glSamplerParameterf
+    jmp glad_glSamplerParameterf
+GLAD_API_CALL ENDP
+
+glSamplerParameterf equ glad_glSamplerParameterf
+
+GLAD_API_CALL PROC glad_glSamplerParameterfv
+    jmp glad_glSamplerParameterfv
+GLAD_API_CALL ENDP
+
+glSamplerParameterfv equ glad_glSamplerParameterfv
+
+GLAD_API_CALL PROC glad_glSamplerParameteri
+    jmp glad_glSamplerParameteri
+GLAD_API_CALL ENDP
+
+glSamplerParameteri equ glad_glSamplerParameteri
+
+GLAD_API_CALL PROC glad_glSamplerParameteriv
+    jmp glad_glSamplerParameteriv
+GLAD_API_CALL ENDP
+
+glSamplerParameteriv equ glad_glSamplerParameteriv
+
+GLAD_API_CALL PROC glad_glScissor
+    jmp glad_glScissor
+GLAD_API_CALL ENDP
+
+glScissor equ glad_glScissor
+
+GLAD_API_CALL PROC glad_glShaderSource
+    jmp glad_glShaderSource
+GLAD_API_CALL ENDP
+
+glShaderSource equ glad_glShaderSource
+
+GLAD_API_CALL PROC glad_glStencilFunc
+    jmp glad_glStencilFunc
+GLAD_API_CALL ENDP
+
+glStencilFunc equ glad_glStencilFunc
+
+GLAD_API_CALL PROC glad_glStencilFuncSeparate
+    jmp glad_glStencilFuncSeparate
+GLAD_API_CALL ENDP
+
+glStencilFuncSeparate equ glad_glStencilFuncSeparate
+
+glStencilFuncSeparate equ glad_glStencilFuncSeparate
+
+GLAD_API_CALL PROC glad_glStencilMask
+    jmp glad_glStencilMask
+GLAD_API_CALL ENDP
+
+glStencilMask equ glad_glStencilMask
+
+GLAD_API_CALL PROC glad_glStencilMaskSeparate
+    jmp glad_glStencilMaskSeparate
+GLAD_API_CALL ENDP
+
+glStencilMaskSeparate equ glad_glStencilMaskSeparate
+
+GLAD_API_CALL PROC glad_glStencilOp
+    jmp glad_glStencilOp
+GLAD_API_CALL ENDP
+
+glStencilOp equ glad_glStencilOp
+
+GLAD_API_CALL PROC glad_glStencilOpSeparate
+    jmp glad_glStencilOpSeparate
+GLAD_API_CALL ENDP
+
+glStencilOpSeparate equ glad_glStencilOpSeparate
+
+GLAD_API_CALL PROC glad_glTexBuffer
+    jmp glad_glTexBuffer
+GLAD_API_CALL ENDP
+
+glTexBuffer equ glad_glTexBuffer
+
+GLAD_API_CALL PROC glad_glTexImage1D
+    jmp glad_glTexImage1D
+GLAD_API_CALL ENDP
+
+glTexImage1D equ glad_glTexImage1D
+
+GLAD_API_CALL PROC glad_glTexImage2D
+    jmp glad_glTexImage2D
+GLAD_API_CALL ENDP
+
+glTexImage2D equ glad_glTexImage2D
+
+GLAD_API_CALL PROC glad_glTexImage2DMultisample
+    jmp glad_glTexImage2DMultisample
+GLAD_API_CALL ENDP
+
+glTexImage2DMultisample equ glad_glTexImage2DMultisample
+
+GLAD_API_CALL PROC glad_glTexImage3D
+    jmp glad_glTexImage3D
+GLAD_API_CALL ENDP
+
+glTexImage3D equ glad_glTexImage3D
+
+GLAD_API_CALL PROC glad_glTexImage3DMultisample
+    jmp glad_glTexImage3DMultisample
+GLAD_API_CALL ENDP
+
+glTexImage3DMultisample equ glad_glTexImage3DMultisample
+
+GLAD_API_CALL PROC glad_glTexParameterIiv
+    jmp glad_glTexParameterIiv
+GLAD_API_CALL ENDP
+
+glTexParameterIiv equ glad_glTexParameterIiv
+
+GLAD_API_CALL PROC glad_glTexParameterIuiv
+    jmp glad_glTexParameterIuiv
+GLAD_API_CALL ENDP
+
+glTexParameterIuiv equ glad_glTexParameterIuiv
+
+GLAD_API_CALL PROC glad_glTexParameterf
+    jmp glad_glTexParameterf
+GLAD_API_CALL ENDP
+
+glTexParameterf equ glad_glTexParameterf
+
+GLAD_API_CALL PROC glad_glTexParameterfv
+    jmp glad_glTexParameterfv
+GLAD_API_CALL ENDP
+
+glTexParameterfv equ glad_glTexParameterfv
+
+GLAD_API_CALL PROC glad_glTexParameteri
+    jmp glad_glTexParameteri
+GLAD_API_CALL ENDP
+
+glTexParameteri equ glad_glTexParameteri
+
+GLAD_API_CALL PROC glad_glTexParameteriv
+    jmp glad_glTexParameteriv
+GLAD_API_CALL ENDP
+
+glTexParameteriv equ glad_glTexParameteriv
+
+GLAD_API_CALL PROC glad_glTexSubImage1D
+    jmp glad_glTexSubImage1D
+GLAD_API_CALL ENDP
+
+glTexSubImage1D equ glad_glTexSubImage1D
+
+GLAD_API_CALL PROC glad_glTexSubImage2D
+    jmp glad_glTexSubImage2D
+GLAD_API_CALL ENDP
+
+glTexSubImage2D equ glad_glTexSubImage2D
+
+GLAD_API_CALL PROC glad_glTexSubImage3D
+    jmp glad_glTexSubImage3D
+GLAD_API_CALL ENDP
+
+glTexSubImage3D equ glad_glTexSubImage3D
+
+GLAD_API_CALL PROC glad_glTransformFeedbackVaryings
+    jmp glad_glTransformFeedbackVaryings
+GLAD_API_CALL ENDP
+
+glTransformFeedbackVaryings equ glad_glTransformFeedbackVaryings
+
+GLAD_API_CALL PROC glad_glUniform1f
+    jmp glad_glUniform1f
+GLAD_API_CALL ENDP
+
+glUniform1f equ glad_glUniform1f
+
+GLAD_API_CALL PROC glad_glUniform1fv
+    jmp glad_glUniform1fv
+GLAD_API_CALL ENDP
+
+glUniform1fv equ glad_glUniform1fv
+
+glUniform1fv equ glad_glUniform1fv
+
+GLAD_API_CALL PROC glad_glUniform1i
+    jmp glad_glUniform1i
+GLAD_API_CALL ENDP
+
+glUniform1i equ glad_glUniform1i
+
+GLAD_API_CALL PROC glad_glUniform1iv
+    jmp glad_glUniform1iv
+GLAD_API_CALL ENDP
+
+glUniform1iv equ glad_glUniform1iv
+
+GLAD_API_CALL PROC glad_glUniform1ui
+    jmp glad_glUniform1ui
+GLAD_API_CALL ENDP
+
+glUniform1ui equ glad_glUniform1ui
+
+GLAD_API_CALL PROC glad_glUniform1uiv
+    jmp glad_glUniform1uiv
+GLAD_API_CALL ENDP
+
+glUniform1uiv equ glad_glUniform1uiv
+
+GLAD_API_CALL PROC glad_glUniform2f
+    jmp glad_glUniform2f
+GLAD_API_CALL ENDP
+
+glUniform2f equ glad_glUniform2f
+
+GLAD_API_CALL PROC glad_glUniform2fv
+    jmp glad_glUniform2fv
+GLAD_API_CALL ENDP
+
+glUniform2fv equ glad_glUniform2fv
+
+GLAD_API_CALL PROC glad_glUniform2i
+    jmp glad_glUniform2i
+GLAD_API_CALL ENDP
+
+glUniform2i equ glad_glUniform2i
+
+GLAD_API_CALL PROC glad_glUniform2iv
+    jmp glad_glUniform2iv
+GLAD_API_CALL ENDP
+
+glUniform2iv equ glad_glUniform2iv
+
+GLAD_API_CALL PROC glad_glUniform2ui
+    jmp glad_glUniform2ui
+GLAD_API_CALL ENDP
+
+glUniform2ui equ glad_glUniform2ui
+
+GLAD_API_CALL PROC glad_glUniform2uiv
+    jmp glad_glUniform2uiv
+GLAD_API_CALL ENDP
+
+glUniform2uiv equ glad_glUniform2uiv
+
+GLAD_API_CALL PROC glad_glUniform3f
+    jmp glad_glUniform3f
+GLAD_API_CALL ENDP
+
+glUniform3f equ glad_glUniform3f
+
+GLAD_API_CALL PROC glad_glUniform3fv
+    jmp glad_glUniform3fv
+GLAD_API_CALL ENDP
+
+glUniform3fv equ glad_glUniform3fv
+
+GLAD_API_CALL PROC glad_glUniform3i
+    jmp glad_glUniform3i
+GLAD_API_CALL ENDP
+
+glUniform3i equ glad_glUniform3i
+
+GLAD_API_CALL PROC glad_glUniform3iv
+    jmp glad_glUniform3iv
+GLAD_API_CALL ENDP
+
+glUniform3iv equ glad_glUniform3iv
+
+GLAD_API_CALL PROC glad_glUniform3ui
+    jmp glad_glUniform3ui
+GLAD_API_CALL ENDP
+
+glUniform3ui equ glad_glUniform3ui
+
+GLAD_API_CALL PROC glad_glUniform3uiv
+    jmp glad_glUniform3uiv
+GLAD_API_CALL ENDP
+
+glUniform3uiv equ glad_glUniform3uiv
+
+GLAD_API_CALL PROC glad_glUniform4f
+    jmp glad_glUniform4f
+GLAD_API_CALL ENDP
+
+glUniform4f equ glad_glUniform4f
+
+GLAD_API_CALL PROC glad_glUniform4fv
+    jmp glad_glUniform4fv
+GLAD_API_CALL ENDP
+
+glUniform4fv equ glad_glUniform4fv
+
+GLAD_API_CALL PROC glad_glUniform4i
+    jmp glad_glUniform4i
+GLAD_API_CALL ENDP
+
+glUniform4i equ glad_glUniform4i
+
+GLAD_API_CALL PROC glad_glUniform4iv
+    jmp glad_glUniform4iv
+GLAD_API_CALL ENDP
+
+glUniform4iv equ glad_glUniform4iv
+
+GLAD_API_CALL PROC glad_glUniform4ui
+    jmp glad_glUniform4ui
+GLAD_API_CALL ENDP
+
+glUniform4ui equ glad_glUniform4ui
+
+GLAD_API_CALL PROC glad_glUniform4uiv
+    jmp glad_glUniform4uiv
+GLAD_API_CALL ENDP
+
+glUniform4uiv equ glad_glUniform4uiv
+
+glUniformBlockBinding equ glad_glUniformBlockBinding
+
+GLAD_API_CALL PROC glad_glUniformMatrix2fv
+    jmp glad_glUniformMatrix2fv
+GLAD_API_CALL ENDP
+
+glUniformMatrix2fv equ glad_glUniformMatrix2fv
+
+GLAD_API_CALL PROC glad_glUniformMatrix2x3fv
+    jmp glad_glUniformMatrix2x3fv
+GLAD_API_CALL ENDP
+
+glUniformMatrix2x3fv equ glad_glUniformMatrix2x3fv
+
+GLAD_API_CALL PROC glad_glUniformMatrix2x4fv
+    jmp glad_glUniformMatrix2x4fv
+GLAD_API_CALL ENDP
+
+glUniformMatrix2x4fv equ glad_glUniformMatrix2x4fv
+
+GLAD_API_CALL PROC glad_glUniformMatrix3fv
+    jmp glad_glUniformMatrix3fv
+GLAD_API_CALL ENDP
+
+glUniformMatrix3fv equ glad_glUniformMatrix3fv
+
+GLAD_API_CALL PROC glad_glUniformMatrix3x2fv
+    jmp glad_glUniformMatrix3x2fv
+GLAD_API_CALL ENDP
+
+glUniformMatrix3x2fv equ glad_glUniformMatrix3x2fv
+
+GLAD_API_CALL PROC glad_glUniformMatrix3x4fv
+    jmp glad_glUniformMatrix3x4fv
+GLAD_API_CALL ENDP
+
+glUniformMatrix3x4fv equ glad_glUniformMatrix3x4fv
+
+GLAD_API_CALL PROC glad_glUniformMatrix4fv
+    jmp glad_glUniformMatrix4fv
+GLAD_API_CALL ENDP
+
+glUniformMatrix4fv equ glad_glUniformMatrix4fv
+
+GLAD_API_CALL PROC glad_glUniformMatrix4x2fv
+    jmp glad_glUniformMatrix4x2fv
+GLAD_API_CALL ENDP
+
+glUniformMatrix4x2fv equ glad_glUniformMatrix4x2fv
+
+GLAD_API_CALL PROC glad_glUniformMatrix4x3fv
+    jmp glad_glUniformMatrix4x3fv
+GLAD_API_CALL ENDP
+
+glUniformMatrix4x3fv equ glad_glUniformMatrix4x3fv
+
+GLAD_API_CALL PROC glad_glUnmapBuffer
+    jmp glad_glUnmapBuffer
+GLAD_API_CALL ENDP
+
+glUnmapBuffer equ glad_glUnmapBuffer
+
+GLAD_API_CALL PROC glad_glUseProgram
+    jmp glad_glUseProgram
+GLAD_API_CALL ENDP
+
+glUseProgram equ glad_glUseProgram
+
+GLAD_API_CALL PROC glad_glValidateProgram
+    jmp glad_glValidateProgram
+GLAD_API_CALL ENDP
+
+glValidateProgram equ glad_glValidateProgram
+
+GLAD_API_CALL PROC glad_glVertexAttrib1d
+    jmp glad_glVertexAttrib1d
+GLAD_API_CALL ENDP
+
+glVertexAttrib1d equ glad_glVertexAttrib1d
+
+GLAD_API_CALL PROC glad_glVertexAttrib1dv
+    jmp glad_glVertexAttrib1dv
+GLAD_API_CALL ENDP
+
+glVertexAttrib1dv equ glad_glVertexAttrib1dv
+
+GLAD_API_CALL PROC glad_glVertexAttrib1f
+    jmp glad_glVertexAttrib1f
+GLAD_API_CALL ENDP
+
+glVertexAttrib1f equ glad_glVertexAttrib1f
+
+GLAD_API_CALL PROC glad_glVertexAttrib1fv
+    jmp glad_glVertexAttrib1fv
+GLAD_API_CALL ENDP
+
+glVertexAttrib1fv equ glad_glVertexAttrib1fv
+
+GLAD_API_CALL PROC glad_glVertexAttrib1s
+    jmp glad_glVertexAttrib1s
+GLAD_API_CALL ENDP
+
+glVertexAttrib1s equ glad_glVertexAttrib1s
+
+GLAD_API_CALL PROC glad_glVertexAttrib1sv
+    jmp glad_glVertexAttrib1sv
+GLAD_API_CALL ENDP
+
+glVertexAttrib1sv equ glad_glVertexAttrib1sv
+
+GLAD_API_CALL PROC glad_glVertexAttrib2d
+    jmp glad_glVertexAttrib2d
+GLAD_API_CALL ENDP
+
+glVertexAttrib2d equ glad_glVertexAttrib2d
+
+GLAD_API_CALL PROC glad_glVertexAttrib2dv
+    jmp glad_glVertexAttrib2dv
+GLAD_API_CALL ENDP
+
+glVertexAttrib2dv equ glad_glVertexAttrib2dv
+
+GLAD_API_CALL PROC glad_glVertexAttrib2f
+    jmp glad_glVertexAttrib2f
+GLAD_API_CALL ENDP
+
+glVertexAttrib2f equ glad_glVertexAttrib2f
+
+GLAD_API_CALL PROC glad_glVertexAttrib2fv
+    jmp glad_glVertexAttrib2fv
+GLAD_API_CALL ENDP
+
+glVertexAttrib2fv equ glad_glVertexAttrib2fv
+
+GLAD_API_CALL PROC glad_glVertexAttrib2s
+    jmp glad_glVertexAttrib2s
+GLAD_API_CALL ENDP
+
+glVertexAttrib2s equ glad_glVertexAttrib2s
+
+GLAD_API_CALL PROC glad_glVertexAttrib2sv
+    jmp glad_glVertexAttrib2sv
+GLAD_API_CALL ENDP
+
+glVertexAttrib2sv equ glad_glVertexAttrib2sv
+
+GLAD_API_CALL PROC glad_glVertexAttrib3d
+    jmp glad_glVertexAttrib3d
+GLAD_API_CALL ENDP
+
+glVertexAttrib3d equ glad_glVertexAttrib3d
+
+GLAD_API_CALL PROC glad_glVertexAttrib3dv
+    jmp glad_glVertexAttrib3dv
+GLAD_API_CALL ENDP
+
+glVertexAttrib3dv equ glad_glVertexAttrib3dv
+
+GLAD_API_CALL PROC glad_glVertexAttrib3f
+    jmp glad_glVertexAttrib3f
+GLAD_API_CALL ENDP
+
+glVertexAttrib3f equ glad_glVertexAttrib3f
+
+GLAD_API_CALL PROC glad_glVertexAttrib3fv
+    jmp glad_glVertexAttrib3fv
+GLAD_API_CALL ENDP
+
+glVertexAttrib3fv equ glad_glVertexAttrib3fv
+
+GLAD_API_CALL PROC glad_glVertexAttrib3s
+    jmp glad_glVertexAttrib3s
+GLAD_API_CALL ENDP
+
+glVertexAttrib3s equ glad_glVertexAttrib3s
+
+GLAD_API_CALL PROC glad_glVertexAttrib3sv
+    jmp glad_glVertexAttrib3sv
+GLAD_API_CALL ENDP
+
+glVertexAttrib3sv equ glad_glVertexAttrib3sv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4Nbv
+    jmp glad_glVertexAttrib4Nbv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4Nbv equ glad_glVertexAttrib4Nbv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4Niv
+    jmp glad_glVertexAttrib4Niv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4Niv equ glad_glVertexAttrib4Niv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4Nsv
+    jmp glad_glVertexAttrib4Nsv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4Nsv equ glad_glVertexAttrib4Nsv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4Nub
+    jmp glad_glVertexAttrib4Nub
+GLAD_API_CALL ENDP
+
+glVertexAttrib4Nub equ glad_glVertexAttrib4Nub
+
+GLAD_API_CALL PROC glad_glVertexAttrib4Nubv
+    jmp glad_glVertexAttrib4Nubv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4Nubv equ glad_glVertexAttrib4Nubv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4Nuiv
+    jmp glad_glVertexAttrib4Nuiv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4Nuiv equ glad_glVertexAttrib4Nuiv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4Nusv
+    jmp glad_glVertexAttrib4Nusv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4Nusv equ glad_glVertexAttrib4Nusv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4bv
+    jmp glad_glVertexAttrib4bv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4bv equ glad_glVertexAttrib4bv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4d
+    jmp glad_glVertexAttrib4d
+GLAD_API_CALL ENDP
+
+glVertexAttrib4d equ glad_glVertexAttrib4d
+
+GLAD_API_CALL PROC glad_glVertexAttrib4dv
+    jmp glad_glVertexAttrib4dv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4dv equ glad_glVertexAttrib4dv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4f
+    jmp glad_glVertexAttrib4f
+GLAD_API_CALL ENDP
+
+glVertexAttrib4f equ glad_glVertexAttrib4f
+
+GLAD_API_CALL PROC glad_glVertexAttrib4fv
+    jmp glad_glVertexAttrib4fv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4fv equ glad_glVertexAttrib4fv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4iv
+    jmp glad_glVertexAttrib4iv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4iv equ glad_glVertexAttrib4iv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4s
+    jmp glad_glVertexAttrib4s
+GLAD_API_CALL ENDP
+
+glVertexAttrib4s equ glad_glVertexAttrib4s
+
+GLAD_API_CALL PROC glad_glVertexAttrib4sv
+    jmp glad_glVertexAttrib4sv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4sv equ glad_glVertexAttrib4sv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4ubv
+    jmp glad_glVertexAttrib4ubv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4ubv equ glad_glVertexAttrib4ubv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4uiv
+    jmp glad_glVertexAttrib4uiv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4uiv equ glad_glVertexAttrib4uiv
+
+GLAD_API_CALL PROC glad_glVertexAttrib4usv
+    jmp glad_glVertexAttrib4usv
+GLAD_API_CALL ENDP
+
+glVertexAttrib4usv equ glad_glVertexAttrib4usv
+
+GLAD_API_CALL PROC glad_glVertexAttribDivisor
+    jmp glad_glVertexAttribDivisor
+GLAD_API_CALL ENDP
+
+glVertexAttribDivisor equ glad_glVertexAttribDivisor
+
+GLAD_API_CALL PROC glad_glVertexAttribI1i
+    jmp glad_glVertexAttribI1i
+GLAD_API_CALL ENDP
+
+glVertexAttribI1i equ glad_glVertexAttribI1i
+
+GLAD_API_CALL PROC glad_glVertexAttribI1iv
+    jmp glad_glVertexAttribI1iv
+GLAD_API_CALL ENDP
+
+glVertexAttribI1iv equ glad_glVertexAttribI1iv
+
+GLAD_API_CALL PROC glad_glVertexAttribI1ui
+    jmp glad_glVertexAttribI1ui
+GLAD_API_CALL ENDP
+
+glVertexAttribI1ui equ glad_glVertexAttribI1ui
+
+GLAD_API_CALL PROC glad_glVertexAttribI1uiv
+    jmp glad_glVertexAttribI1uiv
+GLAD_API_CALL ENDP
+
+glVertexAttribI1uiv equ glad_glVertexAttribI1uiv
+
+GLAD_API_CALL PROC glad_glVertexAttribI2i
+    jmp glad_glVertexAttribI2i
+GLAD_API_CALL ENDP
+
+glVertexAttribI2i equ glad_glVertexAttribI2i
+
+GLAD_API_CALL PROC glad_glVertexAttribI2iv
+    jmp glad_glVertexAttribI2iv
+GLAD_API_CALL ENDP
+
+glVertexAttribI2iv equ glad_glVertexAttribI2iv
+
+GLAD_API_CALL PROC glad_glVertexAttribI2ui
+    jmp glad_glVertexAttribI2ui
+GLAD_API_CALL ENDP
+
+glVertexAttribI2ui equ glad_glVertexAttribI2ui
+
+GLAD_API_CALL PROC glad_glVertexAttribI2uiv
+    jmp glad_glVertexAttribI2uiv
+GLAD_API_CALL ENDP
+
+glVertexAttribI2uiv equ glad_glVertexAttribI2uiv
+
+GLAD_API_CALL PROC glad_glVertexAttribI3i
+    jmp glad_glVertexAttribI3i
+GLAD_API_CALL ENDP
+
+glVertexAttribI3i equ glad_glVertexAttribI3i
+
+GLAD_API_CALL PROC glad_glVertexAttribI3iv
+    jmp glad_glVertexAttribI3iv
+GLAD_API_CALL ENDP
+
+glVertexAttribI3iv equ glad_glVertexAttribI3iv
+
+GLAD_API_CALL PROC glad_glVertexAttribI3ui
+    jmp glad_glVertexAttribI3ui
+GLAD_API_CALL ENDP
+
+glVertexAttribI3ui equ glad_glVertexAttribI3ui
+
+GLAD_API_CALL PROC glad_glVertexAttribI3uiv
+    jmp glad_glVertexAttribI3uiv
+GLAD_API_CALL ENDP
+
+glVertexAttribI3uiv equ glad_glVertexAttribI3uiv
+
+GLAD_API_CALL PROC glad_glVertexAttribI4bv
+    jmp glad_glVertexAttribI4bv
+GLAD_API_CALL ENDP
+
+glVertexAttribI4bv equ glad_glVertexAttribI4bv
+
+GLAD_API_CALL PROC glad_glVertexAttribI4i
+    jmp glad_glVertexAttribI4i
+GLAD_API_CALL ENDP
+
+glVertexAttribI4i equ glad_glVertexAttribI4i
+
+GLAD_API_CALL PROC glad_glVertexAttribI4iv
+    jmp glad_glVertexAttribI4iv
+GLAD_API_CALL ENDP
+
+glVertexAttribI4iv equ glad_glVertexAttribI4iv
+
+GLAD_API_CALL PROC glad_glVertexAttribI4sv
+    jmp glad_glVertexAttribI4sv
+GLAD_API_CALL ENDP
+
+glVertexAttribI4sv equ glad_glVertexAttribI4sv
+
+GLAD_API_CALL PROC glad_glVertexAttribI4ubv
+    jmp glad_glVertexAttribI4ubv
+GLAD_API_CALL ENDP
+
+glVertexAttribI4ubv equ glad_glVertexAttribI4ubv
+
+GLAD_API_CALL PROC glad_glVertexAttribI4ui
+    jmp glad_glVertexAttribI4ui
+GLAD_API_CALL ENDP
+
+glVertexAttribI4ui equ glad_glVertexAttribI4ui
+
+GLAD_API_CALL PROC glad_glVertexAttribI4uiv
+    jmp glad_glVertexAttribI4uiv
+GLAD_API_CALL ENDP
+
+glVertexAttribI4uiv equ glad_glVertexAttribI4uiv
+
+GLAD_API_CALL PROC glad_glVertexAttribI4usv
+    jmp glad_glVertexAttribI4usv
+GLAD_API_CALL ENDP
+
+glVertexAttribI4usv equ glad_glVertexAttribI4usv
+
+GLAD_API_CALL PROC glad_glVertexAttribIPointer
+    jmp glad_glVertexAttribIPointer
+GLAD_API_CALL ENDP
+
+glVertexAttribIPointer equ glad_glVertexAttribIPointer
+
+GLAD_API_CALL PROC glad_glVertexAttribP1ui
+    jmp glad_glVertexAttribP1ui
+GLAD_API_CALL ENDP
+
+glVertexAttribP1ui equ glad_glVertexAttribP1ui
+
+GLAD_API_CALL PROC glad_glVertexAttribP1uiv
+    jmp glad_glVertexAttribP1uiv
+GLAD_API_CALL ENDP
+
+glVertexAttribP1uiv equ glad_glVertexAttribP1uiv
+
+GLAD_API_CALL PROC glad_glVertexAttribP2ui
+    jmp glad_glVertexAttribP2ui
+GLAD_API_CALL ENDP
+
+glVertexAttribP2ui equ glad_glVertexAttribP2ui
+
+GLAD_API_CALL PROC glad_glVertexAttribP2uiv
+    jmp glad_glVertexAttribP2uiv
+GLAD_API_CALL ENDP
+
+glVertexAttribP2uiv equ glad_glVertexAttribP2uiv
+
+GLAD_API_CALL PROC glad_glVertexAttribP3ui
+    jmp glad_glVertexAttribP3ui
+GLAD_API_CALL ENDP
+
+glVertexAttribP3ui equ glad_glVertexAttribP3ui
+
+GLAD_API_CALL PROC glad_glVertexAttribP3uiv
+    jmp glad_glVertexAttribP3uiv
+GLAD_API_CALL ENDP
+
+glVertexAttribP3uiv equ glad_glVertexAttribP3uiv
+
+GLAD_API_CALL PROC glad_glVertexAttribP4ui
+    jmp glad_glVertexAttribP4ui
+GLAD_API_CALL ENDP
+
+glVertexAttribP4ui equ glad_glVertexAttribP4ui
+
+GLAD_API_CALL PROC glad_glVertexAttribP4uiv
+    jmp glad_glVertexAttribP4uiv
+GLAD_API_CALL ENDP
+
+glVertexAttribP4uiv equ glad_glVertexAttribP4uiv
+
+GLAD_API_CALL PROC glad_glVertexAttribPointer
+    jmp glad_glVertexAttribPointer
+GLAD_API_CALL ENDP
+
+glVertexAttribPointer equ glad_glVertexAttribPointer
+
+GLAD_API_CALL PROC glad_glViewport
+    jmp glad_glViewport
+GLAD_API_CALL ENDP
+
+glViewport equ glad_glViewport
+
+GLAD_API_CALL PROC glad_glWaitSync
+    jmp glad_glWaitSync
+GLAD_API_CALL ENDP
+
+glWaitSync equ glad_glWaitSync

@@ -1,0 +1,1 @@
+compile "Irvine64.asm" by Itself as a static library for use In my project
